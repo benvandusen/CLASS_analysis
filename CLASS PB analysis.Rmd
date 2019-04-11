@@ -42,4 +42,12 @@ cbbpalette <- c( "#009E73", "#e79f00", "#9ad0f3", "#0072B2", "#D55E00",
 ```{r}
 pre_data <- as.data.frame(pb_data[c(2:4,6:7,9,11:31,33,35:41,43)], drop=false)
 item.analysis <- itemanalysis2(data=pre_data, options=c(1,2,3,4,5),ngroup=37,correction=TRUE)
+item.analysis$plots[[1]] #these are interesting. Similar to item difficulty plots
+item.analysis$plots[[2]]
+item.analysis$plots[[3]]
+item.analysis$plots[[4]]
+item.analysis$plots[[5]]
+item.analysis$plots[[6]]
+item.analysis$plots[[7]]
+
 ```
