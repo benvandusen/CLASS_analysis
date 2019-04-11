@@ -1,0 +1,45 @@
+---
+title: "CLASS analysis"
+author: "BVD"
+date: "4/11/2019"
+output: pdf_document
+---
+
+```{r message=FALSE, warning=FALSE}
+#load("~/hmi_data_1_10_19")
+#load("~/Physics_Equity/hmifall2018_m10_better")
+#load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/Physics_Equity_new/hmifall2018_m10_better")
+load("~/pb_data")
+load("~/all_class")
+library(ltm)
+library(itemanalysis)
+library(psych)
+library(tidyr)
+library("ggplot2")
+library(gvlma)
+library("HLMdiag")
+library("DHARMa")
+library("car") #for the Levene test which we will not discuss here
+library("Matrix")
+library(mitools)
+library(stargazer)
+library(lme4)
+library(nlme)
+library(mice)
+library(mitml)
+library(multcomp)
+library(foreach)
+library(ggplot2)
+library(stringr)
+library(dplyr)  #I load dplyr last because some of its functions (select) will be masked by plyr and it is a PITA to debug
+library(kableExtra)
+plot_col <- c('#66c2a5', '#fc8d62', '#8da0cb')
+#cbbpalette <- c('#000000','#E69F00','#56B4E9')
+cbbpalette <- c( "#009E73", "#e79f00", "#9ad0f3", "#0072B2", "#D55E00", 
+    "#CC79A7","#000000", "#F0E442") #colorblind and grayscale friendly.
+```
+
+```{r}
+pre_data <- as.data.frame(pb_data[c(2:4,6:7,9,11:31,33,35:41,43)], drop=false)
+item.analysis <- itemanalysis2(data=pre_data, options=c(1,2,3,4,5),ngroup=37,correction=TRUE)
+```
