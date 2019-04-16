@@ -60,14 +60,26 @@ pbserial$A_SA <- pbserial$SA-pbserial$A
 dstat <- pbserial %>% summarise_all(funs(mean, sd))
 #item.analysis_all$plots[[1]] #these are interesting. Similar to item difficulty plots
 #item.analysis_all$plots[[2]]
-#item.analysis_all$plots[[3]]
-#item.analysis_all$plots[[4]]
-#item.analysis_all$plots[[5]]
-#item.analysis_all$plots[[6]]
-#item.analysis_all$plots[[7]]
+```
+
+Alt scoring analysis
+```{r}
+all_data_alt <- all_data
+all_data_alt[all_data_alt==2] <- 1
+all_data_alt[all_data_alt==3] <- 1
+all_data_alt[all_data_alt==4] <- 2
+all_data_alt[all_data_alt==5] <- 3
+
+item.analysis_alt <- itemanalysis2(data=all_data_alt, options=c(1,2,3),ngroup=37,correction=TRUE)
+pbserial_alt <- as.data.frame(item.analysis_alt[["plots"]][[1]][["plot_env"]][["dist.disc"]])
+names(pbserial_alt) <- c("SDN","A","SA")
+pbserial_alt$N_A <- pbserial_alt$A-pbserial_alt$SDN
+pbserial_alt$A_SA <- pbserial_alt$SA-pbserial_alt$A
+dstat_alt <- pbserial_alt %>% summarise_all(funs(mean, sd))
 ```
 
 plot
 ```{r}
 multi.hist(pbserial,xlim=c(-0.5,0.5))
+multi.hist(pbserial_alt,xlim=c(-0.5,0.5))
 ```
