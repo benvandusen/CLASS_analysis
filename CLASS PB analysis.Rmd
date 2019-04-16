@@ -6,9 +6,6 @@ output: pdf_document
 ---
 
 ```{r message=FALSE, warning=FALSE}
-#load("~/hmi_data_1_10_19")
-#load("~/Physics_Equity/hmifall2018_m10_better")
-#load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/Physics_Equity_new/hmifall2018_m10_better")
 load("~/pb_data")
 load("~/all_class")
 library(ltm)
@@ -56,6 +53,11 @@ Item analysis
 item.analysis_all <- itemanalysis2(data=all_data, options=c(1,2,3,4,5),ngroup=37,correction=TRUE)
 pbserial <- as.data.frame(item.analysis_all[["plots"]][[1]][["plot_env"]][["dist.disc"]])
 names(pbserial) <- c("SD","D","N","A","SA")
+pbserial$SD_D <- pbserial$D-pbserial$SD
+pbserial$D_N <- pbserial$N-pbserial$D
+pbserial$N_A <- pbserial$A-pbserial$N
+pbserial$A_SA <- pbserial$SA-pbserial$A
+dstat <- pbserial %>% summarise_all(funs(mean, sd))
 #item.analysis_all$plots[[1]] #these are interesting. Similar to item difficulty plots
 #item.analysis_all$plots[[2]]
 #item.analysis_all$plots[[3]]
@@ -66,8 +68,6 @@ names(pbserial) <- c("SD","D","N","A","SA")
 ```
 
 plot
-Item analysis
 ```{r}
-multi.hist(pbserial,xlim=c(-1,1))
-
+multi.hist(pbserial,xlim=c(-0.5,0.5))
 ```
