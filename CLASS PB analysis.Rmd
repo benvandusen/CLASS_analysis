@@ -72,6 +72,7 @@ pbserial_red$SD_D <- pbserial_red$D-pbserial_red$SD
 pbserial_red$D_N <- pbserial_red$N-pbserial_red$D
 pbserial_red$N_A <- pbserial_red$A-pbserial_red$N
 pbserial_red$A_SA <- pbserial_red$SA-pbserial_red$A
+pbserial_red_shift <- pbserial_red[c("SD_D","D_N","N_A","A_SA")]
 dstat_red <- pbserial_red %>% summarise_all(funs(mean, sd))
 #item.analysis_all$plots[[1]] #these are interesting. Similar to item difficulty plots
 ```
@@ -83,7 +84,7 @@ all_data_alt[all_data_alt==2] <- 1
 all_data_alt[all_data_alt==3] <- 1
 all_data_alt[all_data_alt==4] <- 2
 all_data_alt[all_data_alt==5] <- 3
-
+from 
 item.analysis_alt <- itemanalysis2(data=all_data_alt, options=c(1,2,3),ngroup=37,correction=TRUE)
 pbserial_alt <- as.data.frame(item.analysis_alt[["plots"]][[1]][["plot_env"]][["dist.disc"]])
 names(pbserial_alt) <- c("SDN","A","SA")
@@ -96,6 +97,7 @@ plot
 ```{r}
 multi.hist(pbserial,xlim=c(-0.5,0.5))
 multi.hist(pbserial_red,xlim=c(-0.5,0.5))
+multi.hist(pbserial_red_shift,xlim=c(-0.5,0.5))
 ```
 
 factor analysis
