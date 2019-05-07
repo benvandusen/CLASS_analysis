@@ -66,6 +66,9 @@ dstat <- pbserial %>% summarise_all(funs(mean, sd))
 Item analysis reduced items
 ```{r}
 item.analysis_red <- itemanalysis2(data=red_data,options=c(1,2,3,4,5),ngroup=16,correction=TRUE)
+freq_red <- as.data.frame(item.analysis_red[["plots"]][[1]][["plot_env"]][["dist.sel"]])
+names(freq_red) <- c("SD","D","N","A","SA")
+mean_freq_red <- freq_red %>% summarise_all(funs(mean, sd))
 pbserial_red <- as.data.frame(item.analysis_red[["plots"]][[1]][["plot_env"]][["dist.disc"]])
 names(pbserial_red) <- c("SD","D","N","A","SA")
 pbserial_red$SD_D <- pbserial_red$D-pbserial_red$SD
