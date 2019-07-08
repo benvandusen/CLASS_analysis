@@ -273,7 +273,7 @@ ggplot(data=contrast_pre7_est, aes(x=race, y=Q, group=gender, color=gender)) + g
                      values=cbbpalette) 
 
 #ggsave("~pre7.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
-kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
+kable(contrast_post7_est[c(1,2,6,7)], digits = 2)
 ```
 
 Posttest models
@@ -381,7 +381,7 @@ ggplot(data=contrast_post6_est, aes(x=race, y=Q, group=gender, color=gender)) + 
                      values=cbbpalette)
 
 #ggsave("~post7.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
-kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
+#kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
 ```
 
 ```{r}
@@ -421,7 +421,7 @@ ggplot(data=contrast_post7_est, aes(x=race, y=Q, group=gender, color=gender)) + 
                      values=cbbpalette) 
 
 #ggsave("~post7.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
-kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
+#kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
 ```
 for 6
 ```{r}
@@ -450,7 +450,7 @@ for_plot$Time <- factor(for_plot$time, levels=c("Pre","Post"))
 for_plot$gender_time <- paste(for_plot$Time, for_plot$gender)
 for_plot$gender_time <- factor(for_plot$gender_time, levels=c("Pre Female","Pre Male","Post Female","Post Male"))
 
-ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_time, color=gender, shape=Time)) + geom_point(position = position_dodge(width=0.90), size=3) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
+ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_time, color=gender, shape=Time)) + geom_point(position = position_dodge(width=0.90), size=2) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
   theme(  axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=10, color = "black"), legend.position = "bottom", legend.text=element_text(size=10), legend.title = element_blank()) +
   ylab("Expert-like Score (%)") +
   scale_color_manual(name="Gender",
@@ -459,6 +459,18 @@ ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_tim
 ggsave("PERC_narrow.png", plot= last_plot(), dpi=300, width = 3.5, height = 3, units = "in", device = "png")
 #ggsave("PERC_wide.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
 ```
+Requires the script above. The goal is to add lines connecting the pre and posttests.
+```{r}
+ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_time, color=gender, shape=Time)) + geom_point(position = position_dodge(width=0.90), size=2) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
+  theme(  axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=10, color = "black"), legend.position = "bottom", legend.text=element_text(size=10), legend.title = element_blank()) +
+  ylab("Expert-like Score (%)") +
+  scale_color_manual(name="Gender",
+                     breaks= c("Female","Male"),
+                     values=cbbpalette) +
+  geom_line(position = position_dodge(0.90), size=0.5, color="black")
+```
+
+
 Model construction
 ```{r}
   
@@ -560,11 +572,15 @@ ggplot(for_plot[for_plot$race!= "Other",], aes(x=e_post, color=race), linetype=r
 ggsave("distributionbyrace.png", plot= last_plot(), dpi=300, width = 3.5, height = 2.5, units = "in", device = "png")
 
 
-expertlike <- for_plot %>% group_by(race) %>% summarise(N = length(e_post),
+expertlike <- for_plot %>% group_by(race, female) %>% summarise(N = length(e_post),
                                                         N75 = sum(e_post>75),
                                                         gs = N75/N*100
                                                                  )
 
+expertlike <- for_plot %>% group_by(race) %>% summarise(N = length(e_post),
+                                                        N75 = sum(e_post>75),
+                                                        gs = N75/N*100
+                                                                 )
 
 
 
