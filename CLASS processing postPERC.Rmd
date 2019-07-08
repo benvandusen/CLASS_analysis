@@ -1,0 +1,515 @@
+---
+title: "CLASS Processing Post PERC"
+author: "Jayson Nissen"
+date: "7/1/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#libary()
+library(tidyr)
+library(ggplot2)
+library(sjmisc)
+library(effsize)
+library(dplyr)
+library(expss)
+```
+# Load CLASS Data
+
+I need to make it so that the uploaded documents 
+
+```{r}
+load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/Data Compilation/Combine/LASSO_data_6_19_for_research")
+```
+
+phys1_ci <- alldata_1_19[alldata_1_19$FCI==1|alldata_1_19$FMCE==1,]
+phys1_courses <- unique(phys1_ci[c(3:11)])
+
+phys2_ci <- alldata_1_19[alldata_1_19$CSEM==1|alldata_1_19$BEMA==1,]
+phys2_courses <- unique(phys2_ci[c(3:11)])
+
+as1_data <- subset(as_data, as_data$course_id %in% phys1_ci$course_id)
+as2_data <- subset(as_data, as_data$course_id %in% phys2_ci$course_id)
+
+
+
+This section filters out the bad data sets and the small courses
+```{r}
+lasso_as <-subset(temp, class_phys==1)
+
+lasso_as <- subset(lasso_as, student_or_la == "Student")
+lasso_as$pre_duration[lasso_as$LASSO_collection == "admin_upload"] <-999.999
+lasso_as$post_duration[lasso_as$LASSO_collection == "admin_upload"] <-999.999
+lasso_as <- subset(lasso_as, is.na(pre_duration)==FALSE | is.na(post_duration)== FALSE)
+
+length(unique(lasso_as$course_id))
+length(unique(lasso_as$institution_id))
+
+lasso_as$pre_duration[lasso_as$pre_31 !="4"]<- NA
+lasso_as$post_duration[lasso_as$post_31 !="4"]<- NA
+lasso_as <- subset(lasso_as, is.na(pre_duration)==FALSE | is.na(post_duration)== FALSE)
+
+
+lasso_as$pre_duration[lasso_as$pre_duration <180]<- NA
+lasso_as$post_duration[lasso_as$post_duration <180]<- NA
+lasso_as <- subset(lasso_as, is.na(pre_duration)==FALSE | is.na(post_duration)== FALSE)
+length(unique(lasso_as$course_id))
+length(unique(lasso_as$institution_id))
+
+#Filters for course size
+
+#course_size <- lasso_as %>% group_by(course_id) %>% summarize(total = length(assessment_sequence_id),
+                                                              #pre_n = length(assessment_sequence_id)-sum(is.na(pre_duration)),
+                                                              #post_n = length(assessment_sequence_id)-sum(is.na(post_duration)))
+#course_size <- course_size[course_size$pre_n>9&course_size$post_n>9,]
+#lasso_as <- lasso_as[lasso_as$course_id %in% course_size$course_id,]
+
+ 
+lasso_as$course_use_las [lasso_as$course_use_las=="Y"] <-1
+lasso_as$course_use_las[lasso_as$course_use_las=="N"] <-0
+lasso_as$collab_learning_during_class[lasso_as$course_strat_discuss_small_groups =="Multiple times per class"] <- 1
+lasso_as$collab_learning_during_class[lasso_as$course_strat_discuss_small_groups =="Multiple times per class"] <- 1
+lasso_as$collab_learning_during_class[lasso_as$course_strat_discuss_small_groups =="Yes"] <- 1
+lasso_as$collab_learning_during_class[lasso_as$course_strat_interactive_lecture =="Multiple times per class"] <- 1
+lasso_as$collab_learning_during_class[lasso_as$course_strat_interactive_lecture =="Yes"] <- 1
+
+lasso_as$collab_learning_during_class[lasso_as$course_strat_interactive_lec =="Multiple times per class"] <- 1
+lasso_as$collab_learning_during_class[lasso_as$course_strat_interactive_lec =="Yes"] <- 1
+lasso_as$collab_learning_during_class[lasso_as$course_strat_interactive_lec =="Never"] <- 0
+
+lasso_as$collab_learning_during_class[lasso_as$course_use_la==1] <- 1
+sum(lasso_as$collab_learning_during_class, na.rm = TRUE)
+length(lasso_as$collab_learning_during_class[is.na(lasso_as$collab_learning_during_class)==TRUE])
+ 
+lasso_as <- subset(lasso_as, is.na(collab_learning_during_class)==FALSE)                                                               
+lasso_as$ID <- seq.int(nrow(lasso_as))
+
+```
+
+
+neg.one <- c(1,5,6,8,10,12,13,17,18,20,21,22,23,27,29,32,35,40)
+pos.one <- c(2,3,11,14,15,16,19,24,25,26,28,30,34,36,37,38,39,42)
+dropped <- c(4,7,9,31,33,41)
+all.pos <- c(-1, 1, 1, 1,-1,-1, 1,  -1, 1,-1, 1,-1,-1, 1,
+              1, 1,-1,-1, 1,-1,-1,  -1,-1, 1, 1, 1,-1, 1,
+             -1, 1, 1,-1, 1, 1,-1,   1, 1, 1, 1,-1, 1, 1)
+Make sure that I apply the filter data to the summary statistics
+Fixing column names
+```{r}
+
+```
+
+
+```{r}
+# questions, ID, student ID, Course ID
+temp.pre<- lasso_as[c(38:79,212,2,139)]
+
+temp.pre[temp.pre=="-"] <- NA
+
+colnames(temp.pre)[1:9] <- c("pre_01", "pre_02", "pre_03", "pre_04", "pre_05", "pre_06", "pre_07", "pre_08", "pre_09")
+
+temp <- temp.pre %>% mutate(pre_01 = -1*(as.numeric(pre_01) -3),
+                            pre_02 = 1*(as.numeric(pre_02) -3),
+                            pre_03 = 1*(as.numeric(pre_03) -3),
+                            pre_04 = 1*(as.numeric(pre_04) -3),
+                            pre_05 = -1*(as.numeric(pre_05) -3),
+                            pre_06 = -1*(as.numeric(pre_06) -3),
+                            pre_07 = 1*(as.numeric(pre_07) -3),
+                            pre_08 = -1*(as.numeric(pre_08) -3),
+                            pre_09 = 1*(as.numeric(pre_09) -3),
+                            pre_10 = -1*(as.numeric(pre_10) -3),
+                            pre_11 = 1*(as.numeric(pre_11) -3),
+                            pre_12 = -1*(as.numeric(pre_12) -3),
+                            pre_13 = -1*(as.numeric(pre_13) -3),
+                            pre_14 = 1*(as.numeric(pre_14) -3),
+                            pre_15 = 1*(as.numeric(pre_15) -3),
+                            pre_16 = 1*(as.numeric(pre_16) -3),
+                            pre_17 = -1*(as.numeric(pre_17) -3),
+                            pre_18 = -1*(as.numeric(pre_18) -3),
+                            pre_19 = 1*(as.numeric(pre_19) -3),
+                            pre_20 = -1*(as.numeric(pre_20) -3),
+                            pre_21 = -1*(as.numeric(pre_21) -3),
+                            pre_22 = -1*(as.numeric(pre_22) -3),
+                            pre_23 = -1*(as.numeric(pre_23) -3),
+                            pre_24 = 1*(as.numeric(pre_24) -3),
+                            pre_25 = 1*(as.numeric(pre_25) -3),
+                            pre_26 = 1*(as.numeric(pre_26) -3),
+                            pre_27 = -1*(as.numeric(pre_27) -3),
+                            pre_28 = 1*(as.numeric(pre_28) -3),
+                            pre_29 = -1*(as.numeric(pre_29) -3),
+                            pre_30 = 1*(as.numeric(pre_30) -3),
+                            pre_31 = 1*(as.numeric(pre_31) -3),
+                            pre_32 = -1*(as.numeric(pre_32) -3),
+                            pre_33 = 1*(as.numeric(pre_33) -3),
+                            pre_34 = 1*(as.numeric(pre_34) -3),
+                            pre_35 = -1*(as.numeric(pre_35) -3),
+                            pre_36 = 1*(as.numeric(pre_36) -3),
+                            pre_37 = 1*(as.numeric(pre_37) -3),
+                            pre_38 = 1*(as.numeric(pre_38) -3),
+                            pre_39 = 1*(as.numeric(pre_39) -3),
+                            pre_40 = -1*(as.numeric(pre_40) -3),
+                            pre_41 = 1*(as.numeric(pre_41) -3),
+                            pre_42 = 1*(as.numeric(pre_42) -3)
+                            )
+
+temp <- temp %>% mutate(    l_pre_01 = pre_01 + 3,
+                            l_pre_02 = pre_02 + 3,
+                            l_pre_03 = pre_03 + 3,
+                            l_pre_04 = pre_04 + 3,
+                            l_pre_05 = pre_05 + 3,
+                            l_pre_06 = pre_06 + 3,
+                            l_pre_07 = pre_07 + 3,
+                            l_pre_08 = pre_08 + 3,
+                            l_pre_09 = pre_09 + 3,
+                            l_pre_10 = pre_10 + 3,
+                            l_pre_11 = pre_11 + 3,
+                            l_pre_12 = pre_12 + 3,
+                            l_pre_13 = pre_13 + 3,
+                            l_pre_14 = pre_14 + 3,
+                            l_pre_15 = pre_15 + 3,
+                            l_pre_16 = pre_16 + 3,
+                            l_pre_17 = pre_17 + 3,
+                            l_pre_18 = pre_18 + 3,
+                            l_pre_19 = pre_19 + 3,
+                            l_pre_20 = pre_20 + 3,
+                            l_pre_21 = pre_21 + 3,
+                            l_pre_22 = pre_22 + 3,
+                            l_pre_23 = pre_23 + 3,
+                            l_pre_24 = pre_24 + 3,
+                            l_pre_25 = pre_25 + 3,
+                            l_pre_26 = pre_26 + 3,
+                            l_pre_27 = pre_27 + 3,
+                            l_pre_28 = pre_28 + 3,
+                            l_pre_29 = pre_29 + 3,
+                            l_pre_30 = pre_30 + 3,
+                            l_pre_31 = pre_31 + 3,
+                            l_pre_32 = pre_32 + 3,
+                            l_pre_33 = pre_33 + 3,
+                            l_pre_34 = pre_34 + 3,
+                            l_pre_35 = pre_35 + 3,
+                            l_pre_36 = pre_36 + 3,
+                            l_pre_37 = pre_37 + 3,
+                            l_pre_38 = pre_38 + 3,
+                            l_pre_39 = pre_39 + 3,
+                            l_pre_40 = pre_40 + 3,
+                            l_pre_41 = pre_41 + 3,
+                            l_pre_42 = pre_42 + 3
+                            )
+temp <- temp %>% mutate(    e_pre_01 = ifelse(pre_01 < 0,-1,ifelse(pre_01 > 0,1,0)),
+                            e_pre_02 = ifelse(pre_02 < 0,-1,ifelse(pre_02 > 0,1,0)),
+                            e_pre_03 = ifelse(pre_03 < 0,-1,ifelse(pre_03 > 0,1,0)),
+                            e_pre_04 = ifelse(pre_04 < 0,-1,ifelse(pre_04 > 0,1,0)),
+                            e_pre_05 = ifelse(pre_05 < 0,-1,ifelse(pre_05 > 0,1,0)),
+                            e_pre_06 = ifelse(pre_06 < 0,-1,ifelse(pre_06 > 0,1,0)),
+                            e_pre_07 = ifelse(pre_07 < 0,-1,ifelse(pre_07 > 0,1,0)),
+                            e_pre_08 = ifelse(pre_08 < 0,-1,ifelse(pre_08 > 0,1,0)),
+                            e_pre_09 = ifelse(pre_09 < 0,-1,ifelse(pre_09 > 0,1,0)),
+                            e_pre_10 = ifelse(pre_10 < 0,-1,ifelse(pre_10 > 0,1,0)),
+                            e_pre_11 = ifelse(pre_11 < 0,-1,ifelse(pre_11 > 0,1,0)),
+                            e_pre_12 = ifelse(pre_12 < 0,-1,ifelse(pre_12 > 0,1,0)),
+                            e_pre_13 = ifelse(pre_13 < 0,-1,ifelse(pre_13 > 0,1,0)),
+                            e_pre_14 = ifelse(pre_14 < 0,-1,ifelse(pre_14 > 0,1,0)),
+                            e_pre_15 = ifelse(pre_15 < 0,-1,ifelse(pre_15 > 0,1,0)),
+                            e_pre_16 = ifelse(pre_16 < 0,-1,ifelse(pre_16 > 0,1,0)),
+                            e_pre_17 = ifelse(pre_17 < 0,-1,ifelse(pre_17 > 0,1,0)),
+                            e_pre_18 = ifelse(pre_18 < 0,-1,ifelse(pre_18 > 0,1,0)),
+                            e_pre_19 = ifelse(pre_19 < 0,-1,ifelse(pre_19 > 0,1,0)),
+                            e_pre_20 = ifelse(pre_20 < 0,-1,ifelse(pre_20 > 0,1,0)),
+                            e_pre_21 = ifelse(pre_21 < 0,-1,ifelse(pre_21 > 0,1,0)),
+                            e_pre_22 = ifelse(pre_22 < 0,-1,ifelse(pre_22 > 0,1,0)),
+                            e_pre_23 = ifelse(pre_23 < 0,-1,ifelse(pre_23 > 0,1,0)),
+                            e_pre_24 = ifelse(pre_24 < 0,-1,ifelse(pre_24 > 0,1,0)),
+                            e_pre_25 = ifelse(pre_25 < 0,-1,ifelse(pre_25 > 0,1,0)),
+                            e_pre_26 = ifelse(pre_26 < 0,-1,ifelse(pre_26 > 0,1,0)),
+                            e_pre_27 = ifelse(pre_27 < 0,-1,ifelse(pre_27 > 0,1,0)),
+                            e_pre_28 = ifelse(pre_28 < 0,-1,ifelse(pre_28 > 0,1,0)),
+                            e_pre_29 = ifelse(pre_29 < 0,-1,ifelse(pre_29 > 0,1,0)),
+                            e_pre_30 = ifelse(pre_30 < 0,-1,ifelse(pre_30 > 0,1,0)),
+                            e_pre_31 = ifelse(pre_31 < 0,-1,ifelse(pre_31 > 0,1,0)),
+                            e_pre_32 = ifelse(pre_32 < 0,-1,ifelse(pre_32 > 0,1,0)),
+                            e_pre_33 = ifelse(pre_33 < 0,-1,ifelse(pre_33 > 0,1,0)),
+                            e_pre_34 = ifelse(pre_34 < 0,-1,ifelse(pre_34 > 0,1,0)),
+                            e_pre_35 = ifelse(pre_35 < 0,-1,ifelse(pre_35 > 0,1,0)),
+                            e_pre_36 = ifelse(pre_36 < 0,-1,ifelse(pre_36 > 0,1,0)),
+                            e_pre_37 = ifelse(pre_37 < 0,-1,ifelse(pre_37 > 0,1,0)),
+                            e_pre_38 = ifelse(pre_38 < 0,-1,ifelse(pre_38 > 0,1,0)),
+                            e_pre_39 = ifelse(pre_39 < 0,-1,ifelse(pre_39 > 0,1,0)),
+                            e_pre_40 = ifelse(pre_40 < 0,-1,ifelse(pre_40 > 0,1,0)),
+                            e_pre_41 = ifelse(pre_41 < 0,-1,ifelse(pre_41 > 0,1,0)),
+                            e_pre_42 = ifelse(pre_42 < 0,-1,ifelse(pre_42 > 0,1,0))
+                            )
+
+temp <- temp %>% mutate(l_pre = 
+     (l_pre_01+l_pre_02+l_pre_03+l_pre_05+l_pre_06+l_pre_08+l_pre_10+
+     l_pre_11+l_pre_12+l_pre_13+l_pre_14+l_pre_15+l_pre_16+l_pre_17+l_pre_18+l_pre_19+l_pre_11+
+     l_pre_21+l_pre_22+l_pre_23+l_pre_24+l_pre_25+l_pre_26+l_pre_27+l_pre_28+l_pre_29+l_pre_30+
+     l_pre_32+l_pre_34+l_pre_35+l_pre_36+l_pre_37+l_pre_38+l_pre_39+l_pre_40+
+     l_pre_42-36)/(0.36*4))
+ 
+temp <- temp %>% mutate(e_pre = count_row_if(1,
+       e_pre_01,e_pre_02,e_pre_03,e_pre_05,e_pre_06,e_pre_08,e_pre_10,
+     e_pre_11,e_pre_12,e_pre_13,e_pre_14,e_pre_15,e_pre_16,e_pre_17,e_pre_18,e_pre_19,e_pre_11,
+     e_pre_21,e_pre_22,e_pre_23,e_pre_24,e_pre_25,e_pre_26,e_pre_27,e_pre_28,e_pre_29,e_pre_30,
+     e_pre_32,e_pre_34,e_pre_35,e_pre_36,e_pre_37,e_pre_38,e_pre_39,e_pre_40,
+     e_pre_42)/.36)
+
+temp$l_pre[temp$pre_31!=1] <- NA
+temp$e_pre[temp$pre_31!=1] <- NA
+temp$e_pre[is.na(temp$l_pre) == TRUE] <- NA
+
+cor(temp$e_pre, temp$l_pre, use="complete.obs")
+temp.pre <- temp
+```
+```{r}
+
+temp.post<- lasso_as[c(85:126,212,2,139)]
+
+colnames(temp.post)[1:9] <- c("post_01", "post_02", "post_03", "post_04", "post_05", "post_06", "post_07", "post_08", "post_09")
+
+
+temp.post[temp.post=="-"] <- NA
+
+temp <- temp.post %>% mutate(post_01 = -1*(as.numeric(post_01) -3),
+                            post_02 = 1*(as.numeric(post_02) -3),
+                            post_03 = 1*(as.numeric(post_03) -3),
+                            post_04 = 1*(as.numeric(post_04) -3),
+                            post_05 = -1*(as.numeric(post_05) -3),
+                            post_06 = -1*(as.numeric(post_06) -3),
+                            post_07 = 1*(as.numeric(post_07) -3),
+                            post_08 = -1*(as.numeric(post_08) -3),
+                            post_09 = 1*(as.numeric(post_09) -3),
+                            post_10 = -1*(as.numeric(post_10) -3),
+                            post_11 = 1*(as.numeric(post_11) -3),
+                            post_12 = -1*(as.numeric(post_12) -3),
+                            post_13 = -1*(as.numeric(post_13) -3),
+                            post_14 = 1*(as.numeric(post_14) -3),
+                            post_15 = 1*(as.numeric(post_15) -3),
+                            post_16 = 1*(as.numeric(post_16) -3),
+                            post_17 = -1*(as.numeric(post_17) -3),
+                            post_18 = -1*(as.numeric(post_18) -3),
+                            post_19 = 1*(as.numeric(post_19) -3),
+                            post_20 = -1*(as.numeric(post_20) -3),
+                            post_21 = -1*(as.numeric(post_21) -3),
+                            post_22 = -1*(as.numeric(post_22) -3),
+                            post_23 = -1*(as.numeric(post_23) -3),
+                            post_24 = 1*(as.numeric(post_24) -3),
+                            post_25 = 1*(as.numeric(post_25) -3),
+                            post_26 = 1*(as.numeric(post_26) -3),
+                            post_27 = -1*(as.numeric(post_27) -3),
+                            post_28 = 1*(as.numeric(post_28) -3),
+                            post_29 = -1*(as.numeric(post_29) -3),
+                            post_30 = 1*(as.numeric(post_30) -3),
+                            post_31 = 1*(as.numeric(post_31) -3),
+                            post_32 = -1*(as.numeric(post_32) -3),
+                            post_33 = 1*(as.numeric(post_33) -3),
+                            post_34 = 1*(as.numeric(post_34) -3),
+                            post_35 = -1*(as.numeric(post_35) -3),
+                            post_36 = 1*(as.numeric(post_36) -3),
+                            post_37 = 1*(as.numeric(post_37) -3),
+                            post_38 = 1*(as.numeric(post_38) -3),
+                            post_39 = 1*(as.numeric(post_39) -3),
+                            post_40 = -1*(as.numeric(post_40) -3),
+                            post_41 = 1*(as.numeric(post_41) -3),
+                            post_42 = 1*(as.numeric(post_42) -3)
+                            )
+
+temp <- temp %>% mutate(    l_post_01 = post_01 + 3,
+                            l_post_02 = post_02 + 3,
+                            l_post_03 = post_03 + 3,
+                            l_post_04 = post_04 + 3,
+                            l_post_05 = post_05 + 3,
+                            l_post_06 = post_06 + 3,
+                            l_post_07 = post_07 + 3,
+                            l_post_08 = post_08 + 3,
+                            l_post_09 = post_09 + 3,
+                            l_post_10 = post_10 + 3,
+                            l_post_11 = post_11 + 3,
+                            l_post_12 = post_12 + 3,
+                            l_post_13 = post_13 + 3,
+                            l_post_14 = post_14 + 3,
+                            l_post_15 = post_15 + 3,
+                            l_post_16 = post_16 + 3,
+                            l_post_17 = post_17 + 3,
+                            l_post_18 = post_18 + 3,
+                            l_post_19 = post_19 + 3,
+                            l_post_20 = post_20 + 3,
+                            l_post_21 = post_21 + 3,
+                            l_post_22 = post_22 + 3,
+                            l_post_23 = post_23 + 3,
+                            l_post_24 = post_24 + 3,
+                            l_post_25 = post_25 + 3,
+                            l_post_26 = post_26 + 3,
+                            l_post_27 = post_27 + 3,
+                            l_post_28 = post_28 + 3,
+                            l_post_29 = post_29 + 3,
+                            l_post_30 = post_30 + 3,
+                            l_post_31 = post_31 + 3,
+                            l_post_32 = post_32 + 3,
+                            l_post_33 = post_33 + 3,
+                            l_post_34 = post_34 + 3,
+                            l_post_35 = post_35 + 3,
+                            l_post_36 = post_36 + 3,
+                            l_post_37 = post_37 + 3,
+                            l_post_38 = post_38 + 3,
+                            l_post_39 = post_39 + 3,
+                            l_post_40 = post_40 + 3,
+                            l_post_41 = post_41 + 3,
+                            l_post_42 = post_42 + 3
+                            )
+temp <- temp %>% mutate(    e_post_01 = ifelse(post_01 < 0,-1,ifelse(post_01 > 0,1,0)),
+                            e_post_02 = ifelse(post_02 < 0,-1,ifelse(post_02 > 0,1,0)),
+                            e_post_03 = ifelse(post_03 < 0,-1,ifelse(post_03 > 0,1,0)),
+                            e_post_04 = ifelse(post_04 < 0,-1,ifelse(post_04 > 0,1,0)),
+                            e_post_05 = ifelse(post_05 < 0,-1,ifelse(post_05 > 0,1,0)),
+                            e_post_06 = ifelse(post_06 < 0,-1,ifelse(post_06 > 0,1,0)),
+                            e_post_07 = ifelse(post_07 < 0,-1,ifelse(post_07 > 0,1,0)),
+                            e_post_08 = ifelse(post_08 < 0,-1,ifelse(post_08 > 0,1,0)),
+                            e_post_09 = ifelse(post_09 < 0,-1,ifelse(post_09 > 0,1,0)),
+                            e_post_10 = ifelse(post_10 < 0,-1,ifelse(post_10 > 0,1,0)),
+                            e_post_11 = ifelse(post_11 < 0,-1,ifelse(post_11 > 0,1,0)),
+                            e_post_12 = ifelse(post_12 < 0,-1,ifelse(post_12 > 0,1,0)),
+                            e_post_13 = ifelse(post_13 < 0,-1,ifelse(post_13 > 0,1,0)),
+                            e_post_14 = ifelse(post_14 < 0,-1,ifelse(post_14 > 0,1,0)),
+                            e_post_15 = ifelse(post_15 < 0,-1,ifelse(post_15 > 0,1,0)),
+                            e_post_16 = ifelse(post_16 < 0,-1,ifelse(post_16 > 0,1,0)),
+                            e_post_17 = ifelse(post_17 < 0,-1,ifelse(post_17 > 0,1,0)),
+                            e_post_18 = ifelse(post_18 < 0,-1,ifelse(post_18 > 0,1,0)),
+                            e_post_19 = ifelse(post_19 < 0,-1,ifelse(post_19 > 0,1,0)),
+                            e_post_20 = ifelse(post_20 < 0,-1,ifelse(post_20 > 0,1,0)),
+                            e_post_21 = ifelse(post_21 < 0,-1,ifelse(post_21 > 0,1,0)),
+                            e_post_22 = ifelse(post_22 < 0,-1,ifelse(post_22 > 0,1,0)),
+                            e_post_23 = ifelse(post_23 < 0,-1,ifelse(post_23 > 0,1,0)),
+                            e_post_24 = ifelse(post_24 < 0,-1,ifelse(post_24 > 0,1,0)),
+                            e_post_25 = ifelse(post_25 < 0,-1,ifelse(post_25 > 0,1,0)),
+                            e_post_26 = ifelse(post_26 < 0,-1,ifelse(post_26 > 0,1,0)),
+                            e_post_27 = ifelse(post_27 < 0,-1,ifelse(post_27 > 0,1,0)),
+                            e_post_28 = ifelse(post_28 < 0,-1,ifelse(post_28 > 0,1,0)),
+                            e_post_29 = ifelse(post_29 < 0,-1,ifelse(post_29 > 0,1,0)),
+                            e_post_30 = ifelse(post_30 < 0,-1,ifelse(post_30 > 0,1,0)),
+                            e_post_31 = ifelse(post_31 < 0,-1,ifelse(post_31 > 0,1,0)),
+                            e_post_32 = ifelse(post_32 < 0,-1,ifelse(post_32 > 0,1,0)),
+                            e_post_33 = ifelse(post_33 < 0,-1,ifelse(post_33 > 0,1,0)),
+                            e_post_34 = ifelse(post_34 < 0,-1,ifelse(post_34 > 0,1,0)),
+                            e_post_35 = ifelse(post_35 < 0,-1,ifelse(post_35 > 0,1,0)),
+                            e_post_36 = ifelse(post_36 < 0,-1,ifelse(post_36 > 0,1,0)),
+                            e_post_37 = ifelse(post_37 < 0,-1,ifelse(post_37 > 0,1,0)),
+                            e_post_38 = ifelse(post_38 < 0,-1,ifelse(post_38 > 0,1,0)),
+                            e_post_39 = ifelse(post_39 < 0,-1,ifelse(post_39 > 0,1,0)),
+                            e_post_40 = ifelse(post_40 < 0,-1,ifelse(post_40 > 0,1,0)),
+                            e_post_41 = ifelse(post_41 < 0,-1,ifelse(post_41 > 0,1,0)),
+                            e_post_42 = ifelse(post_42 < 0,-1,ifelse(post_42 > 0,1,0))
+                            )
+
+temp <- temp %>% mutate(l_post = 
+     (l_post_01+l_post_02+l_post_03+l_post_05+l_post_06+l_post_08+l_post_10+
+     l_post_11+l_post_12+l_post_13+l_post_14+l_post_15+l_post_16+l_post_17+l_post_18+l_post_19+l_post_11+
+     l_post_21+l_post_22+l_post_23+l_post_24+l_post_25+l_post_26+l_post_27+l_post_28+l_post_29+l_post_30+
+     l_post_32+l_post_34+l_post_35+l_post_36+l_post_37+l_post_38+l_post_39+l_post_40+
+     l_post_42-36)/(0.36*4))
+ 
+temp <- temp %>% mutate(e_post = count_row_if(1,
+       e_post_01,e_post_02,e_post_03,e_post_05,e_post_06,e_post_08,e_post_10,
+     e_post_11,e_post_12,e_post_13,e_post_14,e_post_15,e_post_16,e_post_17,e_post_18,e_post_19,e_post_11,
+     e_post_21,e_post_22,e_post_23,e_post_24,e_post_25,e_post_26,e_post_27,e_post_28,e_post_29,e_post_30,
+     e_post_32,e_post_34,e_post_35,e_post_36,e_post_37,e_post_38,e_post_39,e_post_40,
+     e_post_42)/.36)
+
+temp$l_post[temp$post_31!=1] <- NA
+temp$e_post[temp$post_31!=1] <- NA
+temp$e_post[is.na(temp$l_post) == TRUE] <- NA
+
+cor(temp$e_post, temp$l_post, use="complete.obs")
+temp.post <- temp
+
+```
+
+Combining the data frames
+Need a dataframe saved with:
+Everything
+For Equity
+For 
+
+
+
+```{r}
+temp <- left_join(temp.pre[c(43,46:87,130,131)],temp.post[c(43,46:87,130,131)], by = "ID")
+temp2 <- left_join(lasso_as,temp, by = c("ID") )
+temp <- subset(temp, is.na(e_pre)==FALSE | is.na(e_post)== FALSE)
+temp2 <- subset(temp2, is.na(e_pre)==FALSE | is.na(e_post)== FALSE)
+
+
+#length(temp2$collab_learning_during_class[is.na(temp2$collab_learning_during_class)==TRUE])
+
+
+
+pb_data <- temp
+eq_data <- temp2[,c("ID","course_id", "course_use_las" ,"collab_learning_during_class" ,"student_id",                         "male" ,"hispanic" ,"white" , "black","asian", "american_indian" , "hawaiian_or_other_pacific_islander", "race_noanswer" , "race_other" , "year_in_school"  , "first_time"  , "l_pre"  , "e_pre"  , "l_post" , "e_post"    )]
+
+
+course_data <- unique(lasso_as[c(3,45:57,59,66,226:234)])
+course_data <- course_data[c(15,16,1:14,17:25)]
+
+
+
+
+#save(pb_data, file= "~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS Analysis/pb_data_postPERC") 
+#save(eq_data, file= "~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS Analysis/eq_data_postPERC") 
+#save(lasso_as, file= "~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS Analysis/all_class") 
+
+temp <- unique(eq_data[c(2:4)])
+```
+
+
+
+
+
+
+
+OLD
+
+
+Courses <- course_data$course_id[is.na(course_data$collab_learning_during_class)==TRUE]
+curses <- subset(alldata_1_19, course_id %in% Courses)
+c_data <- unique(curses[c(1:60,207:235)])
+
+c_data <- subset(c_data, class_phys ==1)
+
+
+Allright this is a big PITA. The data structure changed so the coding is going to be slightly different.
+
+
+
+#This is data from the literature
+```{r}
+lit_fav <- data.frame(pre_pos_mean=  c(62.5,68.4,78.2,71.5,77.8,62,57,65,57,71,63,65,68,65,48,57.7,56.9,50.0,54.2,51.5,64.2,70.4,72.0,69.9,53.6,51.6,49.5,49.8,51.8,51.6,64.2,55.0,51,58,47,51,52),
+                     post_pos_mean= c(58.2,77.1,80.4,83.5,78.6,63,59,59,58,72,53,67,70,57,46,55.8,52.5,53.2,57.0,57.0,71.6,77.7,74.9,73.8,67.0,58.3,59.0,59.6,68.3,62.1,70.4,63.1,59,61,52,65,62))
+lit_fav$Source<-"Literature"
+#I left out the data on teachers and on modern physics. I will have to do a more complete list later.
+```
+
+
+
+```{r,echo=FALSE, fig.height = 4, fig.width = 7.5, fig.align = "center", message=F,warning=F}
+for_plot <- bind_rows(course_as[c(2,6,10)],lit_fav)
+for_plot$Source <- factor(for_plot$Source, levels = c("Literature","LASSO"))
+
+ggplot(for_plot[for_plot$Source=="Literature",], aes(x=pre_pos_mean,y=post_pos_mean, color=Source))+geom_point()+ theme_minimal()+
+        geom_abline(slope=1,yintercept= 0)  + xlim(0,90)+ ylim(0,90)+
+        theme(plot.title = element_text(hjust = 0.5),text = element_text(size=20))+
+        labs(x=expression("Pretest Favorable (%)"), y=expression("Posttest Favorable (%)"), title="Favorable Attitudes from CLASS-Physics")
+
+
+fav<- ggplot(for_plot, aes(x=pre_pos_mean,y=post_pos_mean, color=Source))+geom_point()+ theme_minimal()+
+        geom_abline(slope=1,yintercept= 0)  + xlim(0,90)+ ylim(0,90)+
+        theme(plot.title = element_text(hjust = 0.5),text = element_text(size=20))+
+        labs(x=expression("Pretest Favorable (%)"), y=expression("Posttest Favorable (%)"), title="Favorable Attitudes from CLASS-Physics")
+fav
+fav+ geom_smooth(se=FALSE)
+
+negs <- course_as[c(4,8)]
+fav+ geom_point(data=negs, aes(x=pre_neg_mean,y=post_neg_mean), color="black")
+
+```
+
+
