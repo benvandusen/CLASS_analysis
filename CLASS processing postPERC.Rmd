@@ -447,69 +447,23 @@ pb_data <- temp
 eq_data <- temp2[,c("ID","course_id", "course_use_las" ,"collab_learning_during_class" ,"student_id",                         "male" ,"hispanic" ,"white" , "black","asian", "american_indian" , "hawaiian_or_other_pacific_islander", "race_noanswer" , "race_other" , "year_in_school"  , "first_time"  , "l_pre"  , "e_pre"  , "l_post" , "e_post"    )]
 
 
-course_data <- unique(lasso_as[c(3,45:57,59,66,226:234)])
-course_data <- course_data[c(15,16,1:14,17:25)]
-
-
-
-
-#save(pb_data, file= "~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS Analysis/pb_data_postPERC") 
-#save(eq_data, file= "~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS Analysis/eq_data_postPERC") 
-#save(lasso_as, file= "~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS Analysis/all_class") 
-
-temp <- unique(eq_data[c(2:4)])
-```
+course_data <- unique(lasso_as[, c("assessment_sequence_id",  
+                                   "institution_id", "institution_name", "ccihe_id","term",  "year", "instructor", "course_name", "course_number","used_collaborative_learning" ,"collab_learning_during_class")])
 
 
 
 
 
-
-
-OLD
-
-
-Courses <- course_data$course_id[is.na(course_data$collab_learning_during_class)==TRUE]
-curses <- subset(alldata_1_19, course_id %in% Courses)
-c_data <- unique(curses[c(1:60,207:235)])
-
-c_data <- subset(c_data, class_phys ==1)
-
-
-Allright this is a big PITA. The data structure changed so the coding is going to be slightly different.
-
-
-
-#This is data from the literature
-```{r}
-lit_fav <- data.frame(pre_pos_mean=  c(62.5,68.4,78.2,71.5,77.8,62,57,65,57,71,63,65,68,65,48,57.7,56.9,50.0,54.2,51.5,64.2,70.4,72.0,69.9,53.6,51.6,49.5,49.8,51.8,51.6,64.2,55.0,51,58,47,51,52),
-                     post_pos_mean= c(58.2,77.1,80.4,83.5,78.6,63,59,59,58,72,53,67,70,57,46,55.8,52.5,53.2,57.0,57.0,71.6,77.7,74.9,73.8,67.0,58.3,59.0,59.6,68.3,62.1,70.4,63.1,59,61,52,65,62))
-lit_fav$Source<-"Literature"
-#I left out the data on teachers and on modern physics. I will have to do a more complete list later.
-```
-
-
-
-```{r,echo=FALSE, fig.height = 4, fig.width = 7.5, fig.align = "center", message=F,warning=F}
-for_plot <- bind_rows(course_as[c(2,6,10)],lit_fav)
-for_plot$Source <- factor(for_plot$Source, levels = c("Literature","LASSO"))
-
-ggplot(for_plot[for_plot$Source=="Literature",], aes(x=pre_pos_mean,y=post_pos_mean, color=Source))+geom_point()+ theme_minimal()+
-        geom_abline(slope=1,yintercept= 0)  + xlim(0,90)+ ylim(0,90)+
-        theme(plot.title = element_text(hjust = 0.5),text = element_text(size=20))+
-        labs(x=expression("Pretest Favorable (%)"), y=expression("Posttest Favorable (%)"), title="Favorable Attitudes from CLASS-Physics")
-
-
-fav<- ggplot(for_plot, aes(x=pre_pos_mean,y=post_pos_mean, color=Source))+geom_point()+ theme_minimal()+
-        geom_abline(slope=1,yintercept= 0)  + xlim(0,90)+ ylim(0,90)+
-        theme(plot.title = element_text(hjust = 0.5),text = element_text(size=20))+
-        labs(x=expression("Pretest Favorable (%)"), y=expression("Posttest Favorable (%)"), title="Favorable Attitudes from CLASS-Physics")
-fav
-fav+ geom_smooth(se=FALSE)
-
-negs <- course_as[c(4,8)]
-fav+ geom_point(data=negs, aes(x=pre_neg_mean,y=post_neg_mean), color="black")
+save(pb_data, file= "pb_data_postPERC.RData") 
+save(eq_data, file= "eq_data_postPERC.RData") 
+save(lasso_as, file= "all_class_postPERC.RData") 
 
 ```
+
+
+
+
+
+
 
 
