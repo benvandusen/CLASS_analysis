@@ -15,8 +15,7 @@ library(readr)
 ```
 
 ```{r}
-load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/Data Compilation/Combine/LASSO_data_6_19_for_research")
-eq_data <- subset(temp, class_phys==1)
+load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS_analysis/eq_data_postPERC.RData")
 ```
 
 ```{r load }
@@ -104,7 +103,7 @@ sumstat_intersect$race <- ifelse(sumstat_intersect$hispanic_no_int==1,"Hispanic"
 
 
 library(ggplot2)
-ggplot(data=sumstat_intersect, aes(y=N, x=race, group=gend_URM, fill=as.character(gend_URM))) +geom_bar(stat = "identity", position="dodge")  + theme(axis.text.x = element_text(angle=90))
+ggplot(data=sumstat_intersect, aes(y=N, x=race, group=gend_URM, fill=as.character(gend_URM))) +geom_bar(stat = "identity", position="dodge")  + theme(axis.text.x = element_text(angle=90)) + scale_y_log10()
 
 #demog <- sumstat_intersect[c(7,11:13)]
 #demog$gender <- ifelse(demog$gend_URM %in% 1, "Female", "Male")
@@ -137,14 +136,28 @@ eq_data$race_otherstar_no_int[eq_data$race=="*Other"] <-1
 colnames(eq_data)
 eq_data_reduced <- eq_data[c(1:6,15:20,23:25,28,33)]
 str(eq_data_reduced)
-save(eq_data_reduced, file="eq_data_4_17_19")
+save(eq_data_reduced, file="eq_data_7_10_19")
 ```
+Making the file with the course information
+```{r eval=FALSE, include=FALSE}
+library(readxl)
+load("/Users/jnissen1/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS_analysis/all_class_postPERC.RData")
+course_data <- unique(lasso_as[c(138:147)])
+course_descriptions_updated <- read_excel("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS Analysis OLD/course_descriptions_updated.xlsx")
+temp <- left_join(course_data, course_descriptions_updated[c(1:3)], by = "course_id")
+temp2 <- unique(temp)
+write.csv(temp2, "course_descriptions_7_10.csv")
+```
+
+
 
 ```{r}
 library(hmi)
 library(mice)
 
-load(file="eq_data_4_17_19")
+load(file="eq_data_7_10_19")
+course_descriptions_7_10 <- read_excel("course_descriptions_7_10.xlsx", sheet = "course_descriptions_7_10 (2)")
+courses <- unique(course_descriptions_7_10)
 
 eq_data_reduced <- as.data.frame(eq_data_reduced)
 eq_data_reduced$course_use_la[is.na(eq_data_reduced$course_use_la ) ==TRUE] <- 1 
@@ -155,25 +168,22 @@ eq_data_reduced$collab_learning_during_class <- as.numeric(eq_data_reduced$colla
 colnames(eq_data_reduced)
 
 
-
-course_descriptions_updated <- read.csv("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS Analysis/course_descriptions_updated.csv")
-courses <- unique(course_descriptions_updated[c(1:3)])
 eq_data_reduced <- left_join(eq_data_reduced, courses, by="course_id")
 
 unique(eq_data_reduced$math)
-eq_data_reduced$math[eq_data_reduced$math=="other"] <- "algebra"
-temp3 <- eq_data_reduced[eq_data_reduced$math=="other",]
-unique(eq_data_reduced_2$level)
+#eq_data_reduced$math[eq_data_reduced$math=="other"] <- "algebra"
+#temp3 <- eq_data_reduced[eq_data_reduced$math=="other",]
+#unique(eq_data_reduced$level)
 eq_data_reduced <- subset(eq_data_reduced, level %in% c("1","2","other"))
 
-colnames(eq_data_reduced_2)
+#colnames(eq_data_reduced_2)
 
-rm(hmi_4_17_19)
-hmi_4_19_19 <- hmi(eq_data_reduced, model_formula = e_post ~ 1 + e_pre + male + black_no_int + hispanic_no_int + asian_no_int + race_otherstar_no_int + math + level + (1|course_id)  , M = 10, maxit = 5, nitt = 3000,  burnin = 1000)
+#rm(hmi_4_17_19)
+hmi_class_7_10_19 <- hmi(eq_data_reduced, model_formula = e_post ~ 1 + e_pre + male + black_no_int + hispanic_no_int + asian_no_int + race_otherstar_no_int + math + level + (1|course_id)  , M = 10, maxit = 5, nitt = 3000,  burnin = 1000)
 
 # running it with the race variables and first_time causes it to not converge.
 
-save(hmi_4_19_19, file="hmi_4_21_19")
+#save(hmi_class_7_10_19, file="hmi_class_7_10_19.RData")
 ```
 
 
@@ -184,7 +194,7 @@ HLM Analysis
 #load("~/hmi_data_1_10_19")
 #load("~/Physics_Equity/hmifall2018_m10_better")
 #load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/Physics_Equity_new/hmifall2018_m10_better")
-load("hmi_4_21_19")
+load("hmi_class_7_10_19.RData")
 library(tidyr)
 library("ggplot2")
 library(gvlma)
@@ -212,9 +222,10 @@ cbbpalette <- c( "#009E73", "#e79f00", "#9ad0f3", "#0072B2", "#D55E00",
 
 Creating mitml and extra variables
 ```{r}
+temp <- as.data.frame(MIdata[1])
 #df_full <- complete(hmi.fall.2018)
 #str(df_full)
-MIdata<-mids2mitml.list(hmi_4_19_19) #converts file type
+MIdata<-mids2mitml.list(hmi_class_7_10_19) #converts file type
 thing <- list()
 for (i in 1:10){
   temp <- MIdata[[i]]
@@ -230,92 +241,15 @@ for (i in 1:10){
   temp$retake <- ifelse(temp$first_time==1,0,1)
   #temp$race_otherstar_no_int[temp$amind_no_int %in% 1] <- 1 # combines the american indian students in to the other group there were 61 if these students
   temp$female <- ifelse(temp$male==1,0,1)
+  temp$pre75 <- ifelse(temp$e_pre>=75, 1,0)
+  temp$post75 <- ifelse(temp$e_post>=75, 1,0)
+  
   thing[[i]] <- temp
   }
 MIdata <- as.mitml.list(thing)
   
 #as_courses <- unique(temp$course_id)
 #save(as_courses, file="as_courses")
-
-```
-
-#Descriptive statistics by lecture and gender
-```{r}
-#variables: M, group by
-
-desc2 <- foreach(i=1:10, .combine=rbind) %do% {
-temp <- MIdata[[i]]
-temp$race <- ifelse(temp$black_no_int ==1, "Black",ifelse(temp$hispanic_no_int ==1, "Hispanic",ifelse(temp$asian_no_int ==1, "Asian",ifelse(temp$pacisland_no_int ==1, "Island",ifelse(temp$race_otherstar_no_int ==1, "Other","White")))))
-desc <- temp %>% group_by(collab_learning_during_class, male) %>% summarise(N = length(e_pre),
-                                                                 pre_mean = mean(e_pre),
-                                                                 pre_sd = sd(e_pre),
-                                                                 post_mean = mean(e_post),
-                                                                 post_sd = sd(e_post),
-                                                                 gain_mean = mean (e_post-e_pre),
-                                                                 gain_sd = sd(e_post-e_pre)
-                                                                 )
-
-
-return <- desc
-}
-desc <- desc2 %>% group_by(collab_learning_during_class, male) %>% summarise_all(funs(mean))
-desc$collab_learning_during_class <- ifelse(desc$collab_learning_during_class == 0, "Lecture","Collaborative")
-desc$male <- ifelse(desc$male==0, "Female","Male")
-kable(desc, digits=1)
-```
-
-#Descriptive statistics by lecture
-
-Updated to here.
-```{r}
-#variables: M, group by
-
-desc2 <- foreach(i=1:10, .combine=rbind) %do% {
-temp <- MIdata[[i]]
-temp$race <- ifelse(temp$black_no_int ==1, "Black",ifelse(temp$hispanic_no_int ==1, "Hispanic",ifelse(temp$asian_no_int ==1, "Asian",ifelse(temp$pacisland_no_int ==1, "Island",ifelse(temp$race_otherstar_no_int ==1, "Other","White")))))
-desc <- temp  %>% summarise(N = length(e_pre),
-                                                                 pre_mean = mean(e_pre),
-                                                                 pre_sd = sd(e_pre),
-                                                                 post_mean = mean(e_post),
-                                                                 post_sd = sd(e_post),
-                                                                 gain_mean = mean (e_post-e_pre),
-                                                                 gain_sd = sd(e_post-e_pre)
-                                                                 )
-
-
-return <- desc
-}
-desc <- desc2 %>% summarise_all(funs(mean))
-#desc$lecture <- ifelse(desc$lecture ==1, "Lecture","Collaborative")
-#desc$male <- ifelse(desc$male==1, "Female","Male")
-kable(desc, digits=1)
-```
-
-#Descriptive statistics by lecture, race and gender
-```{r}
-#variables: M, group by
-
-desc2 <- foreach(i=1:10, .combine=rbind) %do% {
-temp <- MIdata[[i]]
-temp$race <- ifelse(temp$black_no_int ==1, "Black",ifelse(temp$hispanic_no_int ==1, "Hispanic",ifelse(temp$asian_no_int ==1, "Asian",ifelse(temp$race_otherstar_no_int ==1, "Other","White"))))
-desc <- temp %>% group_by( collab_learning_during_class, race, male) %>% summarise(N = length(e_pre),
-                                                                 pre_mean = mean(e_pre),
-                                                                 pre_sd = sd(e_pre),
-                                                                 post_mean = mean(e_post),
-                                                                 post_sd = sd(e_post),
-                                                                 gain_mean = mean (e_post-e_pre),
-                                                                 gain_sd = sd(e_post-e_pre)
-                                                                 )
-
-
-return <- desc
-}
-desc <- desc2 %>% group_by(race, collab_learning_during_class, male) %>% summarise_all(funs(mean))
-desc$collab_learning_during_class <- ifelse(desc$collab_learning_during_class ==0, "Lecture","Collaborative")
-desc$male <- ifelse(desc$male==0, "Female","Male")
-kable(desc, digits=1)
-#sum(temp$hispanic_no_int)
-#length(temp[temp$his])
 
 ```
 
@@ -373,130 +307,90 @@ kable(desc, digits=1)
 
 ```
 
-```{r }
-e_post1 <- with(MIdata,{lmer(e_post~1 + (1|course_id))})
-aic.1 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + (1|course_id))
-  return <- AIC(mod_aic)
-}
-e_post1.1 <- with(MIdata,{lmer(e_post~1 + course_type + (1|course_id))})
-aic.1.1 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + course_type + (1|course_id))
-  return <- AIC(mod_aic)
-}
-e_post1.2 <- with(MIdata,{lmer(e_post~1 + course_type + stud_pre_cent +  (1 |course_id))})
-aic.1.2 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + course_type + stud_pre_cent + (1|course_id))
-  return <- AIC(mod_aic)
-  }
-e_post2 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent + (1|course_id))})
-aic.2 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent + (1|course_id))
-  return <- AIC(mod_aic)
-  }
-e_post3 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + (1|course_id))})
-aic.3 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + (1|course_id))
-  return <- AIC(mod_aic)
-}
-e_post3.1 <- with(MIdata,{lmer(e_post~1 + class_pre_cent + (1|course_id))})
-aic.3.1 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + class_pre_cent + (1|course_id))
-  return <- AIC(mod_aic)
-}
-e_post3.2 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + course_type + (1|course_id))})
-aic.3.2 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + course_type + (1|course_id))
-  return <- AIC(mod_aic)
-}
-e_post4 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent + female + (1|course_id))})
-aic.4 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + female + (1|course_id))
-  return <- AIC(mod_aic)
-}
-e_post4.1 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + course_type + female + (1|course_id))})
-aic.4.1 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + course_type + female + (1|course_id))
-  return <- AIC(mod_aic)
-}
-e_post4.2 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + course_type*female + (1|course_id))})
-aic.4.2 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + course_type*female + (1|course_id))
-  return <- AIC(mod_aic)
-}
 
-e_post4.3 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + course_type*female + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
-aic.4.3 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + course_type*female + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))
-  return <- AIC(mod_aic)
-}
-e_post4.4 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + course_type*female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
-aic.4.4 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + course_type*female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))
-  return <- AIC(mod_aic)
-}
-e_post4.5 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + course_type*female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + collab_learning_during_class +  (1|course_id))})
-aic.4.5 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + course_type*female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + collab_learning_during_class + (1|course_id))
-  return <- AIC(mod_aic)
-}
-gain4.6 <- with(MIdata,{lmer(gain~1 + stud_pre_cent  + class_pre_cent + course_type*female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + collab_learning_during_class +  (1|course_id))})
-
-
-
-e_post5 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +  (1|course_id))})
-aic.5 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))
-  return <- AIC(mod_aic)
-  }
-e_post6 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + collab_learning_during_class + (1|course_id))})
-aic.6 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post ~ 1 + stud_pre_cent  + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + collab_learning_during_class + (1|course_id))
-  return <- AIC(mod_aic)
-  }
-e_post7 <- with(MIdata,{lmer(e_post~1 + collab_learning_during_class*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int)*female + stud_pre_cent  + (1|course_id))})
-aic.7 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post ~ 1 + collab_learning_during_class*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int)*female + stud_pre_cent  + (1|course_id))
-  return <- AIC(mod_aic)
-  }
-
-e_post8 <- with(MIdata,{lmer(e_post~1 + collab_learning_during_class + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + female + stud_pre_cent  + class_pre_cent + (1|course_id))})
-aic.8 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + collab_learning_during_class + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + female + stud_pre_cent  + class_pre_cent + (1|course_id))
-  return <- AIC(mod_aic)
-  }
-e_post9 <- with(MIdata,{lmer(e_post~1  + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + female +  (1|course_id))})
-aic.9 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1  + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + female +  (1|course_id))
-  return <- AIC(mod_aic)
-  }
-
-
-
-
-pre1 <- with(MIdata,{lmer(e_pre~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))})
-aic.pre.1 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_pre~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +  (1|course_id))
-  return <- AIC(mod_aic)
-  }
-pre2 <- with(MIdata,{lmer(e_pre~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + collab_learning_during_class + (1|course_id))})
-aic.pre.2 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_pre~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + collab_learning_during_class + (1|course_id))
-  return <- AIC(mod_aic)
-  }
-pre3 <- with(MIdata,{lmer(e_pre~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + course_type +(1|course_id))})
-aic.pre3 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_pre~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + course_type +  (1|course_id))
-  return <- AIC(mod_aic)
-  }
-pre4 <- with(MIdata,{lmer(l_pre~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + course_type +(1|course_id))})
-aic.pre4 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post ~  (1|course_id))
-  return <- AIC(mod_aic)
-  }
-```
+Find best model using dredge
 
 ```{r}
+library("cAIC4")
+library("MuMIn")
+library("lme4")
+```
+```{r}
+midredge <- function(mathx, levely, imps){
+  dred_ctest <- foreach(i=1:imps, .combine=rbind) %do% {
+dred_data <- as.data.frame(MIdata[[i]])
+dred_data <- subset(dred_data, math == mathx & level == levely)
+
+
+intro_mod_dredge <- lmer(m_simple, data=dred_data)
+dred_temp <- dredge(intro_mod_dredge)
+dred_temp$imputation <- i
+temp <- subset(dred_temp, delta==0)
+return <- temp
+}
+}
+```
+
+
+
+
+
+```{r}
+m_simple <- (e_post~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))
+#m_simple <- (e_post~1 + stud_pre_cent  + class_pre_cent + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))
+#m_simple <- (e_post~1 + stud_pre_cent  + female*(white_no_int) +(1|course_id))
+options(na.action = "na.fail")
+
+dred_other1 <- midredge("other","other",10)
+dred_algmech1 <- midredge("algebra","1",10)
+dred_calcmech1 <- midredge("calculus","1",10)
+
+
+
+```
+
+Alg Mech models
+```{r }
+thing <- list()
+for (i in 1:10){
+  temp <- MIdata[[i]]
+  temp <- temp[temp$level==1 & temp$math=="algebra" ,]
+  thing[[i]] <- temp
+  }
+midata_algmech <- as.mitml.list(thing)
+
+am_e_post1 <- with(midata_algmech,{lmer(e_post~1 + (1|course_id))})
+am_aic.post1 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- lmer(data=midata_algmech[[i]], e_post~1 + (1|course_id))
+  return <- AIC(mod_aic)
+}
+am_e_post2 <- with(midata_algmech,{lmer(e_post~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
+am_aic.post2 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- lmer(data=midata_algmech[[i]], e_post~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))
+  return <- AIC(mod_aic)
+  }
+
+am_e_pre1 <- with(midata_algmech,{lmer(e_pre~1 + (1|course_id))})
+am_aic.pre1 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- lmer(data=midata_algmech[[i]], e_pre~1 + (1|course_id))
+  return <- AIC(mod_aic)
+}
+am_e_pre2 <- with(midata_algmech,{lmer(e_pre~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
+am_aic.pre2 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- lmer(data=midata_algmech[[i]], e_pre~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))
+  return <- AIC(mod_aic)
+  }
+
+testEstimates(am_e_pre1, var.comp=TRUE)
+testEstimates(am_e_pre2, var.comp=TRUE)
+testEstimates(am_e_post1, var.comp=TRUE)
+testEstimates(am_e_post2, var.comp=TRUE)
+
+
+
+```
+
+```{r eval=FALSE, include=FALSE}
 info_crit <- as.data.frame(cbind(aic.1, aic.1.1,aic.1.2,aic.2,aic.3,aic.3.1,aic.3.2,aic.4,aic.4.1,aic.4.2,aic.4.3,aic.4.4,aic.4.5,aic.5,aic.6,aic.7,aic.8,aic.9))
 #info_crit[11,] <- colMeans(info_crit)
 
@@ -509,191 +403,7 @@ barplot(temp$delta)
 ```
 
 
-```{r echo=FALSE}
-testEstimates(e_post1, var.comp=TRUE)
-testEstimates(e_post1.1, var.comp=TRUE)
-testEstimates(e_post1.2, var.comp=TRUE)
-testEstimates(e_post2, var.comp=TRUE)
-testEstimates(e_post3, var.comp=TRUE)
-testEstimates(e_post3.1, var.comp=TRUE)
-testEstimates(e_post4, var.comp=TRUE)
-testEstimates(e_post4.1, var.comp=TRUE)
-testEstimates(e_post4.2, var.comp=TRUE)
-testEstimates(e_post4.3, var.comp=TRUE)
-testEstimates(e_post4.4, var.comp=TRUE)
-testEstimates(e_post4.5, var.comp=TRUE)
-testEstimates(gain4.6, var.comp=TRUE)
 
-testEstimates(e_post5, var.comp=TRUE)
-testEstimates(e_post6, var.comp=TRUE)
-testEstimates(e_post7, var.comp=TRUE)
-testEstimates(e_post8, var.comp=TRUE)
-testEstimates(e_post9, var.comp=TRUE)
-
-testEstimates(pre1, var.comp=TRUE)
-testEstimates(pre2, var.comp=TRUE)
-testEstimates(pre3, var.comp=TRUE)
-testEstimates(pre4, var.comp=TRUE)
-```
-
-
-Creating mitml and extra variables
-```{r}
-#df_full <- complete(hmi.fall.2018)
-#str(df_full)
-MIdata<-mids2mitml.list(hmi_4_19_19) #converts file type
-thing <- list()
-for (i in 1:10){
-  temp <- MIdata[[i]]
-  #temp <- temp[temp$level!=2,]
-  #temp <- temp[temp$math!="other",]
-  #temp <- temp[temp$course_id!="531",] # This is a small course that is throwing off the class means -- outlier
-  class_means <- temp %>% group_by(course_id) %>% summarise(pre_mean_class = mean(e_pre))
-  class_means$class_pre_cent <- class_means$pre_mean_class - mean(class_means$pre_mean_class)
-  temp <- left_join(temp,class_means, by="course_id")
-  temp$stud_pre_cent <- temp$e_pre - temp$pre_mean_class
-  temp$gain <- temp$e_post - temp$e_pre
-  temp$course_type <- ifelse(temp$math=="algebra" & temp$level=="1","algmech",ifelse(temp$math=="calculus" & temp$level=="1","calcmech",ifelse(temp$math=="algebra" & temp$level=="2","algenm",ifelse(temp$math=="calculus" & temp$level=="2","calcenm","other"))))
-  #temp$coll <- ifelse(temp$lecture %in% 1,0,1)
-  temp$retake <- ifelse(temp$first_time==1,0,1)
-  #temp$race_otherstar_no_int[temp$amind_no_int %in% 1] <- 1 # combines the american indian students in to the other group there were 61 if these students
-  temp$female <- ifelse(temp$male==1,0,1)
-  temp <- subset(temp, course_type=="algmech" | course_type=="calcmech")
-  
-  thing[[i]] <- temp
-  }
-MIdata <- as.mitml.list(thing)
-  
-#as_courses <- unique(temp$course_id)
-#save(as_courses, file="as_courses")
-
-```
-
-This is just to run it all with no interactions in the models to simplify everything.
-```{r}
-e_pre1 <- with(MIdata,{lmer(e_pre~1 + (1|course_id))})
-aic.1 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_pre~1 + (1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_pre2 <- with(MIdata,{lmer(e_pre~1 + course_type + (1|course_id))})
-aic.2 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_pre~1 + course_type + (1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_pre3 <- with(MIdata,{lmer(e_pre~1  + course_type + female + (1|course_id))})
-aic.3 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_pre~1  + course_type + female + (1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_pre4 <- with(MIdata,{lmer(e_pre~1  + course_type + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
-aic.4 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_pre~1  + course_type + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_pre5 <- with(MIdata,{lmer(e_pre~1  + course_type + female + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
-aic.5 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_pre~1  + course_type + female + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_pre6 <- with(MIdata,{lmer(e_pre~1  + course_type*collab_learning_during_class +  female + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
-aic.6 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_pre~1  + course_type*collab_learning_during_class +  female + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_pre7 <- with(MIdata,{lm(e_pre~1  + course_type + female + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) )})
-
-
-info_crit <- as.data.frame(cbind(aic.1,aic.2,aic.3,aic.4,aic.5))
-#info_crit[11,] <- colMeans(info_crit)
-
-colnames(info_crit) <- c("aic.1", "aic.2","aic.3","aic.4","aic.5")
-
-ics <- as.data.frame(colMeans(info_crit))
-ics$delta <- ics$`colMeans(info_crit)`- min(ics$`colMeans(info_crit)`)
-
-barplot(ics$delta)
-
-testEstimates(e_pre1, var.comp=TRUE)
-testEstimates(e_pre2, var.comp=TRUE)
-testEstimates(e_pre3, var.comp=TRUE)
-testEstimates(e_pre4, var.comp=TRUE)
-testEstimates(e_pre5, var.comp=TRUE)
-testEstimates(e_pre7, var.comp=TRUE)
-```
-
-This is just to run it all with no interactions in the models to simplify everything.
-```{r}
-e_post1 <- with(MIdata,{lmer(e_post~1 + (1|course_id))})
-aic.1 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + (1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_post2 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + (1|course_id))})
-aic.2 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + (1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_post3 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + course_type + (1|course_id))})
-aic.3 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + course_type + (1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_post4 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + course_type + female + (1|course_id))})
-aic.4 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + course_type + female + (1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_post5 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + course_type + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
-aic.5 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + course_type + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_post6 <- with(MIdata,{lmer(e_post~1 + stud_pre_cent  + class_pre_cent + course_type + female + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))})
-aic.5 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + course_type + (asian_no_int + black_no_int + hispanic_no_int+ race_otherstar_no_int) + female + (1|course_id))
-  return <- AIC(mod_aic)
-}
-
-e_pre7 <- with(MIdata,{lmer(e_pre~1  + course_type + female + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))})
-
-e_post7 <- with(MIdata,{lmer(e_post~1 + course_type + female + (asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))})
-aic.5 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=MIdata[[i]], e_post~1 + stud_pre_cent  + class_pre_cent + course_type + (asian_no_int + black_no_int + hispanic_no_int+ race_otherstar_no_int) + female + (1|course_id))
-  return <- AIC(mod_aic)
-}
-
-info_crit <- as.data.frame(cbind(aic.1,aic.2,aic.3,aic.4,aic.5,aic.6))
-#info_crit[11,] <- colMeans(info_crit)
-
-colnames(info_crit) <- c("aic.1", "aic.2","aic.3","aic.4","aic.5","aic.6")
-
-ics <- as.data.frame(colMeans(info_crit))
-ics$delta <- ics$`colMeans(info_crit)`- min(ics$`colMeans(info_crit)`)
-
-barplot(ics$delta)
-
-testEstimates(e_post1, var.comp=TRUE)
-testEstimates(e_post2, var.comp=TRUE)
-testEstimates(e_post3, var.comp=TRUE)
-testEstimates(e_post4, var.comp=TRUE)
-testEstimates(e_post5, var.comp=TRUE)
-testEstimates(e_post6, var.comp=TRUE)
-
-testEstimates(e_pre7, var.comp=TRUE)
-testEstimates(e_post7, var.comp=TRUE)
-```
 
 ```{r}
 pool_and_cov_diffwm <- function(x,y){
@@ -724,55 +434,37 @@ return <- p3est}
 mod_pre_1 <- pre_score~1 + gend_URM*(asian_no_int + black_no_int + hispanic_no_int + race_other_no_int  + pacisland_no_int) + (1|course_id)
 
 ```{r}
-#     c(I, C,F, A,B,H,O)
-WMA = c(1, 0,0, 0,0,0,0)
-AMA = c(1, 0,0, 1,0,0,0)
-BMA = c(1, 0,0, 0,1,0,0)
-HMA = c(1, 0,0, 0,0,1,0)
-OMA = c(1, 0,0, 0,0,0,1)
-WMC = c(1, 1,0, 0,0,0,0)
-AMC = c(1, 1,0, 1,0,0,0)
-BMC = c(1, 1,0, 0,1,0,0)
-HMC = c(1, 1,0, 0,0,1,0)
-OMC = c(1, 1,0, 0,0,0,1)
-WFA = c(1, 0,1, 0,0,0,0)
-AFA = c(1, 0,1, 1,0,0,0)
-BFA = c(1, 0,1, 0,1,0,0)
-HFA = c(1, 0,1, 0,0,1,0)
-OFA = c(1, 0,1, 0,0,0,1)
-WFC = c(1, 1,1, 0,0,0,0)
-AFC = c(1, 1,1, 1,0,0,0)
-BFC = c(1, 1,1, 0,1,0,0)
-HFC = c(1, 1,1, 0,0,1,0)
-OFC = c(1, 1,1, 0,0,0,1)
+#     c(I, F, A,B,H,O, a,b,h,o)
+WM = c(1, 0, 0,0,0,0, 0,0,0,0)
+AM = c(1, 0, 1,0,0,0, 0,0,0,0)
+BM = c(1, 0, 0,1,0,0, 0,0,0,0)
+HM = c(1, 0, 0,0,1,0, 0,0,0,0)
+OM = c(1, 0, 0,0,0,1, 0,0,0,0)
+WF = c(1, 1, 0,0,0,0, 0,0,0,0)
+AF = c(1, 1, 1,0,0,0, 1,0,0,0)
+BF = c(1, 1, 0,1,0,0, 0,1,0,0)
+HF = c(1, 1, 0,0,1,0, 0,0,1,0)
+OF = c(1, 1, 0,0,0,1, 0,0,0,1)
 
-cf_e_pre_7 <- rbind('White Male Algebra'=WMA,  
-                          'White Female Algebra'=WFA,
-                          'Black Male Algebra'=BMA,  
-                          'Black Female Algebra'=BFA,
-                          'Asian Male Algebra'=AMA, 
-                          'Asian Female Algebra'=AFA,
-                          'Hispanic Male Algebra'=HMA, 
-                          'Hispanic Female Algebra'=HFA,
-                          'Other Male Algebra'=OMA,  
-                          'Other Female Algebra'=OFA,
-                          'White Male Calculus'=WMC,  
-                          'White Female Calculus'=WFC,
-                          'Black Male Calculus'=BMC,  
-                          'Black Female Calculus'=BFC,
-                          'Asian Male Calculus'=AMC, 
-                          'Asian Female Calculus'=AFC,
-                          'Hispanic Male Calculus'=HMC, 
-                          'Hispanic Female Calculus'=HFC,
-                          'Other Male Calculus'=OMC,  
-                          'Other Female Calculus'=OFC)
 
-contrast_p7_est <- pool_and_cov_diffwm(e_pre7,cf_e_pre_7)
-unique(contrast_p7_est$race)
+cf_e_2 <- rbind('White Male'=WM,  
+                          'White Female'=WF,
+                          'Black Male'=BM,  
+                          'Black Female'=BF,
+                          'Asian Male'=AM, 
+                          'Asian Female'=AF,
+                          'Hispanic Male'=HM, 
+                          'Hispanic Female'=HF,
+                          'Other Male'=OM,  
+                          'Other Female'=OF
+                          )
 
-contrast_p7_est$race <- factor(contrast_p7_est$race, levels = c("Black", "Hispanic", "Other", "Asian",    "White"))
+contrast_am_pre_est <- pool_and_cov_diffwm(am_e_pre2,cf_e_2)
+unique(contrast_am_pre_est$race)
 
-ggplot(data=contrast_p7_est, aes(x=race, y=Q, group=gender, color=gender)) + geom_point(position = position_dodge(width=0.90)) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
+contrast_am_pre_est$race <- factor(contrast_am_pre_est$race, levels = c("Black", "Hispanic", "Other", "Asian",    "White"))
+
+ggplot(data=contrast_am_pre_est, aes(x=race, y=Q, group=gender, color=gender)) + geom_point(position = position_dodge(width=0.90)) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
   theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
   ylab("Pretest (%)") +
   scale_color_manual(name="Gender",
@@ -782,9 +474,322 @@ facet_grid(.~instruction, scales = "free", space = "free") +
   ylim(c(40,70))
 
 
-ggsave("~pre7.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
-kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
+#ggsave("~pream.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
+#kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
+
+contrast_am_post_est <- pool_and_cov_diffwm(am_e_post2,cf_e_2)
+unique(contrast_am_post_est$race)
+
+contrast_am_post_est$race <- factor(contrast_am_post_est$race, levels = c("Black", "Hispanic", "Other", "Asian",    "White"))
+
+ggplot(data=contrast_am_post_est, aes(x=race, y=Q, group=gender, color=gender)) + geom_point(position = position_dodge(width=0.90)) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
+  theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  ylab("Pretest (%)") +
+  scale_color_manual(name="Gender",
+                     breaks= c("Female","Male"),
+                     values=cbbpalette) +
+facet_grid(.~instruction, scales = "free", space = "free") +
+  ylim(c(40,70))
+
+
+#ggsave("~pream.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
+#kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
+
+
+contrast_am_post_est$time <- "Post"
+contrast_am_pre_est$time <- "Pre"
+for_plot <- rbind(contrast_am_post_est,contrast_am_pre_est)
+for_plot$Time <- factor(for_plot$time, levels=c("Pre","Post")) 
+for_plot$gender_time <- paste(for_plot$Time, for_plot$gender)
+for_plot$gender_time <- factor(for_plot$gender_time, levels=c("Pre Female","Pre Male","Post Female","Post Male"))
+
+ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_time, color=gender, shape=Time)) + geom_point(position = position_dodge(width=0.90), size=2) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
+  theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  ylab("Expert-like Score (%)") +
+  scale_color_manual(name="Gender",
+                     breaks= c("Female","Male"),
+                     values=cbbpalette) +
+  ylim(c(40,70))
+ggsave("~algmech.png", plot= last_plot(), dpi=300, width = 4.75, height = 3.25, units = "in", device = "png")
+
+
 ```
+
+
+For calculus based mechanics
+
+```{r }
+thing <- list()
+for (i in 1:10){
+  temp <- MIdata[[i]]
+  temp <- temp[temp$level==1 & temp$math=="calculus" ,]
+  thing[[i]] <- temp
+  }
+midata_algmech <- as.mitml.list(thing)
+
+am_e_post1 <- with(midata_algmech,{lmer(e_post~1 + (1|course_id))})
+am_aic.post1 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- lmer(data=midata_algmech[[i]], e_post~1 + (1|course_id))
+  return <- AIC(mod_aic)
+}
+am_e_post2 <- with(midata_algmech,{lmer(e_post~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
+am_aic.post2 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- lmer(data=midata_algmech[[i]], e_post~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))
+  return <- AIC(mod_aic)
+  }
+
+am_e_pre1 <- with(midata_algmech,{lmer(e_pre~1 + (1|course_id))})
+am_aic.pre1 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- lmer(data=midata_algmech[[i]], e_pre~1 + (1|course_id))
+  return <- AIC(mod_aic)
+}
+am_e_pre2 <- with(midata_algmech,{lmer(e_pre~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
+am_aic.pre2 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- lmer(data=midata_algmech[[i]], e_pre~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))
+  return <- AIC(mod_aic)
+  }
+
+testEstimates(am_e_pre1, var.comp=TRUE)
+testEstimates(am_e_pre2, var.comp=TRUE)
+testEstimates(am_e_post1, var.comp=TRUE)
+testEstimates(am_e_post2, var.comp=TRUE)
+
+#     c(I, F, A,B,H,O, a,b,h,o)
+WM = c(1, 0, 0,0,0,0, 0,0,0,0)
+AM = c(1, 0, 1,0,0,0, 0,0,0,0)
+BM = c(1, 0, 0,1,0,0, 0,0,0,0)
+HM = c(1, 0, 0,0,1,0, 0,0,0,0)
+OM = c(1, 0, 0,0,0,1, 0,0,0,0)
+WF = c(1, 1, 0,0,0,0, 0,0,0,0)
+AF = c(1, 1, 1,0,0,0, 1,0,0,0)
+BF = c(1, 1, 0,1,0,0, 0,1,0,0)
+HF = c(1, 1, 0,0,1,0, 0,0,1,0)
+OF = c(1, 1, 0,0,0,1, 0,0,0,1)
+
+
+cf_e_2 <- rbind('White Male'=WM,  
+                          'White Female'=WF,
+                          'Black Male'=BM,  
+                          'Black Female'=BF,
+                          'Asian Male'=AM, 
+                          'Asian Female'=AF,
+                          'Hispanic Male'=HM, 
+                          'Hispanic Female'=HF,
+                          'Other Male'=OM,  
+                          'Other Female'=OF
+                          )
+
+contrast_am_pre_est <- pool_and_cov_diffwm(am_e_pre2,cf_e_2)
+unique(contrast_am_pre_est$race)
+
+contrast_am_pre_est$race <- factor(contrast_am_pre_est$race, levels = c("Black", "Hispanic", "Other", "Asian",    "White"))
+
+ggplot(data=contrast_am_pre_est, aes(x=race, y=Q, group=gender, color=gender)) + geom_point(position = position_dodge(width=0.90)) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
+  theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  ylab("Pretest (%)") +
+  scale_color_manual(name="Gender",
+                     breaks= c("Female","Male"),
+                     values=cbbpalette) +
+facet_grid(.~instruction, scales = "free", space = "free") +
+  ylim(c(40,70))
+
+
+#ggsave("~pream.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
+#kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
+
+contrast_am_post_est <- pool_and_cov_diffwm(am_e_post2,cf_e_2)
+unique(contrast_am_post_est$race)
+
+contrast_am_post_est$race <- factor(contrast_am_post_est$race, levels = c("Black", "Hispanic", "Other", "Asian",    "White"))
+
+ggplot(data=contrast_am_post_est, aes(x=race, y=Q, group=gender, color=gender)) + geom_point(position = position_dodge(width=0.90)) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
+  theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  ylab("Pretest (%)") +
+  scale_color_manual(name="Gender",
+                     breaks= c("Female","Male"),
+                     values=cbbpalette) +
+facet_grid(.~instruction, scales = "free", space = "free") +
+  ylim(c(40,70))
+
+
+#ggsave("~pream.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
+#kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
+
+
+contrast_am_post_est$time <- "Post"
+contrast_am_pre_est$time <- "Pre"
+for_plot <- rbind(contrast_am_post_est,contrast_am_pre_est)
+for_plot$Time <- factor(for_plot$time, levels=c("Pre","Post")) 
+for_plot$gender_time <- paste(for_plot$Time, for_plot$gender)
+for_plot$gender_time <- factor(for_plot$gender_time, levels=c("Pre Female","Pre Male","Post Female","Post Male"))
+
+ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_time, color=gender, shape=Time)) + geom_point(position = position_dodge(width=0.90), size=2) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
+  theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  ylab("Expert-like Score (%)") +
+  scale_color_manual(name="Gender",
+                     breaks= c("Female","Male"),
+                     values=cbbpalette) +
+  ylim(c(40,70))
+ggsave("~calcmech.png", plot= last_plot(), dpi=300, width = 4.75, height = 3.25, units = "in", device = "png")
+
+
+```
+
+
+Logistic regression models for calculus based mechanics
+```{r}
+logit2prob <- function(logit){
+  odds <- exp(logit)
+  prob <- odds / (1 + odds)
+  return(prob)
+}
+```
+
+
+
+```{r }
+thing <- list()
+for (i in 1:10){
+  temp <- MIdata[[i]]
+  temp <- temp[temp$level==1 & temp$math=="calculus" ,]
+  thing[[i]] <- temp
+  }
+midata_algmech <- as.mitml.list(thing)
+
+am_e_post1 <- with(temp,{glmer(post75~1 + (1|course_id),family = binomial)})
+am_aic.post1 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- lmer(data=midata_algmech[[i]], post75~1 + (1|course_id))
+  return <- AIC(mod_aic)
+}
+am_e_post2 <- with(midata_algmech,{glmer(post75~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
+am_aic.post2 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- glmer(data=midata_algmech[[i]], post75~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))
+  return <- AIC(mod_aic)
+  }
+
+am_e_pre1 <- with(midata_algmech,{glmer(pre75~1 + (1|course_id))})
+am_aic.pre1 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- lmer(data=midata_algmech[[i]], pre75~1 + (1|course_id))
+  return <- AIC(mod_aic)
+}
+am_e_pre2 <- with(midata_algmech,{glmer(pre75~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
+am_aic.pre2 <- foreach(i=1:10, .combine=rbind) %do% {
+  mod_aic <- glmer(data=midata_algmech[[i]], pre75~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))
+  return <- AIC(mod_aic)
+  }
+
+#testEstimates(am_e_pre1, var.comp=TRUE)
+testEstimates(am_e_pre2, var.comp=TRUE)
+#testEstimates(am_e_post1, var.comp=TRUE)
+testEstimates(am_e_post2, var.comp=TRUE)
+
+#     c(I, F, A,B,H,O, a,b,h,o)
+WM = c(1, 0, 0,0,0,0, 0,0,0,0)
+AM = c(1, 0, 1,0,0,0, 0,0,0,0)
+BM = c(1, 0, 0,1,0,0, 0,0,0,0)
+HM = c(1, 0, 0,0,1,0, 0,0,0,0)
+OM = c(1, 0, 0,0,0,1, 0,0,0,0)
+WF = c(1, 1, 0,0,0,0, 0,0,0,0)
+AF = c(1, 1, 1,0,0,0, 1,0,0,0)
+BF = c(1, 1, 0,1,0,0, 0,1,0,0)
+HF = c(1, 1, 0,0,1,0, 0,0,1,0)
+OF = c(1, 1, 0,0,0,1, 0,0,0,1)
+
+
+cf_e_2 <- rbind('White Male'=WM,  
+                          'White Female'=WF,
+                          'Black Male'=BM,  
+                          'Black Female'=BF,
+                          'Asian Male'=AM, 
+                          'Asian Female'=AF,
+                          'Hispanic Male'=HM, 
+                          'Hispanic Female'=HF,
+                          'Other Male'=OM,  
+                          'Other Female'=OF
+                          )
+
+contrast_am_pre_est <- pool_and_cov_diffwm(am_e_pre2,cf_e_2)
+unique(contrast_am_pre_est$race)
+
+contrast_am_pre_est$race <- factor(contrast_am_pre_est$race, levels = c("Black", "Hispanic", "Other", "Asian",    "White"))
+
+odds_plot_pre <- contrast_am_pre_est
+odds_plot_pre$Q <- logit2prob(odds_plot$Q)
+odds_plot_pre$LCL <- logit2prob(odds_plot$LCL)
+odds_plot_pre$UCL <- logit2prob(odds_plot$UCL)
+
+
+ggplot(data=odds_plot_pre, aes(x=race, y=Q, group=gender, color=gender)) + geom_point(position = position_dodge(width=0.90)) + geom_errorbar(aes( ymax= UCL, ymin=LCL), position="dodge")+
+  theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  ylab("Pretest (%)") +
+  scale_color_manual(name="Gender",
+                     breaks= c("Female","Male"),
+                     values=cbbpalette) 
+
+
+#ggsave("~pream.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
+#kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
+
+contrast_am_post_est <- pool_and_cov_diffwm(am_e_post2,cf_e_2)
+unique(contrast_am_post_est$race)
+
+odds_plot_post <- contrast_am_pre_est
+odds_plot_post$Q <- logit2prob(odds_plot$Q)
+odds_plot_post$LCL <- logit2prob(odds_plot$LCL)
+odds_plot_post$UCL <- logit2prob(odds_plot$UCL)
+
+odds_plot_post$race <- factor(odds_plot_post$race, levels = c("Black", "Hispanic", "Other", "Asian",    "White"))
+
+ggplot(data=odds_plot_post, aes(x=race, y=Q, group=gender, color=gender)) + geom_point(position = position_dodge(width=0.90)) + geom_errorbar(aes( ymax= UCL, ymin=LCL), position="dodge")+
+  theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  ylab("Pretest (%)") +
+  scale_color_manual(name="Gender",
+                     breaks= c("Female","Male"),
+                     values=cbbpalette) +
+facet_grid(.~instruction, scales = "free", space = "free") +
+  ylim(c(40,70))
+
+
+#ggsave("~pream.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
+#kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
+
+
+odds_plot_post$time <- "Post"
+odds_plot_pre$time <- "Pre"
+for_plot <- rbind(odds_plot_post,odds_plot_pre)
+for_plot$Time <- factor(for_plot$time, levels=c("Pre","Post")) 
+for_plot$gender_time <- paste(for_plot$Time, for_plot$gender)
+for_plot$gender_time <- factor(for_plot$gender_time, levels=c("Pre Female","Pre Male","Post Female","Post Male"))
+
+ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_time, color=gender, shape=Time)) + geom_point(position = position_dodge(width=0.90), size=2) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
+  theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  ylab("Expert-like Score (%)") +
+  scale_color_manual(name="Gender",
+                     breaks= c("Female","Male"),
+                     values=cbbpalette) 
+#ggsave("~calcmech.png", plot= last_plot(), dpi=300, width = 4.75, height = 3.25, units = "in", device = "png")
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```{r}
 #     c(I, C,F, A,B,H,O)

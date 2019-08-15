@@ -1,0 +1,142 @@
+"","assessment_sequence_label","course_id","institution_id","institution_name","ccihe_id","term","year","instructor","course_name","course_number","math","level"
+"1","CLASS",661,225,"California State University-Chico",110538,"Fall","2017","Van Dusen, Ben","Concepts in Physical Science","SCED 141","other","other"
+"2","CLASS",653,117,"California State University",NA,"Fall","2017","Margoniner, Vera","Introduction to Physics: Mechanics (Margoniner)","PHYS 11","calculus","1"
+"3","CLASS",663,117,"California State University",NA,"Fall","2017","Margoniner, Vera","Introduction to Physics: Mechanics (Margoniner)","PHYS 11","calculus","1"
+"4","Attitudes about Science",671,114,"Western Illinois University",149772,"Fall","2017","Rabchuk, James","University Physics 1","PHYS 211","calculus","1"
+"5","CLASS",675,225,"California State University-Chico",110538,"Fall","2017","Arpin, Paul","Mechanics","PHYS 204","calculus","1"
+"6","CLASS.1520.F17",668,92,"Chicago State University",144005,"Fall","2017","Sabella, Mel","Physics 2 alg","PHYS 1520",NA,NA
+"7","CLASS.2110.F17",665,92,"Chicago State University",144005,"Fall","2017","Sabella, Mel","Physics 1 calc","PHYS 2110",NA,NA
+"8","CLASS.2220.F17",667,92,"Chicago State University",144005,"Fall","2017","Sabella, Mel","Physics 2 calc","PHYS 2220","calculus","2"
+"9","CLASS - Pre",679,235,"East Carolina University",198464,"Fall","2017","Wolf, Steven","University Physics I","PHYS 2350","calculus","1"
+"10","Attitude Survey",684,137,"California State University, Sacramento",NA,"Fall","2017","Block, Matthew","General Mechanics (calc-based)","Phys 11","calculus","2"
+"11","CLASS-PHYS",648,25,"George Mason University",232186,"Fall","2017","Dreyfus, Benjamin","College Physics I","PHYS 243","algebra","1"
+"12","CLASS-PHYS",703,218,"University of Southern Maine",161554,"Fall","2017","Nakroshis, Paul","General Physics I","PHY 121",NA,NA
+"13","Attitudes Survey",709,137,"California State University, Sacramento",NA,"Fall","2017","Morris, Eliza","General Mechanics (calc-based)","Phys 11","calculus","1"
+"14","PY105 pre-test",715,7,"Boston University",164988,"Fall","2017","Duffy, Andrew","Elementary Physics 1","PY 105","algebra","1"
+"15","PY105 pre-test",716,7,"Boston University",164988,"Fall","2017","Duffy, Andrew","Elementary Physics 1","PY 105",NA,NA
+"16","PY105 pre-test",717,7,"Boston University",164988,"Fall","2017","Duffy, Andrew","Elementary Physics 1","PY 105","algebra","1"
+"17","PY105 pre-test",718,7,"Boston University",164988,"Fall","2017","Duffy, Andrew","Elementary Physics 1","PY 105","algebra","1"
+"18","PY105 pre-test",719,7,"Boston University",164988,"Fall","2017","Duffy, Andrew","Elementary Physics 1","PY 105","algebra","1"
+"19","Fall17 Attitudes",720,7,"Boston University",164988,"Fall","2017","Jariwala, Manher","General Physics 1","PY 211","calculus","1"
+"20","F17",724,213,"Rowan University",184782,"Fall","2017","Claar, Rodger","Physics of Everyday Life","PHYS 150","other","other"
+"21","Thinking about Physics Survey",742,354,"South Seattle College",236504,"Fall","2017","Daane, Abigail","Engineering Physics I","PHYS 221","calculus","1"
+"22","F17",744,213,"Rowan University",184782,"Fall","2017","Vitale, Timothy","Physics of Everyday Life","PHYS 150","other","other"
+"23","Physics Survey",765,46,"Seattle Pacific University",236577,"Fall","2017","Gray, Kara","General Physics 1","Phy 1101","algebra","1"
+"24","Physics Survey",766,46,"Seattle Pacific University",236577,"Fall","2017","Gray, Kara","Physics for Future Elementary Teachers","PHY 2567","other","other"
+"25",NA,989,225,"California State University-Chico",110538,"Fall","2018","Van Dusen, Ben","Concepts in Physical Science","SCED 141","other","other"
+"26",NA,988,225,"California State University-Chico",110538,"Fall","2018","Van Dusen, Ben","Concepts in Physical Science","SCED 141","other","other"
+"27",NA,1026,72,"West Virginia University",238032,"Fall","2018","Miller, Paul","Conceptual Physics","PHYS 105","other","other"
+"28",NA,1062,242,"University of Nebraska-Omaha",NA,"Fall","2018","Moore, James","Pedagogical Content Knowledge in Physics","PHYS 8110","other","la"
+"29",NA,1065,33,"North Dakota State University",NA,"Fall","2018","Christensen, Warren","University Physics","Phys 251","calculus","1"
+"30",NA,1106,225,"California State University-Chico",110538,"Fall","2018","Arpin, Paul","Mechanics","PHYS 204","calculus","1"
+"31",NA,1108,25,"George Mason University",232186,"Fall","2018","Dreyfus, Benjamin","College Physics II","PHYS 245","algebra","2"
+"32",NA,1107,7,"Boston University",164988,"Fall","2018","Gross, Nicholas","Physics for Health Sciences","PY 104","algebra","1"
+"33",NA,1143,375,"Tennessee Technological University",221847,"Fall","2018","Engelhardt, Paula","Algebra-based Physics I","null 2010","algebra","1"
+"34",NA,1144,375,"Tennessee Technological University",221847,"Fall","2018","Engelhardt, Paula","Algebra-based Physics I","null 2010","algebra","1"
+"35",NA,1145,375,"Tennessee Technological University",221847,"Fall","2018","Engelhardt, Paula","Algebra-based Physics I","null 2010","algebra","1"
+"36",NA,1151,156,"Texas State University",228459,"Fall","2018","Close, Eleanor","Physics Cognition and Pedagogy","PHYS 3210","other","la"
+"37",NA,1156,7,"Boston University",164988,"Fall","2018","Jariwala, Manher","General Physics 1","PY 211","calculus","1"
+"38",NA,1193,247,"University of Utah",230764,"Fall","2018","May, Jason","General Physics Laboratory I","2117 2015","algebra","1"
+"39",NA,1211,46,"Seattle Pacific University",236577,"Fall","2018","Goodhew, Lisa","PHY 1121","PHY 1121",NA,NA
+"40",NA,1212,46,"Seattle Pacific University",236577,"Fall","2018","Goodhew, Lisa","PHY 1121","PHY 1121",NA,NA
+"41",NA,1217,218,"University of Southern Maine",161554,"Fall","2018","Nakroshis, Paul","Introductory Physics Lab I","PHY 114","algebra","1"
+"42",NA,1218,218,"University of Southern Maine",161554,"Fall","2018","Nakroshis, Paul","Introductory Physics Lab I","PHY 114",NA,NA
+"43","CLASS-PHYS",775,247,"University of Utah",230764,"Spring","2018","Beehler, Adam","General Physics I","PHYS 2010","algebra","1"
+"44","CLASS",817,213,"Rowan University",184782,"Spring","2018","Claar, Rodger","Physics of Everyday Life","PHYS 150","other","other"
+"45","CLASS",818,213,"Rowan University",184782,"Spring","2018","Vitale, Timothy","Physics of Everyday Life","PHYS 150","other","other"
+"46","CLASS",830,235,"East Carolina University",198464,"Spring","2018","Wolf, Steven","University Physics 2","PHYS 2360","calculus","2"
+"47","CLASS-PHYS",839,25,"George Mason University",232186,"Spring","2018","Dreyfus, Benjamin","College Physics II","PHYS 245","algebra","2"
+"48","CLASS",849,137,"California State University, Sacramento",NA,"Spring","2018","Morris, Eliza","General Mechanics (calc-based)","Phys 11",NA,NA
+"49","Spr18 Attitudes",850,7,"Boston University",164988,"Spring","2018","Jariwala, Manher","General Physics 2","PY 212","calculus","2"
+"50","P221 S18",854,122,"City Colleges of Chicago - Harold Washington College",NA,"Spring","2018","Escuadro, Anthony","Mechanics, Heat and Waves","PHYS 221",NA,NA
+"51","CLASS",877,225,"California State University-Chico",110538,"Spring","2018","Van Dusen, Ben","Concepts in Physical Science","SCED 141","other","other"
+"52","CLASS_pre",881,225,"California State University-Chico",110538,"Spring","2018","Petrova-Mayor, Anna","Mechanics","PHYS 204",NA,NA
+"53","Attitude Survey",882,225,"California State University-Chico",110538,"Spring","2018","Arpin, Paul","Mechanics","PHYS 204","calculus","1"
+"54","Pre Test",891,92,"Chicago State University",144005,"Spring","2018","Pittman, Lionel","Physics 1 alg","PHYS 1510","algebra","1"
+"55","Class",902,225,"California State University-Chico",110538,"Spring","2018","Lin, Yuhfen","General Physics","PHYS 202","algebra","2"
+"56","Class-Phys",893,92,"Chicago State University",144005,"Spring","2018","Pittman, Lionel","Physics 1 calc","PHYS 2110","calculus","1"
+"57","Class",909,92,"Chicago State University",144005,"Spring","2018","Pittman, Lionel","Physics III with Calc","PhyS 2330","calculus","3"
+"58","Cl",894,92,"Chicago State University",144005,"Spring","2018","Pittman, Lionel","Physics 2 calc","PHYS 2220","calculus","2"
+"59",NA,966,354,"South Seattle College",236504,"Spring","2018","Daane, Abigail","Physics 223 - Physics for Engineering","PHYS 223","calculus","2"
+"60","Ideas about Physics",969,354,"South Seattle College",236504,"Spring","2018","Daane, Abigail","Engineering Physics I","PHYS 221","calculus","1"
+"61","Initial Attitude Survey",781,354,"South Seattle College",236504,"Winter","2018","Daane, Abigail","Engineering Physics II","PHYS 222",NA,NA
+"62","Physics Attitudes",787,46,"Seattle Pacific University",236577,"Winter","2018","Gray, Kara","Developing Concepts in Physical Science II","PHY 2568","other","other"
+"63",NA,1246,354,"South Seattle College",236504,"Winter","2019","Daane, Abigail","Waves and Optics","PH223 PH223",NA,NA
+"64","CLASS",318,225,"California State University-Chico",110538,"Fall","2016","Van Dusen, Ben","Concepts in Physical Science","SCED 141","other","other"
+"65","F16 Pre",363,92,"Chicago State University",144005,"Fall","2016","Sabella, Mel","Physics 1 alg","PHYS 1510","algebra","1"
+"66","F16 Pre",362,92,"Chicago State University",144005,"Fall","2016","Sabella, Mel","Physics 1 alg","PHYS 1510","algebra","1"
+"67","F16 Pre",364,92,"Chicago State University",144005,"Fall","2016","Sabella, Mel","Physics 2 alg","PHYS 1520","algebra","2"
+"68","F16 Pre",365,92,"Chicago State University",144005,"Fall","2016","Sabella, Mel","Physics 2 calc","PHYS 2220","calculus","2"
+"69","Pre",380,228,"Agnes Scott College",138600,"Fall","2016","Ackerman, Nicole","Waves around the world","PHY 150","other","other"
+"70","Pre",406,156,"Texas State University",228459,"Fall","2016","Bergeler, Elmar","General Physics 1","PHYS 1315","algebra","1"
+"71","Pre",407,156,"Texas State University",228459,"Fall","2016","Bergeler, Elmar","General Physics 1","PHYS 1315","algebra","1"
+"72","Pre",408,156,"Texas State University",228459,"Fall","2016","Bergeler, Elmar","General Physics 1","PHYS 1315","algebra","1"
+"73","Pre",409,156,"Texas State University",228459,"Fall","2016","Bergeler, Elmar","General Physics 1","PHYS 1315","algebra","1"
+"74","F16",421,213,"Rowan University",184782,"Fall","2016","Claar, Rodger","Physics of Everyday Life","PHSY 150","other","other"
+"75","F16",422,213,"Rowan University",184782,"Fall","2016","Dougherty, Lawrence","Physics of Everyday Life","PHSY 150",NA,NA
+"76","Class PHYS1430",433,156,"Texas State University",228459,"Fall","2016","Geerts, Wilhelmus","Introductory Mechanics","PHYS 1430","calculus","1"
+"77","F16 Pre",438,156,"Texas State University",228459,"Fall","2016","Lunk, Brandon","Electricity & Magnetism","Phys 2425","calculus","2"
+"78","F16 Pre",439,156,"Texas State University",228459,"Fall","2016","Lunk, Brandon","Electricity & Magnetism","Phys 2425","calculus","2"
+"79","F16 Pre",440,156,"Texas State University",228459,"Fall","2016","Lunk, Brandon","Electricity & Magnetism","Phys 2425","calculus","2"
+"80","CLASS",442,156,"Texas State University",228459,"Fall","2016","Sengupta, Aparajita","Introductory Mechanics","PHYS 1430","calculus","1"
+"81","Fall16 Attitudes",445,7,"Boston University",164988,"Fall","2016","Jariwala, Manher","General Physics 1","PY 211","calculus","1"
+"82","PY105 pre-test",446,7,"Boston University",164988,"Fall","2016","Duffy, Andrew","Elementary Physics 1","PY 105","algebra","1"
+"83","PY105 pre-test",447,7,"Boston University",164988,"Fall","2016","Duffy, Andrew","Elementary Physics 1","PY 105","algebra","1"
+"84","PY105 pre-test",448,7,"Boston University",164988,"Fall","2016","Duffy, Andrew","Elementary Physics 1","PY 105","algebra","1"
+"85","PY105 pre-test",449,7,"Boston University",164988,"Fall","2016","Duffy, Andrew","Elementary Physics 1","PY 105","algebra","1"
+"86","PY105 pre-test",450,7,"Boston University",164988,"Fall","2016","Duffy, Andrew","Elementary Physics 1","PY 105","algebra","1"
+"87","F16 Pre",457,156,"Texas State University",228459,"Fall","2016","Gregory, Amanda","Introductory Mechanics","PHYS 1430","calculus","1"
+"88","F16 Pre",458,156,"Texas State University",228459,"Fall","2016","Gregory, Amanda","Introductory Mechanics","PHYS 1430","calculus","1"
+"89","S16 Pre",192,92,"Chicago State University",144005,"Spring","2016","Sabella, Mel","Physics 1 calc","PHYS 2110","calculus","1"
+"90","S16 Pre",197,92,"Chicago State University",144005,"Spring","2016","Sabella, Mel","Dynamics","ENGR 2550",NA,NA
+"91","S16 Pre",194,92,"Chicago State University",144005,"Spring","2016","Sabella, Mel","Physics 1 alg","PHYS 1510",NA,NA
+"92","Spr16 Attitude - Student",204,7,"Boston University",164988,"Spring","2016","Jariwala, Manher","General Physics 2","PY 212","calculus","2"
+"93","CLASS-Phys Pre-Sp2016",215,122,"City Colleges of Chicago - Harold Washington College",NA,"Spring","2016","Millan, Jaime","General Physics II","PHYS 222",NA,NA
+"94","CLASS-Pre Pre-Sp2016",213,122,"City Colleges of Chicago - Harold Washington College",NA,"Spring","2016","Millan, Jaime","Engineering Physics II","PHYS 236","calculus","2"
+"95","Learning attitudes survey -pre",257,156,"Texas State University",228459,"Spring","2016","Bergeler, Elmar","General Physics 1","PHYS 1315","algebra","1"
+"96","Learning attitudes survey -pre",258,156,"Texas State University",228459,"Spring","2016","Bergeler, Elmar","General Physics 1","PHYS 1315","algebra","1"
+"97","Learning attitudes survey -pre",260,156,"Texas State University",228459,"Spring","2016","Bergeler, Elmar","General Physics 1","PHYS 1315","algebra","1"
+"98","S16-Pre",265,156,"Texas State University",228459,"Spring","2016","Gregory, Amanda","Introductory Mechanics","PHYS 1430","calculus","1"
+"99","S16-Pre",268,156,"Texas State University",228459,"Spring","2016","Gregory, Amanda","Introductory Mechanics","PHYS 1430","calculus","1"
+"100","S16-Pre",267,156,"Texas State University",228459,"Spring","2016","Gregory, Amanda","Introductory Mechanics","PHYS 1430","calculus","1"
+"101","S16-Pre",266,156,"Texas State University",228459,"Spring","2016","Gregory, Amanda","Introductory Mechanics","PHYS 1430","calculus","1"
+"102","CLASS",282,156,"Texas State University",228459,"Spring","2016","Donnelly, Dave","Introductory Mechanics","PHYS 1430","calculus","1"
+"103","S16 Pre",283,156,"Texas State University",228459,"Spring","2016","Lunk, Brandon","Electricity & Magnetism","Phys 2425","calculus","2"
+"104","S16 Pre",284,156,"Texas State University",228459,"Spring","2016","Lunk, Brandon","Electricity & Magnetism","Phys 2425","calculus","2"
+"105","1600lecAtt",287,183,"Auburn University",100858,"Spring","2016","Kolarkar, Ameya","Engineering Physics 1","PHYS 1600",NA,NA
+"106","S16 - Post",265,156,"Texas State University",228459,"Spring","2016","Gregory, Amanda","Introductory Mechanics","PHYS 1430","calculus","1"
+"107","S16 - Post",266,156,"Texas State University",228459,"Spring","2016","Gregory, Amanda","Introductory Mechanics","PHYS 1430","calculus","1"
+"108","S16 - Post",268,156,"Texas State University",228459,"Spring","2016","Gregory, Amanda","Introductory Mechanics","PHYS 1430","calculus","1"
+"109","S16 - Post",267,156,"Texas State University",228459,"Spring","2016","Gregory, Amanda","Introductory Mechanics","PHYS 1430","calculus","1"
+"110","SP2016 Pre",498,19,"University of Colorado Boulder",126614,"Spring","2017","Chasteen, Stephanie","Light and Color for Nonscientists","PHYS 1230","other","other"
+"111","P1510-2110.S17.1.PRE",505,92,"Chicago State University",144005,"Spring","2017","Sabella, Mel","Physics 1 alg","PHYS 1510","algebra","1"
+"112","PHYS1520-2220-PRE",506,92,"Chicago State University",144005,"Spring","2017","Sabella, Mel","Physics 2 alg","PHYS 1520","algebra","2"
+"113","Ed hon2 class",507,183,"Auburn University",100858,"Spring","2017","Kolarkar, Ameya","Honors Physics 2","PHYS 1617",NA,NA
+"114","me 1500 sp17",512,183,"Auburn University",100858,"Spring","2017","Kolarkar, Ameya","General Physics","PHYS 1500",NA,NA
+"115","me 1600 sp17",513,183,"Auburn University",100858,"Spring","2017","Kolarkar, Ameya","Engineering Physics 1","PHYS 1600",NA,NA
+"116","1510",521,183,"Auburn University",100858,"Spring","2017","Kolarkar, Ameya","General Physics 2","PHYS 1510",NA,NA
+"117","S17",530,213,"Rowan University",184782,"Spring","2017","Claar, Rodger","Physics of Everyday Life","PHSY 150","other","other"
+"118","Spr16 Attitudes",550,7,"Boston University",164988,"Spring","2017","Jariwala, Manher","General Physics 2","PY 212","calculus","2"
+"119","Attitudinal Survey",553,7,"Boston University",164988,"Spring","2017","Ludwig, Karl","General Physics 1","PY 211",NA,NA
+"120","CLASS",568,225,"California State University-Chico",110538,"Spring","2017","Van Dusen, Ben","Concepts in Physical Science","SCED 141","other","other"
+"121","CLASS",589,46,"Seattle Pacific University",236577,"Spring","2017","Gray, Kara","Introduction to that Nature of Science","PHY 1110","other","other"
+"122","CLASS",590,46,"Seattle Pacific University",236577,"Spring","2017","Gray, Kara","Physics of Sound","PHY 1140","other","other"
+"123","CLASS",598,46,"Seattle Pacific University",236577,"Spring","2017","Gray, Kara","Scholars Physics Course","PHY 1111","other","other"
+"124",NA,1248,247,"University of Utah",230764,"Spring","2019","Buehler, Tabitha","The Universe","ASTR 1060",NA,NA
+"125",NA,1264,235,"East Carolina University",198464,"Spring","2019","Wolf, Steven","University Physics 2","PHYS 2360",NA,NA
+"126",NA,1271,19,"University of Colorado Boulder",126614,"Spring","2019","Wilcox, Bethany","Light and Color for Nonscientists","PHYS 1230",NA,NA
+"127",NA,1290,375,"Tennessee Technological University",221847,"Spring","2019","Engelhardt, Paula","Algebra-based Physics I","PHYS 2010",NA,NA
+"128",NA,1291,375,"Tennessee Technological University",221847,"Spring","2019","Engelhardt, Paula","Algebra-based Physics I","PHYS 2010",NA,NA
+"129",NA,1292,375,"Tennessee Technological University",221847,"Spring","2019","Engelhardt, Paula","Algebra-based Physics I","PHYS 2010",NA,NA
+"130",NA,1323,247,"University of Utah",230764,"Spring","2019","May, Jason","General Physics Laboratory 1","7181 2015",NA,NA
+"131",NA,1340,25,"George Mason University",232186,"Spring","2019","Dreyfus, Benjamin","College Physics II","PHYS 245",NA,NA
+"132",NA,1337,7,"Boston University",164988,"Spring","2019","Jariwala, Manher","General Physics 2","PY 212",NA,NA
+"133",NA,1391,225,"California State University-Chico",110538,"Spring","2019","Arpin, Paul","Mechanics","PHYS 204A",NA,NA
+"134",NA,1405,156,"Texas State University",228459,"Spring","2019","Close, Eleanor","Physics Cognition and Pedagogy","PHYS 3210",NA,NA
+"135",NA,1409,156,"Texas State University",228459,"Spring","2019","Lunk, Brandon","Electricity & Magnetism","Phys 2425",NA,NA
+"136",NA,1410,156,"Texas State University",228459,"Spring","2019","Lunk, Brandon","Electricity & Magnetism","Phys 2425",NA,NA
+"137",NA,1411,156,"Texas State University",228459,"Spring","2019","Lunk, Brandon","Electricity & Magnetism","Phys 2425",NA,NA
+"138",NA,1412,156,"Texas State University",228459,"Spring","2019","Lunk, Brandon","Electricity & Magnetism","Phys 2425",NA,NA
+"139","CLASS-Phys",640,6,"Boise State University",142115,"Summer","2017","Atkins Elliott, Leslie","Knowing & Learning","STEME 210",NA,NA
+"140",NA,985,391,"University of Toronto",NA,"Summer","2018","Sealfon, Carolyn","Introduction to Physics II","PHY 132",NA,NA
+"141","CLASS-KINE",999,452,"California State University-San Marcos",366711,"Summer","2018","Tunur, Tumay","Motor Control and Learning","KINE 301",NA,NA
