@@ -43,6 +43,7 @@ lasso_as$pre_duration[lasso_as$LASSO_collection == "admin_upload"] <-999.999
 lasso_as$post_duration[lasso_as$LASSO_collection == "admin_upload"] <-999.999
 lasso_as <- subset(lasso_as, is.na(pre_duration)==FALSE | is.na(post_duration)== FALSE)
 
+length(lasso_as$course_id)
 length(unique(lasso_as$course_id))
 length(unique(lasso_as$institution_id))
 
@@ -82,7 +83,7 @@ lasso_as$collab_learning_during_class[lasso_as$course_use_la==1] <- 1
 sum(lasso_as$collab_learning_during_class, na.rm = TRUE)
 length(lasso_as$collab_learning_during_class[is.na(lasso_as$collab_learning_during_class)==TRUE])
  
-lasso_as <- subset(lasso_as, is.na(collab_learning_during_class)==FALSE)                                                               
+#lasso_as <- subset(lasso_as, is.na(collab_learning_during_class)==FALSE)                                                               
 lasso_as$ID <- seq.int(nrow(lasso_as))
 
 ```
@@ -437,7 +438,17 @@ temp <- left_join(temp.pre[c(43,46:87,130,131)],temp.post[c(43,46:87,130,131)], 
 temp2 <- left_join(lasso_as,temp, by = c("ID") )
 temp <- subset(temp, is.na(e_pre)==FALSE | is.na(e_post)== FALSE)
 temp2 <- subset(temp2, is.na(e_pre)==FALSE | is.na(e_post)== FALSE)
+```
 
+code to pull out students who took it more than once
+```{r eval=FALSE, include=FALSE}
+twice_taken <- temp2 %>% group_by(student_id) %>% mutate(take_twice = length(student_id))
+twice_taken <- twice_taken %>% filter (take_twice>=2)
+save(twice_taken, file="CLASS_taken_multiple_times.Rdata")
+```
+
+
+```{r}
 
 #length(temp2$collab_learning_during_class[is.na(temp2$collab_learning_during_class)==TRUE])
 
@@ -460,7 +471,25 @@ save(lasso_as, file= "all_class_postPERC.RData")
 
 ```
 
+```{r}
+dredge_data <- temp2[,c("ID","course_id", "course_use_las" ,"collab_learning_during_class" ,"student_id",                         "gender_text","male" ,"female","transgender","gender_noanswer","gender_other",
+                        "hispanic" ,"white" , "black","asian", "american_indian" , "hawaiian_or_other_pacific_islander", "race_noanswer" , "race_other" , "year_in_school"  , "first_time"  , "l_pre"  , "e_pre"  , "l_post" , "e_post"    )]
+str(dredge_data)
 
+save(dredge_data, file= "dredge_data.RData") 
+```
+
+```{r}
+course_descriptions <- subset(temp, Physics==1)
+length(unique(dredge_data$course_id))
+course_descriptions <- unique(course_descriptions[c(139:147)])
+length(unique(course_descriptions$course_id))
+
+course_descriptions_7_10 <- readxl::read_excel("course_descriptions_7_10.xlsx", sheet = "course_descriptions_7_10 (2)")
+course_descriptions <- left_join(course_descriptions, course_descriptions_7_10, by="course_id")
+write.csv(course_descriptions, file = "course_descriptions_11_5_19.csv")
+
+```
 
 
 

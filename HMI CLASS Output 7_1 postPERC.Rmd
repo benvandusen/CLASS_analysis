@@ -16,6 +16,13 @@ library(readr)
 
 ```{r}
 load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS_analysis/eq_data_postPERC.RData")
+load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/Data Compilation/Combine/LASSO_data_6_19_for_research")
+big_data <- temp
+str(big_data)
+institutions <- unique(big_data[c(139:141,207)])
+calcmechcourses <- unique(temp[c(2:4)])
+
+thing <- institutions[institutions$course_id %in% calcmechcourses$course_id,]
 ```
 
 ```{r load }
@@ -178,6 +185,8 @@ eq_data_reduced <- subset(eq_data_reduced, level %in% c("1","2","other"))
 
 #colnames(eq_data_reduced_2)
 
+save(eq_data_reduced, file="eq_data_reduced_for_hmi.RData")
+
 #rm(hmi_4_17_19)
 hmi_class_7_10_19 <- hmi(eq_data_reduced, model_formula = e_post ~ 1 + e_pre + male + black_no_int + hispanic_no_int + asian_no_int + race_otherstar_no_int + math + level + (1|course_id)  , M = 10, maxit = 5, nitt = 3000,  burnin = 1000)
 
@@ -222,7 +231,6 @@ cbbpalette <- c( "#009E73", "#e79f00", "#9ad0f3", "#0072B2", "#D55E00",
 
 Creating mitml and extra variables
 ```{r}
-temp <- as.data.frame(MIdata[1])
 #df_full <- complete(hmi.fall.2018)
 #str(df_full)
 MIdata<-mids2mitml.list(hmi_class_7_10_19) #converts file type
@@ -258,6 +266,7 @@ MIdata <- as.mitml.list(thing)
 
 desc2 <- foreach(i=1:10, .combine=rbind) %do% {
 temp <- MIdata[[i]]
+temp <- temp[temp$course_type=="calcmech",]
 temp$race <- ifelse(temp$black_no_int ==1, "Black",ifelse(temp$hispanic_no_int ==1, "Hispanic",ifelse(temp$asian_no_int ==1, "Asian",ifelse(temp$race_otherstar_no_int ==1, "Other","White"))))
 desc <- temp %>% group_by(math, level, race, male) %>% summarise(N = length(e_pre),
                                                                  pre_mean = mean(e_pre),
@@ -265,7 +274,9 @@ desc <- temp %>% group_by(math, level, race, male) %>% summarise(N = length(e_pr
                                                                  post_mean = mean(e_post),
                                                                  post_sd = sd(e_post),
                                                                  gain_mean = mean (e_post-e_pre),
-                                                                 gain_sd = sd(e_post-e_pre)
+                                                                 gain_sd = sd(e_post-e_pre),
+                                                                 pre_75 = mean(pre75),
+                                                                 post_75 = mean(post75)
                                                                  )
 
 
@@ -508,8 +519,8 @@ ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_tim
   ylab("Expert-like Score (%)") +
   scale_color_manual(name="Gender",
                      breaks= c("Female","Male"),
-                     values=cbbpalette) +
-  ylim(c(40,70))
+                     values=cbbpalette) 
+  #ylim(c(40,70))
 ggsave("~algmech.png", plot= last_plot(), dpi=300, width = 4.75, height = 3.25, units = "in", device = "png")
 
 
@@ -628,9 +639,9 @@ ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_tim
   ylab("Expert-like Score (%)") +
   scale_color_manual(name="Gender",
                      breaks= c("Female","Male"),
-                     values=cbbpalette) +
-  ylim(c(40,70))
-ggsave("~calcmech.png", plot= last_plot(), dpi=300, width = 4.75, height = 3.25, units = "in", device = "png")
+                     values=cbbpalette) 
+  #ylim(c(40,70))
+ggsave("calcmech2.png", plot= last_plot(), dpi=300, width = 4.75, height = 3.25, units = "in", device = "png")
 
 
 ```
@@ -651,36 +662,23 @@ logit2prob <- function(logit){
 thing <- list()
 for (i in 1:10){
   temp <- MIdata[[i]]
-  temp <- temp[temp$level==1 & temp$math=="calculus" ,]
+  temp <- temp[temp$level==1 & temp$math=="algebra" ,]
   thing[[i]] <- temp
   }
 midata_algmech <- as.mitml.list(thing)
 
-am_e_post1 <- with(temp,{glmer(post75~1 + (1|course_id),family = binomial)})
-am_aic.post1 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=midata_algmech[[i]], post75~1 + (1|course_id))
-  return <- AIC(mod_aic)
-}
-am_e_post2 <- with(midata_algmech,{glmer(post75~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
-am_aic.post2 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- glmer(data=midata_algmech[[i]], post75~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))
-  return <- AIC(mod_aic)
-  }
+am_e_post1 <- with(midata_algmech,{glmer(post75~1 + (1|course_id),family = binomial)})
 
-am_e_pre1 <- with(midata_algmech,{glmer(pre75~1 + (1|course_id))})
-am_aic.pre1 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- lmer(data=midata_algmech[[i]], pre75~1 + (1|course_id))
-  return <- AIC(mod_aic)
-}
-am_e_pre2 <- with(midata_algmech,{glmer(pre75~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id))})
-am_aic.pre2 <- foreach(i=1:10, .combine=rbind) %do% {
-  mod_aic <- glmer(data=midata_algmech[[i]], pre75~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) + (1|course_id))
-  return <- AIC(mod_aic)
-  }
+am_e_post2 <- with(midata_algmech,{glmer(post75~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id),family = binomial)})
 
-#testEstimates(am_e_pre1, var.comp=TRUE)
+am_e_pre1 <- with(midata_algmech,{glmer(pre75~1 + (1|course_id),family = binomial)})
+
+am_e_pre2 <- with(midata_algmech,{glmer(pre75~1 + female*(asian_no_int + black_no_int + hispanic_no_int + race_otherstar_no_int) +(1|course_id),family = binomial)})
+
+
+testEstimates(am_e_pre1, var.comp=TRUE)
 testEstimates(am_e_pre2, var.comp=TRUE)
-#testEstimates(am_e_post1, var.comp=TRUE)
+testEstimates(am_e_post1, var.comp=TRUE)
 testEstimates(am_e_post2, var.comp=TRUE)
 
 #     c(I, F, A,B,H,O, a,b,h,o)
@@ -713,30 +711,34 @@ unique(contrast_am_pre_est$race)
 
 contrast_am_pre_est$race <- factor(contrast_am_pre_est$race, levels = c("Black", "Hispanic", "Other", "Asian",    "White"))
 
+contrast_am_pre_est$LCL <- contrast_am_pre_est$Q - contrast_am_pre_est$SE
+contrast_am_pre_est$UCL <- contrast_am_pre_est$Q + contrast_am_pre_est$SE
+
 odds_plot_pre <- contrast_am_pre_est
-odds_plot_pre$Q <- logit2prob(odds_plot$Q)
-odds_plot_pre$LCL <- logit2prob(odds_plot$LCL)
-odds_plot_pre$UCL <- logit2prob(odds_plot$UCL)
+odds_plot_pre$Q <- logit2prob(contrast_am_pre_est$Q)
+odds_plot_pre$LCL <- logit2prob(contrast_am_pre_est$LCL)
+odds_plot_pre$UCL <- logit2prob(contrast_am_pre_est$UCL)
 
 
-ggplot(data=odds_plot_pre, aes(x=race, y=Q, group=gender, color=gender)) + geom_point(position = position_dodge(width=0.90)) + geom_errorbar(aes( ymax= UCL, ymin=LCL), position="dodge")+
-  theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
-  ylab("Pretest (%)") +
+ggplot(data=odds_plot_pre[odds_plot_pre$race!="Other",], aes(x=race, y=Q, group=gender, color=gender)) + geom_point(position = position_dodge(width=0.90)) + geom_errorbar(aes( ymax= UCL, ymin=LCL), position="dodge")+
+  theme(legend.position = "bottom", axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  ylab("Proportion Above 75%") +
   scale_color_manual(name="Gender",
                      breaks= c("Female","Male"),
                      values=cbbpalette) 
 
 
-#ggsave("~pream.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
+ggsave("precalcmech_log.png", plot= last_plot(), dpi=300, width = 3.75, height = 3.25, units = "in", device = "png")
 #kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
 
 contrast_am_post_est <- pool_and_cov_diffwm(am_e_post2,cf_e_2)
 unique(contrast_am_post_est$race)
 
-odds_plot_post <- contrast_am_pre_est
-odds_plot_post$Q <- logit2prob(odds_plot$Q)
-odds_plot_post$LCL <- logit2prob(odds_plot$LCL)
-odds_plot_post$UCL <- logit2prob(odds_plot$UCL)
+
+odds_plot_post <- contrast_am_post_est
+odds_plot_post$Q <- logit2prob(contrast_am_post_est$Q)
+odds_plot_post$LCL <- logit2prob(contrast_am_post_est$LCL)
+odds_plot_post$UCL <- logit2prob(contrast_am_post_est$UCL)
 
 odds_plot_post$race <- factor(odds_plot_post$race, levels = c("Black", "Hispanic", "Other", "Asian",    "White"))
 
@@ -745,10 +747,7 @@ ggplot(data=odds_plot_post, aes(x=race, y=Q, group=gender, color=gender)) + geom
   ylab("Pretest (%)") +
   scale_color_manual(name="Gender",
                      breaks= c("Female","Male"),
-                     values=cbbpalette) +
-facet_grid(.~instruction, scales = "free", space = "free") +
-  ylim(c(40,70))
-
+                     values=cbbpalette) 
 
 #ggsave("~pream.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
 #kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
@@ -762,7 +761,7 @@ for_plot$gender_time <- paste(for_plot$Time, for_plot$gender)
 for_plot$gender_time <- factor(for_plot$gender_time, levels=c("Pre Female","Pre Male","Post Female","Post Male"))
 
 ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_time, color=gender, shape=Time)) + geom_point(position = position_dodge(width=0.90), size=2) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
-  theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  theme(legend.position = "bottom",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
   ylab("Expert-like Score (%)") +
   scale_color_manual(name="Gender",
                      breaks= c("Female","Male"),
@@ -771,6 +770,13 @@ ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_tim
 
 
 ```
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,224 @@
+---
+title: "CLASS 3 level"
+author: "Jayson Nissen"
+date: "11/17/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyr)
+library(readr)
+library("cAIC4")
+library("MuMIn")
+library("lme4")
+library("dummies")
+library(foreach)
+library(ggplot2)
+library(multcomp)
+library(lattice)
+library(hglm)
+library(gmodels)
+library(mitml)
+library(ggpubr)
+library(stringr)
+library(hmi)
+library(mice)
+library(dplyr)
+plot_col <- c('#66c2a5', '#fc8d62', '#8da0cb')
+#cbbpalette <- c('#000000','#E69F00','#56B4E9')
+cbbpalette <- c( "#009E73", "#e79f00", "#9ad0f3", "#0072B2", "#D55E00", 
+    "#CC79A7","#000000", "#F0E442") #colorblind and grayscale friendly.
+```
+
+```{r}
+pool_and_cov_diffwm <- function(x,y){
+  get.est <- foreach(i=1:10, .combine=rbind) %do% {
+  sxp3 <- summary(glht(x[[i]], linfct=y)) #specifically for post3
+  covp3 <- vcov(glht(x[[i]], linfct=y))
+  data.frame(imp=i, 
+             group=rownames(sxp3$linfct),
+             d = sxp3$test$coefficients, 
+             var.d = (sxp3$test$sigma)^2,
+             cov = covp3)
+}
+p3est <- get.est %>% group_by(group) %>% 
+                  summarise(Q = mean(d), 
+                            U = mean(var.d), 
+                            B = var(d), 
+                            T = U + ((1+1/max(imp))*B), 
+                            LCL = Q - 1.96*sqrt(T), 
+                            UCL = Q + 1.96*sqrt(T),
+                            SE = sqrt(T)) 
+p3est$race <- word(p3est$group, 1)
+p3est$gender <- word(p3est$group, 2)
+p3est$instruction <- word(p3est$group, 3)
+p3est$race_gender <- paste(p3est$race,p3est$gender, sep= " ")
+return <- p3est}
+```
+
+#This is a hoge poge of analyses.
+looking at the students with classes over christmas break
+```{r}
+load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS_analysis/CLASS_taken_multiple_times.Rdata")
+```
+
+
+```{r}
+twice_taken <- twice_taken %>% mutate(pre_date = as.numeric(gsub("-","",substr(pre_submitted,1,10))),
+                                      post_date = as.numeric(gsub("-","",substr(post_submitted,1,10))))
+
+twice_taken <- twice_taken %>% group_by(student_id) %>% mutate(date_rank = dense_rank((pre_date)))
+#temp <- twice_taken %>% filter(is.na(date_rank)==FALSE)
+first_time <- twice_taken %>% filter(date_rank==1)
+first_time <- first_time[c("student_id","course_id","e_post","post_date", "post_1","post_11","post_21","post_32","post_41")]
+second_time <- twice_taken %>% filter(date_rank==2)
+second_time <- second_time[c("student_id","course_id","e_pre","pre_date", "pre_1", "pre_11", "pre_21", "pre_32", "pre_41")]
+temp <- left_join(first_time,second_time, by="student_id")
+temp <- temp %>% filter(is.na(e_pre)==FALSE &is.na(e_post)==FALSE)
+temp$time_difference <- temp$pre_date - temp$post_date
+temp <- temp %>% filter(time_difference>0 &time_difference<10000)
+
+cor.test(temp$e_pre,temp$e_post)
+cor.test(as.numeric(temp$pre_1),as.numeric(temp$post_1))
+cor.test(as.numeric(temp$pre_11),as.numeric(temp$post_11))
+cor.test(as.numeric(temp$pre_21),as.numeric(temp$post_21))
+cor.test(as.numeric(temp$pre_32),as.numeric(temp$post_32))
+cor.test(as.numeric(temp$pre_41),as.numeric(temp$post_41))
+
+
+
+```
+
+
+
+
+```{r eval=FALSE, include=FALSE}
+load("hmi_class_dredge_11_06_19.RData")
+#load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/Data Compilation/Combine/LASSO_data_6_19_for_research")
+#all_data <- temp
+#rm(temp)
+```
+
+#Testing the quality of the imputation
+```{r}
+temp <- complete(hmi_class_dredge)
+xyplot(hmi_class_dredge,e_pre ~ math+level,pch=18,cex=1)
+densityplot(hmi_class_dredge)
+stripplot(hmi_class_dredge, e_pre + e_post ~.imp ,pch = 20, cex = 1.2, hor=TRUE)
+```
+
+
+
+
+
+```{r}
+#load("hmi_class_dredge_11_06_19.RData")
+MIdata<-mids2mitml.list(hmi_class_dredge) #converts file type
+thing <- list()
+for (i in 1:10){
+  temp <- MIdata[[i]]
+  temp <- temp[temp$level==1 & temp$math=="calculus",]
+  #temp <- temp[temp$course_id!="531",] # This is a small course that is throwing off the class means -- outlier
+  class_means <- temp %>% group_by(course_id) %>% summarise(pre_mean_class = mean(e_pre))
+  class_means$class_pre_cent <- class_means$pre_mean_class - mean(class_means$pre_mean_class)
+  temp <- left_join(temp,class_means, by="course_id")
+  temp$stud_pre_cent <- temp$e_pre - temp$pre_mean_class
+  temp$course_type <- ifelse(temp$math=="algebra" & temp$level=="1","algmech",ifelse(temp$math=="calculus" & temp$level=="1","calcmech",ifelse(temp$math=="algebra" & temp$level=="2","algenm",ifelse(temp$math=="calculus" & temp$level=="2","calcenm","other"))))
+temp$gender_noanswer[temp$male==0 & temp$female==0] <- 1
+temp$gender_cat <- ifelse(temp$male==1, "Male",ifelse(temp$female==1,"Female","Other"))
+temp$race_cat <- "Other"
+temp$race_cat[temp$white==1] <- "White"
+temp$race_cat[temp$hispanic==1 & temp$white ==0] <- "Hispanic"
+temp$race_cat[temp$hispanic==1 & temp$white ==1] <- "White Hispanic"
+temp$race_cat[temp$black==1] <- "Black"
+temp$race_cat[temp$asian==1] <- "Asian"
+temp$race_cat[temp$black==1 & temp$hispanic==1] <- "Black Hispanic"
+temp$race_cat[temp$asian==1 & temp$hispanic==1] <- "Asian Hispanic"
+temp$gender_noanswer[temp$male==0 & temp$female==0] <- 1
+temp$race_other2 <- 0
+temp$race_other2[temp$white!=1 & temp$hispanic!=1 & temp$asian!=1 & temp$black !=1] <-1
+temp$post75 <- ifelse(temp$e_post>=75,1,0)
+temp$pre75 <- ifelse(temp$e_pre>=75,1,0)
+temp <- temp %>% pivot_longer( cols = c(e_pre,e_post), names_to ="time", values_to = "e_value")
+  thing[[i]] <- temp
+  }
+MIdata <- as.mitml.list(thing)
+
+```
+
+```{r}
+class_calc_fin_mod <- with(MIdata, lmer(e_value ~ time*(gender_noanswer + hispanic*white + female*(black + asian + hispanic + white) + race_other2)  +  (1|course_id:ID)))
+testEstimates(class_calc_fin_mod, var.comp=TRUE)
+class_calc_fin_mod$
+```
+
+
+
+
+```{r}
+#      c(I, P, G, H,W,F,  B,A,O,HW, b, a, h,w:  G, H,W,F,  B,A,O,HW, b, a, h,w )
+WM   = c(1, 0, 0, 0,1,0,  0,0,0, 0, 0, 0, 0,0,  0, 0,1,0,  0,0,0, 0, 0, 0, 0,0 )
+WF   = c(1, 0, 0, 0,1,1,  0,0,0, 0, 0, 0, 0,1,  0, 0,1,0,  0,0,0, 0, 0, 0, 0,0 )
+BM   = c(1, 0, 0, 0,0,0,  1,0,0, 0, 1, 0, 0,0,  0, 0,1,0,  0,0,0, 0, 0, 0, 0,0 )
+BF   = c(1, 0, 0, 0,0,1,  1,0,0, 0, 1, 0, 0,0,  0, 0,1,0,  0,0,0, 0, 0, 0, 0,0 )
+AM   = c(1, 0, 0, 0,0,0,  0,1,0, 0, 0, 1, 0,0,  0, 0,1,0,  0,0,0, 0, 0, 0, 0,0 )
+AF   = c(1, 0, 0, 0,0,1,  0,1,0, 0, 0, 1, 0,0,  0, 0,1,0,  0,0,0, 0, 0, 0, 0,0 )
+HM   = c(1, 0, 0, 1,0,0,  0,0,0, 0, 0, 0, 1,0,  0, 0,1,0,  0,0,0, 0, 0, 0, 0,0 )
+HF   = c(1, 0, 0, 1,0,1,  0,0,0, 0, 0, 0, 1,0,  0, 0,1,0,  0,0,0, 0, 0, 0, 0,0 )
+WHM  = c(1, 0, 0, 1,1,0,  0,0,0, 1, 0, 0, 0,0,  0, 0,1,0,  0,0,0, 0, 0, 0, 0,0 )
+WHF  = c(1, 0, 0, 1,1,1,  0,0,0, 1, 0, 0, 1,1,  0, 0,1,0,  0,0,0, 0, 0, 0, 0,0 )
+
+cf_e_post_7 <- rbind('White Male'=WM,  
+                          'White Female'=WF,
+                          'Black Male'=BM,  
+                          'Black Female'=BF,
+                          'Asian Male'=AM, 
+                          'Asian Female'=AF,
+                          'Hispanic Male'=HM, 
+                          'Hispanic Female'=HF,
+                          'WhiteHispanic Male'=WHM,  
+                          'WhiteHispanic Female'=WHF)
+
+contrast_post7_est <- pool_and_cov_diffwm(class_calc_fin_mod,cf_e_post_7)
+unique(contrast_post7_est$race)
+
+contrast_post7_est$race <- factor(contrast_pre7_est$race, levels = c("Black", "Hispanic", "WhiteHispanic", "Asian",    "White"))
+
+cbbpalette <- c( "#009E73", "#e79f00", "#9ad0f3", "#0072B2", "#D55E00", 
+    "#CC79A7","#000000", "#F0E442") #colorblind and grayscale friendly.
+
+ggplot(data=contrast_post7_est, aes(x=race, y=Q, group=gender, color=gender)) + geom_point(position = position_dodge(width=0.90)) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
+  theme(legend.position = "right",  axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  ylab("posttest (%)") +
+  scale_color_manual(name="Gender",
+                     breaks= c("Female","Male"),
+                     values=cbbpalette) 
+
+#ggsave("~post7.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.25, units = "in", device = "png")
+#kable(contrast_p7_est[c(1,2,6,7)], digits = 2)
+```
+
+
+
+
+
+
+```{r}
+contrast_post7_est$time <- "Post"
+contrast_pre7_est$time <- "Pre"
+for_plot <- rbind(contrast_post7_est,contrast_pre7_est)
+for_plot$Time <- factor(for_plot$time, levels=c("Pre","Post")) 
+for_plot$gender_time <- paste(for_plot$Time, for_plot$gender)
+for_plot$gender_time <- factor(for_plot$gender_time, levels=c("Pre Female","Pre Male","Post Female","Post Male"))
+
+ggplot(data=for_plot[for_plot$race!="Other",], aes(x=race, y=Q, group=gender_time, color=gender, shape=Time)) + geom_point(position = position_dodge(width=0.90), size=2) + geom_errorbar(aes( ymax= Q+SE, ymin=Q-SE), position="dodge")+
+  theme( axis.text.x=element_text(angle=90) , axis.title.x = element_blank(), axis.ticks.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"),text = element_text(size=16, color = "black")) +
+  ylab("Expert-like Score (%)") +
+  scale_color_manual(name="Gender",
+                     breaks= c("Female","Male"),
+                     values=cbbpalette) 
+#ggsave("PERC_narrow.png", plot= last_plot(), dpi=300, width = 3.5, height = 4.5, units = "in", device = "png")
+#ggsave("calc_wide.png", plot= last_plot(), dpi=300, width = 7.3, height = 3.75, units = "in", device = "png")
+#write.csv(for_plot, file="calc_mod_table.csv")
+```

@@ -14,8 +14,7 @@ library(readr)
 
 
 ```{r load }
-load("eq_data")
-
+load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS Analysis OLD/eq_data")
 courses <- eq_data %>% group_by(course_id) %>% 
   summarise(N_total = length(course_id),
             N_pre = length(which(!is.na(e_pre))),
@@ -134,11 +133,40 @@ str(eq_data_reduced)
 save(eq_data_reduced, file="eq_data_4_17_19")
 ```
 
+summarize with eq_data to get the number of indian american, pac islander and trans students
+```{r eval=FALSE, include=FALSE}
+eq_data <- as.data.frame(eq_data)
+
+course_descriptions_updated <- read.csv("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS Analysis/course_descriptions_updated.csv")
+course_descriptions_updated <- read.csv("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/CLASS Analysis OLD/course_descriptions_updated.csv")
+courses <- unique(course_descriptions_updated[c(1:3)])
+eq_data <- left_join(eq_data, courses, by="course_id")
+
+unique(eq_data$math)
+#eq_data_reduced$math[eq_data_reduced$math=="other"] <- "algebra"
+eq_data$course_type <- ifelse(eq_data$math=="algebra" & eq_data$level=="1","algmech",ifelse(eq_data$math=="calculus" & eq_data$level=="1","calcmech",ifelse(eq_data$math=="algebra" & eq_data$level=="2","algenm",ifelse(eq_data$math=="calculus" & eq_data$level=="2","calcenm","other"))))
+
+eq_data <- subset(eq_data, course_type=="calcmech")
+
+sum(eq_data$amind_no_int)
+sum(eq_data$hawaiian_or_other_pacific_islander)
+class_list <- eq_data[c(1,2,5)]
+
+load("~/Documents/LA Postdoc stuff copy/RData/LASSO/Denver-Chico_collaboration/Data Compilation/Combine/LASSO_data_6_19_for_research")
+
+all_class_data <- subset(temp, class_phys==1)
+
+short_list <- subset(all_class_data, course_id %in% class_list$course_id)
+sum(short_list$transgender)
+```
+
+
+
 ```{r}
 library(hmi)
 library(mice)
 
-load(file="eq_data_4_17_19")
+load(file="~\eq_data_4_17_19")
 
 eq_data_reduced <- as.data.frame(eq_data_reduced)
 eq_data_reduced$course_use_la[is.na(eq_data_reduced$course_use_la ) ==TRUE] <- 1 

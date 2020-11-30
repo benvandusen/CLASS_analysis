@@ -595,3 +595,8 @@ students <- for_plot[c(3,5)]
 thing <- rbind(students,experts)
 ggplot(thing[thing$race!= "Other",], aes(x=e_post, color=race)) +geom_density(alpha=0.5)
 
+More detailed descriptive statistics
+```{r}
+
+```
+

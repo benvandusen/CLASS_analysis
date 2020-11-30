@@ -1,0 +1,12 @@
+,,Algebra-based,,Calculus-based,
+Race,Gender,Est.,SE,Est.,SE
+Asian,Female,-2.13,0.20,-1.86,0.25
+Asian,Male,-1.50,0.21,-1.31,0.17
+Black,Female,-2.61,0.43,-2.27,0.55
+Black,Male,-1.41,0.40,-1.27,0.33
+Hispanic,Female,-2.50,0.41,-1.80,0.37
+Hispanic,Male,-2.18,0.41,-1.93,0.28
+White,Female,-1.58,0.11,-0.92,0.15
+White,Male,-1.38,0.11,-0.56,0.11
+White Hispanic,Female,-2.26,0.30,-1.43,0.32
+White Hispanic,Male,-1.67,0.29,-0.98,0.20

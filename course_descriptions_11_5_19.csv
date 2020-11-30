@@ -1,0 +1,861 @@
+course_id,institution_id,institution_name,ccihe_id,term,year,instructor,course_name,course_number,math,level
+706,228,Agnes Scott College,138600,Fall,2017,"Wallace, Paul",Elements of Physics I,PHY 102,algebra,1
+708,228,Agnes Scott College,138600,Fall,2017,"Wallace, Paul",Elements of Physics I,PHY 102,algebra,1
+1152,228,Agnes Scott College,138600,Fall,2018,"Wallace, Paul",Elements of Physics I,PHY 102,algebra,1
+1153,228,Agnes Scott College,138600,Fall,2018,"Wallace, Paul",Elements of Physics I,PHY 102,algebra,1
+1207,228,Agnes Scott College,138600,Fall,2018,"Wallace, Paul",Elements of Physics I,PHY 102,algebra,1
+136,228,Agnes Scott College,138600,Fall,2015,"Ackerman, Nicole",Intro Physics I: Mechanics,PHY 202,calculus,1
+660,228,Agnes Scott College,138600,Fall,2017,"Ackerman, Nicole",Intro Physics I: Mechanics,PHY 202,calculus,1
+1136,228,Agnes Scott College,138600,Fall,2018,"Ackerman, Nicole",Intro Physics I: Mechanics,PHY 202,calculus,1
+366,228,Agnes Scott College,138600,Fall,2016,"Ackerman, Nicole",Intro Physics I: Mechanics,PHY 202,calculus,1
+813,228,Agnes Scott College,138600,Spring,2018,"Ackerman, Nicole",Intro Physics II: E&M,PHY 203,calculus,2
+201,228,Agnes Scott College,138600,Spring,2016,"Ackerman, Nicole",Intro Physics II: E&M,PHY 203,calculus,2
+1259,228,Agnes Scott College,138600,Spring,2019,"Ackerman, Nicole",Intro Physics II: E&M,PHY 203,calculus,2
+515,228,Agnes Scott College,138600,Spring,2017,"Clemmons, Hannah",Intro Physics II: E&M,PHY 203,calculus,2
+524,228,Agnes Scott College,138600,Spring,2017,"Clemmons, Hannah",Physic 103,Phy 103,algebra,2
+525,228,Agnes Scott College,138600,Spring,2017,"Clemmons, Hannah",Physic 103,Phy 103,algebra,2
+832,228,Agnes Scott College,138600,Spring,2018,"Wallace, Paul",Physic 103,Phy 103,algebra,2
+833,228,Agnes Scott College,138600,Spring,2018,"Wallace, Paul",Physic 103,Phy 103,algebra,2
+1326,228,Agnes Scott College,138600,Spring,2019,"Wallace, Paul",Physic 103,Phy 103,algebra,2
+1327,228,Agnes Scott College,138600,Spring,2019,"Wallace, Paul",Physic 103,Phy 103,algebra,2
+380,228,Agnes Scott College,138600,Fall,2016,"Ackerman, Nicole",Waves around the world,PHY 150,other,other
+151,259,American Association of Physics Teachers,NA,Fall,2015,"McKagan, Sarah",Intro Physics,Phys 123,test,test
+287,183,Auburn University,100858,Spring,2016,"Kolarkar, Ameya",Engineering Physics 1,PHYS 1600,calculus,1
+513,183,Auburn University,100858,Spring,2017,"Kolarkar, Ameya",Engineering Physics 1,PHYS 1600,calculus,1
+512,183,Auburn University,100858,Spring,2017,"Kolarkar, Ameya",General Physics,PHYS 1500,algebra,1
+289,183,Auburn University,100858,Spring,2016,"Kolarkar, Ameya",General Physics 2,PHYS 1510,algebra,2
+290,183,Auburn University,100858,Spring,2016,"Kolarkar, Ameya",General Physics 2,PHYS 1510,algebra,2
+521,183,Auburn University,100858,Spring,2017,"Kolarkar, Ameya",General Physics 2,PHYS 1510,algebra,2
+291,183,Auburn University,100858,Spring,2016,"Kolarkar, Ameya",Honors Physics 2,PHYS 1617,calculus,2
+507,183,Auburn University,100858,Spring,2017,"Kolarkar, Ameya",Honors Physics 2,PHYS 1617,calculus,2
+1241,416,Bergen Community College,183743,Spring,2019,"Haldolaarachchige, Neel",Physics I,AS.NS PHY28,calculus,1
+1242,416,Bergen Community College,183743,Spring,2019,"Haldolaarachchige, Neel",Physics I,AS.NS PHY28,calculus,1
+1413,416,Bergen Community College,183743,Spring,2019,"Haldolaarachchige, Neel",Physics I,PHY PHY28,calculus,1
+1147,416,Bergen Community College,183743,Fall,2018,"Haldolaarachchige, Neel",Physics II,PhySc 0,calculus,2
+1148,416,Bergen Community College,183743,Fall,2018,"Haldolaarachchige, Neel",Physics II,PhySc 0,calculus,2
+1149,416,Bergen Community College,183743,Fall,2018,"Haldolaarachchige, Neel",Physics III,PhySc 0,calculus,3
+640,6,Boise State University,142115,Summer,2017,"Atkins Elliott, Leslie",Knowing & Learning,STEME 210,other,ed
+453,7,Boston University,164988,Fall,2016,"LA Program, BU",BU LA Program,LA 0,other,la
+1638,7,Boston University,164988,Fall,2019,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+1639,7,Boston University,164988,Fall,2019,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+1640,7,Boston University,164988,Fall,2019,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+1641,7,Boston University,164988,Fall,2019,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+1642,7,Boston University,164988,Fall,2019,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+715,7,Boston University,164988,Fall,2017,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+716,7,Boston University,164988,Fall,2017,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+717,7,Boston University,164988,Fall,2017,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+718,7,Boston University,164988,Fall,2017,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+719,7,Boston University,164988,Fall,2017,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+1161,7,Boston University,164988,Fall,2018,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+1162,7,Boston University,164988,Fall,2018,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+1163,7,Boston University,164988,Fall,2018,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+1164,7,Boston University,164988,Fall,2018,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+1165,7,Boston University,164988,Fall,2018,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+1166,7,Boston University,164988,Fall,2018,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+446,7,Boston University,164988,Fall,2016,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+447,7,Boston University,164988,Fall,2016,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+448,7,Boston University,164988,Fall,2016,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+449,7,Boston University,164988,Fall,2016,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+450,7,Boston University,164988,Fall,2016,"Duffy, Andrew",Elementary Physics 1,PY 105,algebra,1
+906,7,Boston University,164988,Spring,2018,"Lascaris, Erik",Elementary Physics 1,PY 105,algebra,1
+576,7,Boston University,164988,Spring,2017,"Lascaris, Erik",Elementary Physics 1,PY 105,algebra,1
+635,7,Boston University,164988,Summer,2017,"Lascaris, Erik",Elementary Physics 1,PY 105,algebra,1
+239,7,Boston University,164988,Spring,2016,"Mohamedi, Graciela",Elementary Physics 1,PY 105,algebra,1
+861,7,Boston University,164988,Spring,2018,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+862,7,Boston University,164988,Spring,2018,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+863,7,Boston University,164988,Spring,2018,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+864,7,Boston University,164988,Spring,2018,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+865,7,Boston University,164988,Spring,2018,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+205,7,Boston University,164988,Spring,2016,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+206,7,Boston University,164988,Spring,2016,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+207,7,Boston University,164988,Spring,2016,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+208,7,Boston University,164988,Spring,2016,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+237,7,Boston University,164988,Spring,2016,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+238,7,Boston University,164988,Spring,2016,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+540,7,Boston University,164988,Spring,2017,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+541,7,Boston University,164988,Spring,2017,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+542,7,Boston University,164988,Spring,2017,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+543,7,Boston University,164988,Spring,2017,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+544,7,Boston University,164988,Spring,2017,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+1346,7,Boston University,164988,Spring,2019,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+1347,7,Boston University,164988,Spring,2019,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+1348,7,Boston University,164988,Spring,2019,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+1349,7,Boston University,164988,Spring,2019,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+1350,7,Boston University,164988,Spring,2019,"Duffy, Andrew",Elementary Physics 2,PY 106,algebra,2
+743,7,Boston University,164988,Fall,2017,"Lascaris, Erik",Elementary Physics 2,PY 106,algebra,2
+393,7,Boston University,164988,Fall,2016,"Lascaris, Erik",Elementary Physics 2,PY 106,algebra,2
+77,7,Boston University,164988,Fall,2015,"Jariwala, Manher",General Physics 1,PY 211,calculus,1
+720,7,Boston University,164988,Fall,2017,"Jariwala, Manher",General Physics 1,PY 211,calculus,1
+1156,7,Boston University,164988,Fall,2018,"Jariwala, Manher",General Physics 1,PY 211,calculus,1
+445,7,Boston University,164988,Fall,2016,"Jariwala, Manher",General Physics 1,PY 211,calculus,1
+553,7,Boston University,164988,Spring,2017,"Ludwig, Karl",General Physics 1,PY 211,calculus,1
+1735,7,Boston University,164988,Spring,2020,"Jariwala, Manher",General Physics 2,PY 212,calculus,2
+850,7,Boston University,164988,Spring,2018,"Jariwala, Manher",General Physics 2,PY 212,calculus,2
+204,7,Boston University,164988,Spring,2016,"Jariwala, Manher",General Physics 2,PY 212,calculus,2
+550,7,Boston University,164988,Spring,2017,"Jariwala, Manher",General Physics 2,PY 212,calculus,2
+1337,7,Boston University,164988,Spring,2019,"Jariwala, Manher",General Physics 2,PY 212,calculus,2
+1107,7,Boston University,164988,Fall,2018,"Gross, Nicholas",Physics for Health Sciences,PY 104,algebra,1
+1328,7,Boston University,164988,Spring,2019,"Gross, Nicholas",Physics for Health Sciences,PY 104,algebra,1
+132,227,Brigham Young University,NA,Fall,2015,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+133,227,Brigham Young University,NA,Fall,2015,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+134,227,Brigham Young University,NA,Fall,2015,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+135,227,Brigham Young University,NA,Fall,2015,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+721,227,Brigham Young University,NA,Fall,2017,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+747,227,Brigham Young University,NA,Fall,2017,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+773,227,Brigham Young University,NA,Fall,2017,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+1158,227,Brigham Young University,NA,Fall,2018,"Davis, Cheryl",College Physics,Phys1 105,algebra,1
+1226,227,Brigham Young University,NA,Fall,2018,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+978,227,Brigham Young University,NA,Spring,2018,"Davis, Cheryl",College Physics,Physi 105,algebra,1
+387,227,Brigham Young University,NA,Fall,2016,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+388,227,Brigham Young University,NA,Fall,2016,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+389,227,Brigham Young University,NA,Fall,2016,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+483,227,Brigham Young University,NA,Fall,2016,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+493,227,Brigham Young University,NA,Fall,2016,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+1466,227,Brigham Young University,NA,Spring,2019,"Davis, Cheryl",College Physics,Phys 105,algebra,1
+187,227,Brigham Young University,NA,Winter,2016,"Davis, Cheryl",Physics,Phys 121,calculus,1
+198,227,Brigham Young University,NA,Winter,2016,"Davis, Cheryl",Physics,Phys 121,calculus,1
+188,227,Brigham Young University,NA,Winter,2016,"Davis, Cheryl",Physics,Phys 121,calculus,1
+618,227,Brigham Young University,NA,Winter,2017,"Davis, Cheryl",Physics,Phys 121,calculus,1
+617,227,Brigham Young University,NA,Winter,2017,"Davis, Cheryl",Physics,Phys 121,calculus,1
+1250,227,Brigham Young University,NA,Winter,2019,"Davis, Cheryl",Physics,Phys 121,calculus,1
+305,227,Brigham Young University,NA,Spring,2016,"Davis, Cheryl",Physics,Phys 121,calculus,1
+829,227,Brigham Young University,NA,Winter,2018,"Davis, Cheryl",Physics for Scientist,121 121,calculus,1
+1276,227,Brigham Young University,NA,Winter,2019,"Davis, Cheryl",Winter 2019 late,Phys1 121,calculus,1
+834,90,California Polytechnic State University-San Luis Obispo,110422,Fall,2018,"Moelter, Matthew",E & M II,PHYS 409,other,upper
+971,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2018,"Kogan, Oleg",General Physics IA,Phys 141,calculus,1
+972,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2018,"Kogan, Oleg",General Physics IA,Phys 141,calculus,1
+924,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2018,"Kogan, Oleg",General Physics IA,Phys 141,calculus,1
+925,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2018,"Kogan, Oleg",General Physics IA,Phys 141,calculus,1
+1447,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2019,"Beekman, Matt",General Physics III,PHYS 133,algebra,3
+962,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2018,"Glazar, Nikolaus",General Physics III,PHYS 133,algebra,3
+802,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2018,"Glazar, Nikolaus",General Physics III,PHYS- 0,algebra,3
+920,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2018,"Glazar, Nikolaus",General Physics III,PHYS 133,algebra,3
+1446,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2019,"Heston, Nathan",General Physics III,PHYS 133,algebra,3
+1432,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2019,"Keim, Nathan",General Physics III,PHYS 133,algebra,3
+760,90,California Polytechnic State University-San Luis Obispo,110422,Fall,2017,"Marlow, Colleen",General Physics III,PHYS 133,algebra,3
+761,90,California Polytechnic State University-San Luis Obispo,110422,Fall,2017,"Marlow, Colleen",General Physics III,PHYS 133,algebra,3
+961,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2018,"Marlow, Colleen",General Physics III,PHYS 133,algebra,3
+807,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2018,"Marlow, Colleen",General Physics III,PHYS 133,algebra,3
+1235,90,California Polytechnic State University-San Luis Obispo,110422,Fall,2018,"Mastoridis, Themis",General Physics III,PHYS 133,algebra,3
+1236,90,California Polytechnic State University-San Luis Obispo,110422,Fall,2018,"Mastoridis, Themis",General Physics III,PHYS 133,algebra,3
+957,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2018,"Mastoridis, Themis",General Physics III,PHYS 133,algebra,3
+800,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2018,"Mastoridis, Themis",General Physics III,PHYS 133,algebra,3
+758,90,California Polytechnic State University-San Luis Obispo,110422,Fall,2017,"Moelter, Matthew",General Physics III,PHYS 133,algebra,3
+1234,90,California Polytechnic State University-San Luis Obispo,110422,Fall,2018,"Moelter, Matthew",General Physics III,PHYS 133,algebra,3
+960,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2018,"Moelter, Matthew",General Physics III,PHYS 133,algebra,3
+801,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2018,"Moelter, Matthew",General Physics III,PHYS 133,algebra,3
+1445,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2019,"Moelter, Matthew",General Physics III,PHYS 133,algebra,3
+1470,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2019,"Moelter, Matthew",General Physics III,PHYS 133,algebra,3
+1237,90,California Polytechnic State University-San Luis Obispo,110422,Fall,2018,"Sanchez, Alfredo",General Physics III,PHYS 133,algebra,3
+1238,90,California Polytechnic State University-San Luis Obispo,110422,Fall,2018,"Sanchez, Alfredo",General Physics III,PHYS 133,algebra,3
+958,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2018,"Sanchez, Alfredo",General Physics III,PHYS 133,algebra,3
+803,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2018,"Sanchez, Alfredo",General Physics III,PHYS 133,algebra,3
+1448,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2019,"Sanchez, Alfredo",General Physics III,PHYS 133,algebra,3
+755,90,California Polytechnic State University-San Luis Obispo,110422,Fall,2017,"Vokos, Stamatis",General Physics III,PHYS 133,algebra,3
+759,90,California Polytechnic State University-San Luis Obispo,110422,Fall,2017,"Wissel, Stephanie",General Physics III,PHYS 133,algebra,3
+808,90,California Polytechnic State University-San Luis Obispo,110422,Winter,2018,"Wissel, Stephanie",General Physics III,PHYS- 0,algebra,3
+922,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2018,"Vokos, Stamatis",Honors Seminar,HNRS 299,other,upper
+970,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2018,"Gillen, Katharina",Intro Physics 2 Studio,PHYS 132,calculus,q2
+970,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2018,"Gillen, Katharina",Intro Physics 2 Studio,PHYS 132,calculus,q2
+956,90,California Polytechnic State University-San Luis Obispo,110422,Spring,2018,"Vokos, Stamatis",Teaching Physics,PHYS 330,other,ed
+884,117,California State University,NA,Spring,2018,"Margoniner, Vera",Electricity and Magnetism I,PHYS 135,other,upper
+653,117,California State University,NA,Fall,2017,"Margoniner, Vera",Introduction to Physics: Mechanics (Margoniner),PHYS 11,calculus,1
+663,117,California State University,NA,Fall,2017,"Margoniner, Vera",Introduction to Physics: Mechanics (Margoniner),PHYS 11,calculus,1
+1123,117,California State University,NA,Fall,2018,"Margoniner, Vera",Introduction to Physics: Mechanics (Margoniner),PHYS 11,calculus,1
+750,117,California State University,NA,Fall,2017,"Margoniner, Vera",Learning Assistant Assessment,PHYS1 0,other,la
+987,225,California State University-Chico,110538,Fall,2018,"Nissen, Jayson",Algebra Based Introductory Mechanics,Physi 111,test,test
+285,225,California State University-Chico,110538,Spring,2016,"Lin, Yuhfen",Concepts in Physical Science,NSCI 141,other,ed
+661,225,California State University-Chico,110538,Fall,2017,"Van Dusen, Ben",Concepts in Physical Science,SCED 141,other,ed
+989,225,California State University-Chico,110538,Fall,2018,"Van Dusen, Ben",Concepts in Physical Science,SCED 141,other,ed
+988,225,California State University-Chico,110538,Fall,2018,"Van Dusen, Ben",Concepts in Physical Science,SCED 141,other,ed
+877,225,California State University-Chico,110538,Spring,2018,"Van Dusen, Ben",Concepts in Physical Science,SCED 141,other,ed
+318,225,California State University-Chico,110538,Fall,2016,"Van Dusen, Ben",Concepts in Physical Science,SCED 141,other,ed
+568,225,California State University-Chico,110538,Spring,2017,"Van Dusen, Ben",Concepts in Physical Science,SCED 141,other,ed
+1893,225,California State University-Chico,110538,Spring,2020,"Arpin, Paul",Electricity and Magnetism,PHYS 204B,calculus,2
+1584,225,California State University-Chico,110538,Fall,2019,"Arpin, Paul",Electricity and Magnetism,PHYS 204B,calculus,2
+1384,225,California State University-Chico,110538,Spring,2019,"Pechkis, Hyewon",Electricity and Magnetism,PHYS 204B,calculus,2
+1385,225,California State University-Chico,110538,Spring,2019,"Pechkis, Hyewon",Electricity and Magnetism,PHYS 204B,calculus,2
+1386,225,California State University-Chico,110538,Spring,2019,"Pechkis, Hyewon",Electricity and Magnetism,PHYS 204B,calculus,2
+595,225,California State University-Chico,110538,Spring,2017,"Short, Luke",Example Course,1234 1234,test,test
+895,225,California State University-Chico,110538,Spring,2018,"Brookes, David",General Physics,PHYS 202,algebra,1
+902,225,California State University-Chico,110538,Spring,2018,"Lin, Yuhfen",General Physics,PHYS 202,algebra,1
+1630,225,California State University-Chico,110538,Fall,2019,"Pechkis, Joseph",General Physics II,PHYS 202B,algebra,2
+1421,225,California State University-Chico,110538,Spring,2019,"Pechkis, Joseph",General Physics II,PHYS 202B,algebra,2
+1420,225,California State University-Chico,110538,Spring,2019,"Thapa, Mahendra","General physics, 202A",Calif 192-P,algebra,2
+986,225,California State University-Chico,110538,Summer,2018,"Nissen, Jayson",Introductory Calculus Based Mechanics,Phys 111,test,test
+675,225,California State University-Chico,110538,Fall,2017,"Arpin, Paul",Mechanics,PHYS 204,calculus,1
+1106,225,California State University-Chico,110538,Fall,2018,"Arpin, Paul",Mechanics,PHYS 204,calculus,1
+882,225,California State University-Chico,110538,Spring,2018,"Arpin, Paul",Mechanics,PHYS 204,calculus,1
+566,225,California State University-Chico,110538,Spring,2017,"Arpin, Paul",Mechanics,PHYS 204,calculus,1
+1391,225,California State University-Chico,110538,Spring,2019,"Arpin, Paul",Mechanics,PHYS 204A,calculus,1
+672,225,California State University-Chico,110538,Fall,2017,"Nelson, Nicholas",Mechanics,PHYS 204,calculus,1
+1000,225,California State University-Chico,110538,Fall,2018,"Nelson, Nicholas",Mechanics,PHYS 204,calculus,1
+853,225,California State University-Chico,110538,Spring,2018,"Nelson, Nicholas",Mechanics,PHYS 204,calculus,1
+316,225,California State University-Chico,110538,Fall,2016,"Nelson, Nicholas",Mechanics,PHYS 204,calculus,1
+1355,225,California State University-Chico,110538,Spring,2019,"Nelson, Nicholas",Mechanics,PHYS 204A,calculus,1
+890,225,California State University-Chico,110538,Spring,2018,"Pechkis, Hyewon",Mechanics,PHYS 204,calculus,1
+881,225,California State University-Chico,110538,Spring,2018,"Petrova-Mayor, Anna",Mechanics,PHYS 204,calculus,1
+500,225,California State University-Chico,110538,Spring,2017,"Nissen, Jayson",Michelle's pretend course,AST 1010,test,test
+688,225,California State University-Chico,110538,Fall,2017,"Alvarado, Carolina",Scientific Inquiry,SCED 321,other,ed
+908,225,California State University-Chico,110538,Spring,2018,"Alvarado, Carolina",Scientific Inquiry,SCED 321,other,ed
+580,225,California State University-Chico,110538,Spring,2017,"Alvarado, Carolina",Scientific Inquiry,SCED 321,other,ed
+662,225,California State University-Chico,110538,Fall,2017,"Van Dusen, Ben",Scientific Inquiry,SCED 321,other,ed
+1005,225,California State University-Chico,110538,Fall,2018,"Van Dusen, Ben",Test,SCED 1,test,test
+999,452,California State University-San Marcos,366711,Summer,2018,"Tunur, Tumay",Motor Control and Learning,KINE 301,other,other
+1157,385,"California State University, Fullerton",NA,Fall,2018,"Passante, Gina",Elementary Physics,Calif 211,algebra,1
+889,385,"California State University, Fullerton",NA,Spring,2018,"Passante, Gina",Introductory Physics 1 (algebra-based),PHYS 211,algebra,1
+883,137,"California State University, Sacramento",NA,Spring,2018,"Buerki, Jerome",Classical Mechanics,PHYS 110,other,upper
+1392,137,"California State University, Sacramento",NA,Spring,2019,"Morris, Eliza",General Mechanics,PHYS 11A,calculus,1
+1393,137,"California State University, Sacramento",NA,Spring,2019,"Morris, Eliza",General Mechanics,PHYS 11A,calculus,1
+1394,137,"California State University, Sacramento",NA,Spring,2019,"Morris, Eliza",General Mechanics,PHYS 11A,calculus,1
+1396,137,"California State University, Sacramento",NA,Spring,2019,"Ray, Michael",General Mechanics,PHYS 11A,calculus,1
+684,137,"California State University, Sacramento",NA,Fall,2017,"Block, Matthew",General Mechanics (calc-based),Phys 11,calculus,1
+691,137,"California State University, Sacramento",NA,Fall,2017,"Block, Matthew",General Mechanics (calc-based),Phys 11,calculus,1
+693,137,"California State University, Sacramento",NA,Spring,2015,"Block, Matthew",General Mechanics (calc-based),Phys 11,calculus,1
+858,137,"California State University, Sacramento",NA,Spring,2018,"Buerki, Jerome",General Mechanics (calc-based),Phys 11,calculus,1
+680,137,"California State University, Sacramento",NA,Fall,2017,"Jensen, Mikkel",General Mechanics (calc-based),Phys 11,calculus,1
+709,137,"California State University, Sacramento",NA,Fall,2017,"Morris, Eliza",General Mechanics (calc-based),Phys 11,calculus,1
+849,137,"California State University, Sacramento",NA,Spring,2018,"Morris, Eliza",General Mechanics (calc-based),Phys 11,calculus,1
+983,137,"California State University, Sacramento",NA,Summer,2018,"Morris, Eliza",General Mechanics (calc-based),Phys 11,calculus,1
+714,137,"California State University, Sacramento",NA,Fall,2017,"Moss, Joshua",General Mechanics (calc-based),Phys 11,calculus,1
+901,137,"California State University, Sacramento",NA,Spring,2018,"Ray, Michael",General Physics - Mechanics,11A 11,calculus,1
+1133,137,"California State University, Sacramento",NA,Fall,2018,"Ray, Michael",General Physics: Electricity and Magnetism,11C 11,calculus,2
+1395,137,"California State University, Sacramento",NA,Spring,2019,"Morris, Eliza",Introductory Electricity and Magnetism,PHYS 11C,calculus,2
+1137,137,"California State University, Sacramento",NA,Fall,2018,"Morris, Eliza",Introductory Mechanics,CSU S 11,calculus,1
+603,272,"California State University, San Bernardino",NA,Spring,2015,"Hood, Carol",General Physics 1,Phys 221,calculus,1
+696,272,"California State University, San Bernardino",NA,Spring,2015,"Hood, Carol",General Physics II,Phys 222,calculus,2
+343,303,Central Michigan University,169248,Fall,2016,"Redshaw, Matthew",Intermediate Mechanics,PHY 322,other,upper
+342,303,Central Michigan University,169248,Fall,2016,"Redshaw, Matthew",Intermediate Mechanics,PHY 322,other,upper
+471,91,Central Washington University,234827,Fall,2016,"Snowden, Darci",General Physics,PHYS  0,calculus,1
+138,91,Central Washington University,234827,Fall,2015,"Kuwada, Nathan",General Physics I,PHYS 181,calculus,1
+190,91,Central Washington University,234827,Winter,2016,"Smith, Anthony",General Physics I,PHYS 181,calculus,1
+157,91,Central Washington University,234827,Fall,2015,"Snowden, Darci",General Physics I,PHYS 181,calculus,1
+154,91,Central Washington University,234827,Fall,2015,"White, Benjamin",General Physics I,PHYS 181,calculus,1
+468,91,Central Washington University,234827,Fall,2016,"Smith, Anthony",General Physics III,PHYS 183,calculus,3
+153,91,Central Washington University,234827,Fall,2015,"Fallscheer, Cassie",Introductor Physics I,PHYS 111,algebra,1
+463,91,Central Washington University,234827,Fall,2016,"Fallscheer, Cassie",Introductor Physics I,PHYS 111,algebra,1
+466,91,Central Washington University,234827,Fall,2016,"Fallscheer, Cassie",Introductor Physics I,PHYS 111,algebra,1
+152,91,Central Washington University,234827,Fall,2015,"Smith, Anthony",Introductor Physics I,PHYS 111,algebra,1
+191,91,Central Washington University,234827,Winter,2016,"Smith, Anthony",Introductor Physics I,PHYS 111,algebra,1
+467,91,Central Washington University,234827,Fall,2016,"Smith, Anthony",Introductor Physics I,PHYS 111,algebra,1
+313,91,Central Washington University,234827,Summer,2016,"Smith, Anthony",Introductor Physics I,PHYS 111,algebra,1
+159,91,Central Washington University,234827,Fall,2015,"Craig, Erin",Introductory Physics for Life Sciences,PHYS 121,algebra,1
+303,91,Central Washington University,234827,Spring,2016,"Smith, Anthony",Introductory Physics III,PHYS 113,algebra,3
+304,91,Central Washington University,234827,Spring,2016,"Smith, Anthony",Introductory Physics III,PHYS 113,algebra,3
+1256,92,Chicago State University,144005,Spring,2019,"Peters, Archie",Dynamics,ENGR 2550,other,upper
+911,92,Chicago State University,144005,Spring,2018,"Pittman, Lionel",Dynamics,ENGR 2550,other,upper
+197,92,Chicago State University,144005,Spring,2016,"Sabella, Mel",Dynamics,ENGR 2550,other,upper
+142,92,Chicago State University,144005,Fall,2015,"Sabella, Mel",Engineering Statics,ENGR 2430,other,upper
+676,92,Chicago State University,144005,Fall,2017,"Sabella, Mel",Engineering Statics,ENGR 2430,other,upper
+1068,92,Chicago State University,144005,Fall,2018,"Sabella, Mel",Engineering Statics,ENGR 2430,other,upper
+910,92,Chicago State University,144005,Spring,2018,"Pittman, Lionel",Math Methods,Phys 3450,other,upper
+1784,92,Chicago State University,144005,Spring,2020,"Akujieze, Justin",Physics 1 alg,PHYS 1510,algebra,1
+1600,92,Chicago State University,144005,Fall,2019,"Pittman, Lionel",Physics 1 alg,PHYS 1510,algebra,1
+891,92,Chicago State University,144005,Spring,2018,"Pittman, Lionel",Physics 1 alg,PHYS 1510,algebra,1
+1252,92,Chicago State University,144005,Spring,2019,"Pittman, Lionel",Physics 1 alg,PHYS 1510,algebra,1
+143,92,Chicago State University,144005,Fall,2015,"Sabella, Mel",Physics 1 alg,PHYS 1510,algebra,1
+144,92,Chicago State University,144005,Fall,2015,"Sabella, Mel",Physics 1 alg,PHYS 1510,algebra,1
+666,92,Chicago State University,144005,Fall,2017,"Sabella, Mel",Physics 1 alg,PHYS 1510,algebra,1
+1066,92,Chicago State University,144005,Fall,2018,"Sabella, Mel",Physics 1 alg,PHYS 1510,algebra,1
+363,92,Chicago State University,144005,Fall,2016,"Sabella, Mel",Physics 1 alg,PHYS 1510,algebra,1
+362,92,Chicago State University,144005,Fall,2016,"Sabella, Mel",Physics 1 alg,PHYS 1510,algebra,1
+194,92,Chicago State University,144005,Spring,2016,"Sabella, Mel",Physics 1 alg,PHYS 1510,algebra,1
+505,92,Chicago State University,144005,Spring,2017,"Sabella, Mel",Physics 1 alg,PHYS 1510,algebra,1
+1786,92,Chicago State University,144005,Spring,2020,"Peters, Archie",Physics 1 calc,PHYS 2110,calculus,1
+1603,92,Chicago State University,144005,Fall,2019,"Peters, Archie",Physics 1 calc,PHYS 2110,calculus,1
+1253,92,Chicago State University,144005,Spring,2019,"Peters, Archie",Physics 1 calc,PHYS 2110,calculus,1
+893,92,Chicago State University,144005,Spring,2018,"Pittman, Lionel",Physics 1 calc,PHYS 2110,calculus,1
+147,92,Chicago State University,144005,Fall,2015,"Sabella, Mel",Physics 1 calc,PHYS 2110,calculus,1
+665,92,Chicago State University,144005,Fall,2017,"Sabella, Mel",Physics 1 calc,PHYS 2110,calculus,1
+1033,92,Chicago State University,144005,Fall,2018,"Sabella, Mel",Physics 1 calc,PHYS 2110,calculus,1
+192,92,Chicago State University,144005,Spring,2016,"Sabella, Mel",Physics 1 calc,PHYS 2110,calculus,1
+892,92,Chicago State University,144005,Spring,2018,"Pittman, Lionel",Physics 2 alg,PHYS 1520,algebra,2
+1602,92,Chicago State University,144005,Fall,2019,"Sabella, Mel",Physics 2 alg,PHYS 1520,algebra,2
+146,92,Chicago State University,144005,Fall,2015,"Sabella, Mel",Physics 2 alg,PHYS 1520,algebra,2
+668,92,Chicago State University,144005,Fall,2017,"Sabella, Mel",Physics 2 alg,PHYS 1520,algebra,2
+1067,92,Chicago State University,144005,Fall,2018,"Sabella, Mel",Physics 2 alg,PHYS 1520,algebra,2
+364,92,Chicago State University,144005,Fall,2016,"Sabella, Mel",Physics 2 alg,PHYS 1520,algebra,2
+196,92,Chicago State University,144005,Spring,2016,"Sabella, Mel",Physics 2 alg,PHYS 1520,algebra,2
+195,92,Chicago State University,144005,Spring,2016,"Sabella, Mel",Physics 2 alg,PHYS 1520,algebra,2
+506,92,Chicago State University,144005,Spring,2017,"Sabella, Mel",Physics 2 alg,PHYS 1520,algebra,2
+1255,92,Chicago State University,144005,Spring,2019,"Sabella, Mel",Physics 2 alg,PHYS 1520,algebra,2
+894,92,Chicago State University,144005,Spring,2018,"Pittman, Lionel",Physics 2 calc,PHYS 2220,calculus,2
+1787,92,Chicago State University,144005,Spring,2020,"Sabella, Mel",Physics 2 calc,PHYS 2220,calculus,2
+1601,92,Chicago State University,144005,Fall,2019,"Sabella, Mel",Physics 2 calc,PHYS 2220,calculus,2
+148,92,Chicago State University,144005,Fall,2015,"Sabella, Mel",Physics 2 calc,PHYS 2220,calculus,2
+667,92,Chicago State University,144005,Fall,2017,"Sabella, Mel",Physics 2 calc,PHYS 2220,calculus,2
+1032,92,Chicago State University,144005,Fall,2018,"Sabella, Mel",Physics 2 calc,PHYS 2220,calculus,2
+365,92,Chicago State University,144005,Fall,2016,"Sabella, Mel",Physics 2 calc,PHYS 2220,calculus,2
+193,92,Chicago State University,144005,Spring,2016,"Sabella, Mel",Physics 2 calc,PHYS 2220,calculus,2
+1254,92,Chicago State University,144005,Spring,2019,"Sabella, Mel",Physics 2 calc,PHYS 2220,calculus,2
+909,92,Chicago State University,144005,Spring,2018,"Pittman, Lionel",Physics III with Calc,PhyS 2330,calculus,3
+213,122,City Colleges of Chicago - Harold Washington College,NA,Spring,2016,"Millan, Jaime",Engineering Physics II,PHYS 236,calculus,2
+215,122,City Colleges of Chicago - Harold Washington College,NA,Spring,2016,"Millan, Jaime",General Physics II,PHYS 222,algebra,2
+155,122,City Colleges of Chicago - Harold Washington College,NA,Fall,2015,"Millan, Jaime",IPhysics I,PHYS 235,calculus,1
+854,122,City Colleges of Chicago - Harold Washington College,NA,Spring,2018,"Escuadro, Anthony","Mechanics, Heat and Waves",PHYS 221,algebra,1
+141,122,City Colleges of Chicago - Harold Washington College,NA,Fall,2015,"Millan, Jaime","Mechanics, Heat and Waves",PHYS 221,algebra,1
+1251,443,Claremont McKenna College,112260,Spring,2019,"Wells, James",IRB SAMPLE,PHYS 34,test,test
+1402,443,Claremont McKenna College,112260,Spring,2019,"Wells, James",Principles of Physics,PHYS 34L,calculus,2
+1403,443,Claremont McKenna College,112260,Spring,2019,"Wells, James",Principles of Physics,PHYS 34L,calculus,2
+1404,443,Claremont McKenna College,112260,Spring,2019,"Wells, James",Principles of Physics,PHYS 34L,calculus,2
+1007,200,Colorado School of Mines,126775,Fall,2018,"Callan, Kristine",Intermediate Mechanics,PHGN 350,other,upper
+628,457,Colorado State University-Fort Collins,126818,Spring,2018,"Gelfand, Martin",Physics for Educators: Mechanics,NSCI 619,other,ed
+1550,525,DSST: Byers Highschool,NA,Fall,2019,"Brown, Aaron",PEER-HS,PEER 1863,other,hs
+830,235,East Carolina University,198464,Spring,2018,"Wolf, Steven",University Physics 2,PHYS 2360,calculus,2
+1263,235,East Carolina University,198464,Spring,2019,"Wolf, Steven",University Physics 2,PHYS 2360,calculus,2
+1264,235,East Carolina University,198464,Spring,2019,"Wolf, Steven",University Physics 2,PHYS 2360,calculus,2
+145,235,East Carolina University,198464,Fall,2015,"Wolf, Steven",University Physics I,PHYS 2350,calculus,1
+679,235,East Carolina University,198464,Fall,2017,"Wolf, Steven",University Physics I,PHYS 2350,calculus,1
+1262,235,East Carolina University,198464,Spring,2019,"Wolf, Steven",University Physics I,PHYS 2350,calculus,1
+1998,497,Embry-Riddle Aeronautical University-Daytona Beach,133553,Summer,2020,"Pearson, Richard",Engineering Physics I,PS 150,calculus,1
+1991,497,Embry-Riddle Aeronautical University-Daytona Beach,133553,Summer,2020,"Pearson, Richard",Physics I for Engineers,Phys 150,calculus,1
+1776,25,George Mason University,232186,Spring,2020,"Dreyfus, Benjamin",College Physics I,PHYS 243,algebra,1
+648,25,George Mason University,232186,Fall,2017,"Dreyfus, Benjamin",College Physics I,PHYS 243,algebra,1
+1522,25,George Mason University,232186,Fall,2019,"Dreyfus, Benjamin",College Physics II,PHYS 245,algebra,2
+1108,25,George Mason University,232186,Fall,2018,"Dreyfus, Benjamin",College Physics II,PHYS 245,algebra,2
+839,25,George Mason University,232186,Spring,2018,"Dreyfus, Benjamin",College Physics II,PHYS 245,algebra,2
+1340,25,George Mason University,232186,Spring,2019,"Dreyfus, Benjamin",College Physics II,PHYS 245,algebra,2
+1064,417,Kansas Wesleyan University,155414,Fall,2018,"Bell, Michael",Fundamentals of Physics I,PHYS 201,calculus,1
+641,458,Metro State Univ of Denver/Community College of Denver,NA,Fall,2017,"Avery, Azure",General Physics I,PHY 2311,calculus,1
+333,458,Metro State Univ of Denver/Community College of Denver,NA,Fall,2016,"Avery, Azure",General Physics I,PHY 2311,calculus,1
+511,458,Metro State Univ of Denver/Community College of Denver,NA,Spring,2017,"Loats, Jeff",General Physics I,PHY 2311,calculus,1
+631,458,Metro State Univ of Denver/Community College of Denver,NA,Summer,2017,"Loats, Jeff",General Physics I,PHY 2311,calculus,1
+673,458,Metro State Univ of Denver/Community College of Denver,NA,Fall,2017,"Loats, Jeff",General Physics II,PHY 2331,calculus,2
+329,458,Metro State Univ of Denver/Community College of Denver,NA,Fall,2016,"Loats, Jeff",General Physics II,PHY 2331,calculus,2
+1573,32,Michigan State University,171100,Fall,2019,"Mohan, Kirtimaan",Physics 1,LB 273,calculus,1
+1574,32,Michigan State University,171100,Fall,2019,"Mohan, Kirtimaan",Physics 1,LB 273,calculus,1
+1747,32,Michigan State University,171100,Spring,2020,"Hinko, Katie",Physics 2,LB 274,calculus,2
+1746,32,Michigan State University,171100,Spring,2020,"Mohan, Kirtimaan",Physics 2,LB 274,calculus,2
+1744,32,Michigan State University,171100,Spring,2020,"Sawtelle, Vashti",Physics 2,LB 274,calculus,2
+1745,32,Michigan State University,171100,Spring,2020,"Sawtelle, Vashti",Physics 2,LB 274,calculus,2
+1330,118,Montgomery College,163426,Spring,2019,"Lui, Kristine",General Physics 1,phys 161,algebra,1
+1060,33,North Dakota State University,NA,Fall,2018,"Buncher, John",College Phyiscs 1,PHYS 212,algebra,1
+1267,33,North Dakota State University,NA,Spring,2019,"Buncher, John",College Phyiscs 1,PHYS 212,algebra,1
+1013,33,North Dakota State University,NA,Fall,2018,"Buncher, John",College Physics 1,PHYS 211,algebra,1
+979,33,North Dakota State University,NA,Spring,2018,"Christensen, Warren",College Physics I,2755 211,algebra,1
+1269,33,North Dakota State University,NA,Spring,2019,"Buncher, John",TEST,TEST 1,test,test
+1268,33,North Dakota State University,NA,Spring,2019,"Buncher, John",University Physics,Phys 251,calculus,1
+1065,33,North Dakota State University,NA,Fall,2018,"Christensen, Warren",University Physics,Phys 251,calculus,1
+1069,33,North Dakota State University,NA,Fall,2018,"Buncher, John",University Physics II,Phys 252,calculus,2
+1324,33,North Dakota State University,NA,Spring,2019,"Buncher, John",University Physics II,Phys 252,calculus,2
+1279,450,North Dakota State University-Main Campus,200332,Spring,2019,"Santangelo, Brianna",College Physics I,Phy 211,algebra,1
+1186,34,Northern Illinois University,147703,Fall,2018,"Eads, Michael","Acoustics, Music, and Hearing",PHYS 180,other,sound
+621,34,Northern Illinois University,147703,Spring,2017,"Eads, Michael",Analytical Mechanics II,PHYS 400,other,upper
+620,34,Northern Illinois University,147703,Spring,2017,"Eads, Michael",Electricity and Magnetism I,PHYS 370,other,upper
+1185,34,Northern Illinois University,147703,Fall,2018,"Eads, Michael",Elementary Astronomy,PHYS 162,other,astronomy
+1190,34,Northern Illinois University,147703,Fall,2018,"Eads, Michael",Fundamental of Physics II: Electromagnetism,PHYS 273,calculus,2
+1189,34,Northern Illinois University,147703,Fall,2018,"Eads, Michael",Fundamentals of Physics I: Mechanics,PHYS 253,calculus,1
+1188,34,Northern Illinois University,147703,Fall,2018,"Eads, Michael",General Physics I,PHYS 210,algebra,1
+1192,34,Northern Illinois University,147703,Fall,2018,"Eads, Michael",General Physics II,PHYS 211,algebra,2
+1184,34,Northern Illinois University,147703,Fall,2018,"Eads, Michael",Physics,PHYS 150,other,ed
+619,34,Northern Illinois University,147703,Spring,2017,"Eads, Michael",Senior Seminar,PHYS 498,other,upper
+992,34,Northern Illinois University,147703,Summer,2018,"Eads, Michael",Summer REU Program,PHYS 489,other,upper
+1484,34,Northern Illinois University,147703,Summer,2019,"Dwyer, Matthew",Summer REU/RET,PHYS 101,other,upper
+1209,367,queensborough community college,NA,Fall,2018,"Lieberman, David",Advanced General Physics 1,PHY 1300,algebra,1
+778,367,queensborough community college,NA,Fall,2017,"Lieberman, David",Calculus physics 1,PHY 130,calculus,1
+903,367,queensborough community college,NA,Spring,2018,"Lieberman, David",Calculus physics 1,PHYD 221,calculus,1
+913,367,queensborough community college,NA,Spring,2018,"Lieberman, David",Calculus physics 1,PH 411,calculus,1
+914,367,queensborough community college,NA,Spring,2018,"Lieberman, David",Calculus physics 1,PH 411,calculus,1
+915,367,queensborough community college,NA,Spring,2018,"Lieberman, David",Calculus physics 1,PH 411,calculus,1
+776,367,queensborough community college,NA,Fall,2017,"Lieberman, David",College Physics 1,PH 301,algebra,1
+898,367,queensborough community college,NA,Spring,2018,"Lieberman, David",Engineering Physics 1,PHY 122,calculus,1
+899,367,queensborough community college,NA,Spring,2018,"Lieberman, David",Engineering Physics 1,PHY 122,calculus,1
+897,367,queensborough community college,NA,Spring,2018,"Lieberman, David",Engineering Physics 1,PHYSC 121,calculus,1
+900,367,queensborough community college,NA,Spring,2018,"Lieberman, David",General Physics 1,PHY 103,algebra,1
+315,292,Randolph College,233301,Summer,2016,"Sojka, Sarah",Introductory Physics II,PHYS 106,algebra,1
+639,292,Randolph College,233301,Summer,2017,"Sojka, Sarah",Introductory Physics II,PHYS 106,algebra,1
+403,41,Rochester Institute of Technology,195003,Fall,2016,"Lusignan, Charles",College Physics,PHYS 112,algebra,2
+404,41,Rochester Institute of Technology,195003,Fall,2016,"Lusignan, Charles",College Physics,PHYS 112,algebra,2
+405,41,Rochester Institute of Technology,195003,Fall,2016,"Lusignan, Charles",College Physics,PHYS 112,algebra,2
+1278,41,Rochester Institute of Technology,195003,Spring,2019,"Szalapski, Robert",College Physics,PHYS 112,algebra,2
+299,41,Rochester Institute of Technology,195003,Spring,2016,"Lusignan, Charles",College Physics 2,PHYS- 0,algebra,2
+581,41,Rochester Institute of Technology,195003,Spring,2017,"Lusignan, Charles",College Physics 2,PHYS- 0,algebra,2
+139,41,Rochester Institute of Technology,195003,Fall,2015,"Connelly, Jennifer",College Physics I,PHYS 111,algebra,1
+356,41,Rochester Institute of Technology,195003,Fall,2016,"Connelly, Jennifer",College Physics I,PHYS 111,algebra,1
+357,41,Rochester Institute of Technology,195003,Fall,2016,"Connelly, Jennifer",College Physics I,PHYS 111,algebra,1
+163,41,Rochester Institute of Technology,195003,Fall,2015,"Lusignan, Charles",College Physics I,PHYS- 0,algebra,1
+164,41,Rochester Institute of Technology,195003,Fall,2015,"Lusignan, Charles",College Physics I,PHYS- 0,algebra,1
+977,41,Rochester Institute of Technology,195003,Spring,2018,"McLane, Louis",Test,PHYS 0,test,test
+1282,41,Rochester Institute of Technology,195003,Spring,2019,"Driscoll, Kristina",University Physics,PHYS 217,calculus,2
+10,41,Rochester Institute of Technology,195003,Fall,2015,"Chabot, Michelle",University Physics 1,PHYS 211,calculus,1
+11,41,Rochester Institute of Technology,195003,Fall,2015,"Chabot, Michelle",University Physics 1,PHY 211,calculus,1
+361,41,Rochester Institute of Technology,195003,Fall,2016,"Chabot, Michelle",University Physics 1,PHYS 211,calculus,1
+277,41,Rochester Institute of Technology,195003,Spring,2016,"Chabot, Michelle",University Physics 1,PHYS 211,calculus,1
+278,41,Rochester Institute of Technology,195003,Spring,2016,"Chabot, Michelle",University Physics 1,PHYS 211,calculus,1
+312,41,Rochester Institute of Technology,195003,Summer,2016,"Lusignan, Charles",University Physics 1,211A 211,calculus,1
+1257,41,Rochester Institute of Technology,195003,Spring,2019,"McLane, Louis",University Physics 1,PHYS 211,calculus,1
+1258,41,Rochester Institute of Technology,195003,Spring,2019,"McLane, Louis",University Physics 1,PHYS 211,calculus,1
+1130,41,Rochester Institute of Technology,195003,Fall,2018,"Szalapski, Robert",University Physics 1,PHYS 211,calculus,1
+855,41,Rochester Institute of Technology,195003,Spring,2018,"Szalapski, Robert",University Physics 1,PHYS 211,calculus,1
+510,41,Rochester Institute of Technology,195003,Spring,2017,"Szalapski, Robert",University Physics 1,PHYS- 0,calculus,1
+375,41,Rochester Institute of Technology,195003,Fall,2016,"Zwickl, Benjamin",University Physics 1,PHYS 211,calculus,1
+358,41,Rochester Institute of Technology,195003,Fall,2016,"Driscoll, Kristina",University Physics II,1017- 1017,calculus,2
+1119,41,Rochester Institute of Technology,195003,Fall,2018,"McGowan, Aaron",University Physics II,PHYS2 0,calculus,2
+1120,41,Rochester Institute of Technology,195003,Fall,2018,"McGowan, Aaron",University Physics II,PHYS2 0,calculus,2
+1319,41,Rochester Institute of Technology,195003,Spring,2019,"Lusignan, Charles",University Physics II (2155),PHYS 212,calculus,2
+687,41,Rochester Institute of Technology,195003,Fall,2017,"McGowan, Aaron",University Physics II (2155),PHYS 212,calculus,2
+686,41,Rochester Institute of Technology,195003,Fall,2017,"McGowan, Aaron",University Physics II (2155),PHYS 212,calculus,2
+690,41,Rochester Institute of Technology,195003,Spring,2015,"McGowan, Aaron",University Physics II (2155),PHYS 212,calculus,2
+857,41,Rochester Institute of Technology,195003,Spring,2018,"McGowan, Aaron",University Physics II (2155),PHYS 212,calculus,2
+269,41,Rochester Institute of Technology,195003,Spring,2016,"McGowan, Aaron",University Physics II (2155),PHYS 212,calculus,2
+270,41,Rochester Institute of Technology,195003,Spring,2016,"McGowan, Aaron",University Physics II (2155),PHYS 212,calculus,2
+563,41,Rochester Institute of Technology,195003,Spring,2017,"McGowan, Aaron",University Physics II (2155),PHYS 212,calculus,2
+564,41,Rochester Institute of Technology,195003,Spring,2017,"McGowan, Aaron",University Physics II (2155),PHYS 212,calculus,2
+868,41,Rochester Institute of Technology,195003,Spring,2018,"McLane, Louis",University Physics II (2155),PHYS 212,calculus,2
+869,41,Rochester Institute of Technology,195003,Spring,2018,"McLane, Louis",University Physics II (2155),PHYS 212,calculus,2
+685,41,Rochester Institute of Technology,195003,Fall,2017,"Szalapski, Robert",University Physics II (2155),PHYS 212,calculus,2
+1128,41,Rochester Institute of Technology,195003,Fall,2018,"Szalapski, Robert",University Physics II (2155),PHYS 212,calculus,2
+694,128,Roosevelt University,148487,Spring,2015,"Barker, Brent",Intro Physics II,Phys 202,algebra,2
+16,213,Rowan University,184782,Fall,2015,"Smith, Trevor",Do not use these data,Test 0,test,test
+539,213,Rowan University,184782,Spring,2017,"Insler, Jonathan",FACULTY TEST INTRO MECH,FAC 220,test,test
+242,213,Rowan University,184782,Spring,2016,"Brasoveanu, Theodore",Introductory E&M,PHYS 222,calculus,2
+250,213,Rowan University,184782,Spring,2016,"Caguiat, Daniel",Introductory E&M,PHYS 222,calculus,2
+538,213,Rowan University,184782,Spring,2017,"Caguiat, Daniel",Introductory E&M,PHYS 222,calculus,2
+1390,213,Rowan University,184782,Spring,2019,"Gautam, Richa",Introductory E&M,PHYS 222,calculus,2
+1389,213,Rowan University,184782,Spring,2019,"Gautam, Richa",Introductory E&M,PHYS 222,calculus,2
+1376,213,Rowan University,184782,Spring,2019,"Guess, Carol",Introductory E&M,PHYS 222,calculus,2
+1377,213,Rowan University,184782,Spring,2019,"Guess, Carol",Introductory E&M,PHYS 222,calculus,2
+1378,213,Rowan University,184782,Spring,2019,"Guess, Carol",Introductory E&M,PHYS 222,calculus,2
+1379,213,Rowan University,184782,Spring,2019,"Guess, Carol",Introductory E&M,PHYS 222,calculus,2
+1380,213,Rowan University,184782,Spring,2019,"Guess, Carol",Introductory E&M,PHYS 222,calculus,2
+1381,213,Rowan University,184782,Spring,2019,"Guess, Carol",Introductory E&M,PHYS 222,calculus,2
+1382,213,Rowan University,184782,Spring,2019,"Guess, Carol",Introductory E&M,PHYS 222,calculus,2
+737,213,Rowan University,184782,Fall,2017,"Haldolaarachchige, Neel",Introductory E&M,PHYS 222,calculus,2
+738,213,Rowan University,184782,Fall,2017,"Haldolaarachchige, Neel",Introductory E&M,PHYS 222,calculus,2
+444,213,Rowan University,184782,Fall,2016,"Haldolaarachchige, Neel",Introductory E&M,PHYS 222,calculus,2
+535,213,Rowan University,184782,Spring,2017,"Haldolaarachchige, Neel",Introductory E&M,PHYS 222,calculus,2
+41,213,Rowan University,184782,Fall,2015,"La Porta, Philip",Introductory E&M,PHYS 222,calculus,2
+42,213,Rowan University,184782,Fall,2015,"La Porta, Philip",Introductory E&M,PHYS 222,calculus,2
+43,213,Rowan University,184782,Fall,2015,"La Porta, Philip",Introductory E&M,PHYS 222,calculus,2
+44,213,Rowan University,184782,Fall,2015,"La Porta, Philip",Introductory E&M,PHYS 222,calculus,2
+45,213,Rowan University,184782,Fall,2015,"La Porta, Philip",Introductory E&M,PHYS 222,calculus,2
+46,213,Rowan University,184782,Fall,2015,"La Porta, Philip",Introductory E&M,PHYS 222,calculus,2
+736,213,Rowan University,184782,Fall,2017,"La Porta, Philip",Introductory E&M,PHYS 222,calculus,2
+1167,213,Rowan University,184782,Fall,2018,"La Porta, Philip",Introductory E&M,PHYS 222,calculus,2
+413,213,Rowan University,184782,Fall,2016,"La Porta, Philip",Introductory E&M,PHYS 222,calculus,2
+53,213,Rowan University,184782,Fall,2015,"Lofland, Samuel",Introductory E&M,PHYS 222,calculus,2
+54,213,Rowan University,184782,Fall,2015,"Lofland, Samuel",Introductory E&M,PHYS 222,calculus,2
+428,213,Rowan University,184782,Fall,2016,"Lofland, Samuel",Introductory E&M,PHYS 222,calculus,2
+36,213,Rowan University,184782,Fall,2015,"Nucci, Nathaniel",Introductory E&M,PHYS 222,calculus,2
+37,213,Rowan University,184782,Fall,2015,"Nucci, Nathaniel",Introductory E&M,PHYS 222,calculus,2
+739,213,Rowan University,184782,Fall,2017,"Nucci, Nathaniel",Introductory E&M,PHYS 222,calculus,2
+1179,213,Rowan University,184782,Fall,2018,"Nucci, Nathaniel",Introductory E&M,PHYS 222,calculus,2
+417,213,Rowan University,184782,Fall,2016,"Nucci, Nathaniel",Introductory E&M,PHYS 222,calculus,2
+416,213,Rowan University,184782,Fall,2016,"Nucci, Nathaniel",Introductory E&M,PHYS 222,calculus,2
+74,213,Rowan University,184782,Fall,2015,"Tronin, Andrey",Introductory E&M,PHYS 222,calculus,2
+113,213,Rowan University,184782,Fall,2015,"Tronin, Andrey",Introductory E&M,PHYS 222,calculus,2
+1181,213,Rowan University,184782,Fall,2018,"Votta, Gerald",Introductory E&M,PHYS 222,calculus,2
+1182,213,Rowan University,184782,Fall,2018,"Votta, Gerald",Introductory E&M,PHYS 222,calculus,2
+827,213,Rowan University,184782,Spring,2018,"Votta, Gerald",Introductory E&M,PHYS 222,calculus,2
+256,213,Rowan University,184782,Spring,2016,"Votta, Gerald",Introductory E&M,PHYS 222,calculus,2
+534,213,Rowan University,184782,Spring,2017,"Votta, Gerald",Introductory E&M,PHYS 222,calculus,2
+314,213,Rowan University,184782,Summer,2016,"Votta, Gerald",Introductory E&M,PHYS 222,calculus,2
+741,213,Rowan University,184782,Fall,2017,"Wheeler, Lawrence",Introductory E&M,PHYS 222,calculus,2
+828,213,Rowan University,184782,Spring,2018,"Whiting, Nicholas",Introductory E&M,PHYS 222,calculus,2
+34,213,Rowan University,184782,Fall,2015,"Zeits, Holly",Introductory E&M,PHYS 222,calculus,2
+35,213,Rowan University,184782,Fall,2015,"Zeits, Holly",Introductory E&M,PHYS 222,calculus,2
+1169,213,Rowan University,184782,Fall,2018,"Lofland, Samuel",Introductory Electricity and Magnetism,PHSY 222,calculus,2
+728,213,Rowan University,184782,Fall,2017,"Berg, Dominik",Introductory Mechanics,PHYS 220,calculus,1
+419,213,Rowan University,184782,Fall,2016,"Berg, Dominik",Introductory Mechanics,PHYS 220,calculus,1
+57,213,Rowan University,184782,Fall,2015,"Brasoveanu, Theodore",Introductory Mechanics,PHYS 220,calculus,1
+58,213,Rowan University,184782,Fall,2015,"Brasoveanu, Theodore",Introductory Mechanics,PHYS 220,calculus,1
+59,213,Rowan University,184782,Fall,2015,"Brasoveanu, Theodore",Introductory Mechanics,PHYS 220,calculus,1
+60,213,Rowan University,184782,Fall,2015,"Brasoveanu, Theodore",Introductory Mechanics,PHYS 220,calculus,1
+1160,213,Rowan University,184782,Fall,2018,"Caguiat, Daniel",Introductory Mechanics,PHYS 220,calculus,1
+824,213,Rowan University,184782,Spring,2018,"Caguiat, Daniel",Introductory Mechanics,PHYS 220,calculus,1
+435,213,Rowan University,184782,Fall,2016,"Caguiat, Daniel",Introductory Mechanics,PHYS 220,calculus,1
+733,213,Rowan University,184782,Fall,2017,"Dobbins, Tabbetha",Introductory Mechanics,PHYS 220,calculus,1
+246,213,Rowan University,184782,Spring,2016,"Dobbins, Tabbetha",Introductory Mechanics,PHYS 220,calculus,1
+519,213,Rowan University,184782,Spring,2017,"Dobbins, Tabbetha",Introductory Mechanics,PHYS 220,calculus,1
+1356,213,Rowan University,184782,Spring,2019,"Dougherty, Lawrence",Introductory Mechanics,PHYS 220,calculus,1
+1357,213,Rowan University,184782,Spring,2019,"Dougherty, Lawrence",Introductory Mechanics,PHYS 220,calculus,1
+1358,213,Rowan University,184782,Spring,2019,"Dougherty, Lawrence",Introductory Mechanics,PHYS 220,calculus,1
+1359,213,Rowan University,184782,Spring,2019,"Dougherty, Lawrence",Introductory Mechanics,PHYS 220,calculus,1
+61,213,Rowan University,184782,Fall,2015,"Flores, Eduardo",Introductory Mechanics,PHYS 220,calculus,1
+734,213,Rowan University,184782,Fall,2017,"Flores, Eduardo",Introductory Mechanics,PHYS 220,calculus,1
+420,213,Rowan University,184782,Fall,2016,"Flores, Eduardo",Introductory Mechanics,PHYS 220,calculus,1
+537,213,Rowan University,184782,Spring,2017,"Flores, Eduardo",Introductory Mechanics,PHYS 220,calculus,1
+751,213,Rowan University,184782,Fall,2017,"Gatto, Joseph",Introductory Mechanics,PHYS 220,calculus,1
+1168,213,Rowan University,184782,Fall,2018,"Guess, Carol",Introductory Mechanics,PHYS 220,calculus,1
+820,213,Rowan University,184782,Spring,2018,"Haldolaarachchige, Neel",Introductory Mechanics,PHYS 220,calculus,1
+67,213,Rowan University,184782,Fall,2015,"Hu, Xiao",Introductory Mechanics,PHYS 220,calculus,1
+68,213,Rowan University,184782,Fall,2015,"Hu, Xiao",Introductory Mechanics,PHYS 220,calculus,1
+69,213,Rowan University,184782,Fall,2015,"Hu, Xiao",Introductory Mechanics,PHYS 220,calculus,1
+70,213,Rowan University,184782,Fall,2015,"Hu, Xiao",Introductory Mechanics,PHYS 220,calculus,1
+826,213,Rowan University,184782,Spring,2018,"Hu, Xiao",Introductory Mechanics,PHYS 220,calculus,1
+430,213,Rowan University,184782,Fall,2016,"Hu, Xiao",Introductory Mechanics,PHYS 220,calculus,1
+248,213,Rowan University,184782,Spring,2016,"Hu, Xiao",Introductory Mechanics,PHYS 220,calculus,1
+249,213,Rowan University,184782,Spring,2016,"Hu, Xiao",Introductory Mechanics,PHYS 220,calculus,1
+536,213,Rowan University,184782,Spring,2017,"Hu, Xiao",Introductory Mechanics,PHYS 220,calculus,1
+526,213,Rowan University,184782,Spring,2017,"Insler, Jonathan",Introductory Mechanics,PHYS 220,calculus,1
+825,213,Rowan University,184782,Spring,2018,"La Porta, Philip",Introductory Mechanics,PHYS 220,calculus,1
+240,213,Rowan University,184782,Spring,2016,"La Porta, Philip",Introductory Mechanics,PHYS 220,calculus,1
+528,213,Rowan University,184782,Spring,2017,"La Porta, Philip",Introductory Mechanics,PHYS 220,calculus,1
+1365,213,Rowan University,184782,Spring,2019,"La Porta, Philip",Introductory Mechanics,PHYS 220,calculus,1
+1366,213,Rowan University,184782,Spring,2019,"La Porta, Philip",Introductory Mechanics,PHYS 220,calculus,1
+1367,213,Rowan University,184782,Spring,2019,"La Porta, Philip",Introductory Mechanics,PHYS 220,calculus,1
+1369,213,Rowan University,184782,Spring,2019,"La Porta, Philip",Introductory Mechanics,PHYS 220,calculus,1
+1370,213,Rowan University,184782,Spring,2019,"La Porta, Philip",Introductory Mechanics,PHYS 220,calculus,1
+1371,213,Rowan University,184782,Spring,2019,"La Porta, Philip",Introductory Mechanics,PHYS 220,calculus,1
+1368,213,Rowan University,184782,Spring,2019,"La Porta, Philip",Introductory Mechanics,PHYS 220,calculus,1
+1372,213,Rowan University,184782,Spring,2019,"La Porta, Philip",Introductory Mechanics,PHYS 220,calculus,1
+1178,213,Rowan University,184782,Fall,2018,"Lim, Michael",Introductory Mechanics,PHYS 220,calculus,1
+823,213,Rowan University,184782,Spring,2018,"Lofland, Samuel",Introductory Mechanics,PHYS 220,calculus,1
+251,213,Rowan University,184782,Spring,2016,"Lofland, Samuel",Introductory Mechanics,PHYS 220,calculus,1
+1364,213,Rowan University,184782,Spring,2019,"Lofland, Samuel",Introductory Mechanics,PHYS 220,calculus,1
+150,213,Rowan University,184782,Fall,2015,"Smith, Trevor",Introductory Mechanics,PHYS 220,calculus,1
+732,213,Rowan University,184782,Fall,2017,"Smith, Trevor",Introductory Mechanics,PHYS 220,calculus,1
+414,213,Rowan University,184782,Fall,2016,"Smith, Trevor",Introductory Mechanics,PHYS 220,calculus,1
+174,213,Rowan University,184782,Fall,2015,"Sultana, Nasra",Introductory Mechanics,PHYS 220,calculus,1
+175,213,Rowan University,184782,Fall,2015,"Sultana, Nasra",Introductory Mechanics,PHYS 220,calculus,1
+436,213,Rowan University,184782,Fall,2016,"Tronin, Andrey",Introductory Mechanics,PHYS 220,calculus,1
+735,213,Rowan University,184782,Fall,2017,"Votta, Gerald",Introductory Mechanics,PHYS 220,calculus,1
+434,213,Rowan University,184782,Fall,2016,"Votta, Gerald",Introductory Mechanics,PHYS 220,calculus,1
+233,213,Rowan University,184782,Spring,2016,"Zeits, Holly",Introductory Mechanics,PHYS 220,calculus,1
+1338,213,Rowan University,184782,Spring,2019,"Zeits, Holly",Introductory Mechanics,PHYS 220,calculus,1
+1339,213,Rowan University,184782,Spring,2019,"Zeits, Holly",Introductory Mechanics,PHYS 220,calculus,1
+746,213,Rowan University,184782,Fall,2017,"Smith, Trevor",LA-E&M,PHYS 363,other,la
+475,213,Rowan University,184782,Fall,2016,"Smith, Trevor",LA-E&M,PHYS 363,other,la
+298,213,Rowan University,184782,Spring,2016,"Smith, Trevor",LA-E&M,PHYS 363,other,la
+745,213,Rowan University,184782,Fall,2017,"Smith, Trevor",LA-Mechanics,PHYS 361,other,la
+474,213,Rowan University,184782,Fall,2016,"Smith, Trevor",LA-Mechanics,PHYS 361,other,la
+297,213,Rowan University,184782,Spring,2016,"Smith, Trevor",LA-Mechanics,PHYS 361,other,la
+727,213,Rowan University,184782,Fall,2017,"Berg, Dominik",Physics 2,PYS 211,algebra,2
+169,213,Rowan University,184782,Fall,2015,"Dobbins, Tabbetha",Physics I,PHYS 210,algebra,1
+170,213,Rowan University,184782,Fall,2015,"Dobbins, Tabbetha",Physics I,PHYS 210,algebra,1
+415,213,Rowan University,184782,Fall,2016,"Dobbins, Tabbetha",Physics I,PHYS 210,algebra,1
+245,213,Rowan University,184782,Spring,2016,"Dobbins, Tabbetha",Physics I,PHYS 210,algebra,1
+851,213,Rowan University,184782,Spring,2018,"Dougherty, Lawrence",Physics I,PHYS 210,algebra,1
+527,213,Rowan University,184782,Spring,2017,"Dougherty, Lawrence",Physics I,PHYS 210,algebra,1
+819,213,Rowan University,184782,Spring,2018,"Haldolaarachchige, Neel",Physics I,PHYS 210,algebra,1
+1191,213,Rowan University,184782,Fall,2018,"Hann, Patrick",Physics I,PHYS 210,algebra,1
+429,213,Rowan University,184782,Fall,2016,"Hornibrook, Shannon",Physics I,PHYS 210,algebra,1
+1351,213,Rowan University,184782,Spring,2019,"Lim, Michael",Physics I,PHYS 210,algebra,1
+1352,213,Rowan University,184782,Spring,2019,"Lim, Michael",Physics I,PHYS 210,algebra,1
+1353,213,Rowan University,184782,Spring,2019,"Lim, Michael",Physics I,PHYS 210,algebra,1
+1354,213,Rowan University,184782,Spring,2019,"Lim, Michael",Physics I,PHYS 210,algebra,1
+171,213,Rowan University,184782,Fall,2015,"Ross, Alan",Physics I,PHYS 210,algebra,1
+172,213,Rowan University,184782,Fall,2015,"Ross, Alan",Physics I,PHYS 210,algebra,1
+1159,213,Rowan University,184782,Fall,2018,"Ross, Alan",Physics I,PHYS 210,algebra,1
+424,213,Rowan University,184782,Fall,2016,"Ross, Alan",Physics I,PHYS 210,algebra,1
+1172,213,Rowan University,184782,Fall,2018,"Scheinberg, Michael",Physics I,PHYS 210,algebra,1
+1173,213,Rowan University,184782,Fall,2018,"Scheinberg, Michael",Physics I,PHYS 210,algebra,1
+173,213,Rowan University,184782,Fall,2015,"Sultana, Nasra",Physics I,PHYS 210,algebra,1
+244,213,Rowan University,184782,Spring,2016,"Sultana, Nasra",Physics I,PHYS 210,algebra,1
+725,213,Rowan University,184782,Fall,2017,"Tronin, Andrey",Physics I,PHYS 210,algebra,1
+722,213,Rowan University,184782,Fall,2017,"Zeits, Holly",Physics I,PHYS 210,algebra,1
+532,213,Rowan University,184782,Spring,2017,"Zeits, Holly",Physics I,PHYS 210,algebra,1
+822,213,Rowan University,184782,Spring,2018,"Berg, Dominik",Physics II,PHYS 211,algebra,2
+418,213,Rowan University,184782,Fall,2016,"Berg, Dominik",Physics II,PHYS 211,algebra,2
+243,213,Rowan University,184782,Spring,2016,"Berg, Dominik",Physics II,PHYS 211,algebra,2
+533,213,Rowan University,184782,Spring,2017,"Berg, Dominik",Physics II,PHYS 211,algebra,2
+523,213,Rowan University,184782,Spring,2017,"Dobbins, Tabbetha",Physics II,PHYS 211,algebra,2
+726,213,Rowan University,184782,Fall,2017,"Dougherty, Lawrence",Physics II,PHYS 211,algebra,2
+1387,213,Rowan University,184782,Spring,2019,"Gautam, Richa",Physics II,PHYS 211,algebra,2
+1388,213,Rowan University,184782,Spring,2019,"Gautam, Richa",Physics II,PHYS 211,algebra,2
+247,213,Rowan University,184782,Spring,2016,"Hornibrook, Shannon",Physics II,PHYS 211,algebra,2
+48,213,Rowan University,184782,Fall,2015,"Kratzer, Rachael",Physics II,PHYS 211,algebra,2
+49,213,Rowan University,184782,Fall,2015,"Kratzer, Rachael",Physics II,PHYS 211,algebra,2
+1203,213,Rowan University,184782,Fall,2018,"Tronin, Andrey",Physics II,PHYS 211,algebra,2
+1204,213,Rowan University,184782,Fall,2018,"Tronin, Andrey",Physics II,PHYS 211,algebra,2
+1194,213,Rowan University,184782,Fall,2018,"Votta, Gerald",Physics II,PHYS 211,algebra,2
+1195,213,Rowan University,184782,Fall,2018,"Votta, Gerald",Physics II,PHYS 211,algebra,2
+1360,213,Rowan University,184782,Spring,2019,"Whiting, Nicholas",Physics II,PHYS 211,algebra,2
+1361,213,Rowan University,184782,Spring,2019,"Whiting, Nicholas",Physics II,PHYS 211,algebra,2
+1362,213,Rowan University,184782,Spring,2019,"Whiting, Nicholas",Physics II,PHYS 211,algebra,2
+1363,213,Rowan University,184782,Spring,2019,"Whiting, Nicholas",Physics II,PHYS 211,algebra,2
+821,213,Rowan University,184782,Spring,2018,"Zeits, Holly",Physics II,PHYS 211,algebra,2
+1847,213,Rowan University,184782,Spring,2020,"Berg, Dominik",Physics of Everyday Life,PHYS 150,other,ed
+1666,213,Rowan University,184782,Fall,2019,"Berg, Dominik",Physics of Everyday Life,PHYS 150,other,ed
+1383,213,Rowan University,184782,Spring,2019,"Berg, Dominik",Physics of Everyday Life,PHYS 150,other,ed
+1846,213,Rowan University,184782,Spring,2020,"Claar, Rodger",Physics of Everyday Life,PHYS 150,other,ed
+1665,213,Rowan University,184782,Fall,2019,"Claar, Rodger",Physics of Everyday Life,PHYS 150,other,ed
+165,213,Rowan University,184782,Fall,2015,"Claar, Rodger",Physics of Everyday Life,PHYS 150,other,ed
+724,213,Rowan University,184782,Fall,2017,"Claar, Rodger",Physics of Everyday Life,PHYS 150,other,ed
+1171,213,Rowan University,184782,Fall,2018,"Claar, Rodger",Physics of Everyday Life,PHYS 150,other,ed
+817,213,Rowan University,184782,Spring,2018,"Claar, Rodger",Physics of Everyday Life,PHYS 150,other,ed
+421,213,Rowan University,184782,Fall,2016,"Claar, Rodger",Physics of Everyday Life,PHSY 150,other,ed
+241,213,Rowan University,184782,Spring,2016,"Claar, Rodger",Physics of Everyday Life,PHYS 150,other,ed
+530,213,Rowan University,184782,Spring,2017,"Claar, Rodger",Physics of Everyday Life,PHSY 150,other,ed
+1373,213,Rowan University,184782,Spring,2019,"Claar, Rodger",Physics of Everyday Life,PHYS 150,other,ed
+422,213,Rowan University,184782,Fall,2016,"Dougherty, Lawrence",Physics of Everyday Life,PHSY 150,other,ed
+168,213,Rowan University,184782,Spring,2016,"Dougherty, Lawrence",Physics of Everyday Life,PHYS 150,other,ed
+167,213,Rowan University,184782,Fall,2015,"Goran, Andre",Physics of Everyday Life,PHYS 150,other,ed
+427,213,Rowan University,184782,Fall,2016,"Goran, Andre",Physics of Everyday Life,PHSY 150,other,ed
+531,213,Rowan University,184782,Spring,2017,"Goran, Andre",Physics of Everyday Life,PHSY 150,other,ed
+749,213,Rowan University,184782,Fall,2017,"Holmes, Timothy",Physics of Everyday Life,PHYS 150,other,ed
+1170,213,Rowan University,184782,Fall,2018,"Holmes, Timothy",Physics of Everyday Life,PHYS 150,other,ed
+816,213,Rowan University,184782,Spring,2018,"Holmes, Timothy",Physics of Everyday Life,PHYS 150,other,ed
+1848,213,Rowan University,184782,Spring,2020,"Hudak, Elliott",Physics of Everyday Life,PHYS 150,other,ed
+1667,213,Rowan University,184782,Fall,2019,"Hudak, Elliott",Physics of Everyday Life,PHYS 150,other,ed
+166,213,Rowan University,184782,Fall,2015,"Hudak, Elliott",Physics of Everyday Life,PHYS 150,other,ed
+723,213,Rowan University,184782,Fall,2017,"Hudak, Elliott",Physics of Everyday Life,PHYS 150,other,ed
+1180,213,Rowan University,184782,Fall,2018,"Hudak, Elliott",Physics of Everyday Life,PHYS 150,other,ed
+815,213,Rowan University,184782,Spring,2018,"Hudak, Elliott",Physics of Everyday Life,PHYS 150,other,ed
+423,213,Rowan University,184782,Fall,2016,"Hudak, Elliott",Physics of Everyday Life,PHSY 150,other,ed
+235,213,Rowan University,184782,Spring,2016,"Hudak, Elliott",Physics of Everyday Life,PHYS 150,other,ed
+529,213,Rowan University,184782,Spring,2017,"Hudak, Elliott",Physics of Everyday Life,PHSY 150,other,ed
+1374,213,Rowan University,184782,Spring,2019,"Hudak, Elliott",Physics of Everyday Life,PHYS 150,other,ed
+1849,213,Rowan University,184782,Spring,2020,"Vitale, Timothy",Physics of Everyday Life,PHYS 150,other,ed
+1668,213,Rowan University,184782,Fall,2019,"Vitale, Timothy",Physics of Everyday Life,PHYS 150,other,ed
+744,213,Rowan University,184782,Fall,2017,"Vitale, Timothy",Physics of Everyday Life,PHYS 150,other,ed
+1205,213,Rowan University,184782,Fall,2018,"Vitale, Timothy",Physics of Everyday Life,PHYS 150,other,ed
+818,213,Rowan University,184782,Spring,2018,"Vitale, Timothy",Physics of Everyday Life,PHYS 150,other,ed
+1375,213,Rowan University,184782,Spring,2019,"Vitale, Timothy",Physics of Everyday Life,PHYS 150,other,ed
+1200,213,Rowan University,184782,Fall,2018,"Smith, Trevor",Test Course for Instructors,PHYS 1,test,test
+1299,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1300,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1301,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1302,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1303,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1304,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1305,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1306,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1307,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1308,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1309,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1310,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+1311,237,San Jose State University,122755,Spring,2019,"Harrer, Benedikt",Fundamentals of Physics,PHYS 2A,algebra,1
+787,46,Seattle Pacific University,236577,Winter,2018,"Gray, Kara",Developing Concepts in Physical Science II,PHY 2568,other,other
+796,46,Seattle Pacific University,236577,Winter,2018,"Gray, Kara",Earth System Science,PHY 1142,other,other
+765,46,Seattle Pacific University,236577,Fall,2017,"Gray, Kara",General Physics 1,Phy 1101,algebra,1
+476,46,Seattle Pacific University,236577,Fall,2016,"Lautenschlager, Matt",General Physics 1,Phy 1101,algebra,1
+477,46,Seattle Pacific University,236577,Fall,2016,"Lautenschlager, Matt",General Physics 1,Phy 1101,algebra,1
+597,46,Seattle Pacific University,236577,Spring,2017,"Gray, Kara",General Physics 3,PHY 1103,algebra,3
+1943,46,Seattle Pacific University,236577,Spring,2020,"Lautenschlager, Matt",General Physics 3,PHY 1103,algebra,3
+1944,46,Seattle Pacific University,236577,Spring,2020,"Lautenschlager, Matt",General Physics 3,PHY 1103,algebra,3
+1710,46,Seattle Pacific University,236577,Fall,2019,"Lautenschlager, Matt",General Physics I,Phys 1101,algebra,1
+1708,46,Seattle Pacific University,236577,Fall,2019,"Lautenschlager, Matt",General Physics I,Phys 1101,algebra,1
+1709,46,Seattle Pacific University,236577,Fall,2019,"Lautenschlager, Matt",General Physics I,Phys 1101,algebra,1
+129,46,Seattle Pacific University,236577,Fall,2015,"Lautenschlager, Matt",General Physics I,Phys 1101,algebra,1
+130,46,Seattle Pacific University,236577,Fall,2015,"Lautenschlager, Matt",General Physics I,Phys 1101,algebra,1
+1219,46,Seattle Pacific University,236577,Fall,2018,"Lautenschlager, Matt",General Physics I,Phys 1101,algebra,1
+1221,46,Seattle Pacific University,236577,Fall,2018,"Lautenschlager, Matt",General Physics I,Phys 1101,algebra,1
+1220,46,Seattle Pacific University,236577,Fall,2018,"Lautenschlager, Matt",General Physics I,Phys 1101,algebra,1
+795,46,Seattle Pacific University,236577,Winter,2018,"Gray, Kara",General Physics II,PHY 1102,algebra,2
+589,46,Seattle Pacific University,236577,Spring,2017,"Gray, Kara",Introduction to that Nature of Science,PHY 1110,other,other
+1211,46,Seattle Pacific University,236577,Fall,2018,"Goodhew, Lisa",PHY 1121,PHY 1121,calculus,1
+1212,46,Seattle Pacific University,236577,Fall,2018,"Goodhew, Lisa",PHY 1121,PHY 1121,calculus,1
+1698,46,Seattle Pacific University,236577,Fall,2019,"Seeley, Lane",PHY 1121,PHY 1121,calculus,1
+1697,46,Seattle Pacific University,236577,Fall,2019,"Seeley, Lane",PHY 1121,PHY 1121,calculus,1
+161,46,Seattle Pacific University,236577,Fall,2015,"Seeley, Lane",PHY 1121,PHY/1 0,calculus,1
+162,46,Seattle Pacific University,236577,Fall,2015,"Seeley, Lane",PHY 1121,PHY 1121,calculus,1
+763,46,Seattle Pacific University,236577,Fall,2017,"Seeley, Lane",PHY 1121,PHY 1121,calculus,1
+764,46,Seattle Pacific University,236577,Fall,2017,"Seeley, Lane",PHY 1121,PHY 1121,calculus,1
+469,46,Seattle Pacific University,236577,Fall,2016,"Seeley, Lane",PHY 1121,PHY 1121,calculus,1
+470,46,Seattle Pacific University,236577,Fall,2016,"Seeley, Lane",PHY 1121,PHY 1121,calculus,1
+766,46,Seattle Pacific University,236577,Fall,2017,"Gray, Kara",Physics for Future Elementary Teachers,PHY 2567,other,ed
+586,46,Seattle Pacific University,236577,Winter,2017,"Gray, Kara",Physics for Science and Engineering II,PHY 1122,calculus,2
+587,46,Seattle Pacific University,236577,Spring,2017,"Gray, Kara",Physics for Science and Engineering III,PHY 1123,calculus,3
+590,46,Seattle Pacific University,236577,Spring,2017,"Gray, Kara",Physics of Sound,PHY 1140,other,other
+598,46,Seattle Pacific University,236577,Spring,2017,"Gray, Kara",Scholars Physics Course,PHY 1111,other,other
+1244,354,South Seattle College,236504,Winter,2019,"Daane, Abigail",E&M,PH222 PH222,calculus,2
+742,354,South Seattle College,236504,Fall,2017,"Daane, Abigail",Engineering Physics I,PHYS 221,calculus,1
+969,354,South Seattle College,236504,Spring,2018,"Daane, Abigail",Engineering Physics I,PHYS 221,calculus,1
+1459,354,South Seattle College,236504,Spring,2019,"Daane, Abigail",Engineering Physics I,PHYS 221,calculus,1
+781,354,South Seattle College,236504,Winter,2018,"Daane, Abigail",Engineering Physics II,PHYS 222,calculus,2
+1429,354,South Seattle College,236504,Spring,2019,"Seyed Fadaei, Azita",PHYS&114,PHYS 0410,algebra,1
+1428,354,South Seattle College,236504,Winter,2019,"Seyed Fadaei, Azita",PHYS&221,PHYS 0411,calculus,1
+966,354,South Seattle College,236504,Spring,2018,"Daane, Abigail",Physics 223 - Physics for Engineering,PHYS 223,calculus,3
+1029,354,South Seattle College,236504,Fall,2018,"Daane, Abigail",Physics for Scientists and Engineers,PHYS2 0,calculus,2
+1222,354,South Seattle College,236504,Fall,2018,"Daane, Abigail",Physics for Scientists and Engineers 2,PHYS2 0,calculus,2
+1246,354,South Seattle College,236504,Winter,2019,"Daane, Abigail",Waves and Optics,PH223 PH223,calculus,3
+1878,375,Tennessee Technological University,221847,Spring,2020,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+1879,375,Tennessee Technological University,221847,Spring,2020,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+1880,375,Tennessee Technological University,221847,Spring,2020,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+1586,375,Tennessee Technological University,221847,Fall,2019,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+1587,375,Tennessee Technological University,221847,Fall,2019,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+1588,375,Tennessee Technological University,221847,Fall,2019,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+1143,375,Tennessee Technological University,221847,Fall,2018,"Engelhardt, Paula",Algebra-based Physics I,null 2010,algebra,1
+1144,375,Tennessee Technological University,221847,Fall,2018,"Engelhardt, Paula",Algebra-based Physics I,null 2010,algebra,1
+1145,375,Tennessee Technological University,221847,Fall,2018,"Engelhardt, Paula",Algebra-based Physics I,null 2010,algebra,1
+1146,375,Tennessee Technological University,221847,Fall,2018,"Engelhardt, Paula",Algebra-based Physics I,null 2010,algebra,1
+814,375,Tennessee Technological University,221847,Spring,2018,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+870,375,Tennessee Technological University,221847,Spring,2018,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+871,375,Tennessee Technological University,221847,Spring,2018,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+876,375,Tennessee Technological University,221847,Spring,2018,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+1290,375,Tennessee Technological University,221847,Spring,2019,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+1291,375,Tennessee Technological University,221847,Spring,2019,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+1292,375,Tennessee Technological University,221847,Spring,2019,"Engelhardt, Paula",Algebra-based Physics I,PHYS 2010,algebra,1
+1142,375,Tennessee Technological University,221847,Fall,2018,"Engelhardt, Paula",Calculus-based Physics I,null 2110,calculus,1
+1141,375,Tennessee Technological University,221847,Fall,2018,"Engelhardt, Paula",Calculus-based Physics I,null 2110,calculus,1
+1140,375,Tennessee Technological University,221847,Fall,2018,"Engelhardt, Paula",Calculus-based Physics I,null 2110,calculus,1
+1139,375,Tennessee Technological University,221847,Fall,2018,"Engelhardt, Paula",Calculus-based Physics I,null 2110,calculus,1
+1138,375,Tennessee Technological University,221847,Fall,2018,"Engelhardt, Paula",Calculus-based Physics I,null 2110,calculus,1
+872,375,Tennessee Technological University,221847,Spring,2018,"Engelhardt, Paula",Calculus-based Physics I,PHYS 2110,calculus,1
+873,375,Tennessee Technological University,221847,Spring,2018,"Engelhardt, Paula",Calculus-based Physics I,PHYS 2110,calculus,1
+874,375,Tennessee Technological University,221847,Spring,2018,"Engelhardt, Paula",Calculus-based Physics I,PHYS 2110,calculus,1
+875,375,Tennessee Technological University,221847,Spring,2018,"Engelhardt, Paula",Calculus-based Physics I,PHYS 2110,calculus,1
+1286,375,Tennessee Technological University,221847,Spring,2019,"Engelhardt, Paula",Calculus-based Physics I,PHYS 2110,calculus,1
+1287,375,Tennessee Technological University,221847,Spring,2019,"Engelhardt, Paula",Calculus-based Physics I,PHYS 2110,calculus,1
+1288,375,Tennessee Technological University,221847,Spring,2019,"Engelhardt, Paula",Calculus-based Physics I,PHYS 2110,calculus,1
+1289,375,Tennessee Technological University,221847,Spring,2019,"Engelhardt, Paula",Calculus-based Physics I,PHYS 2110,calculus,1
+1117,155,Texas A&M University - Commerce,NA,Fall,2018,"Lock, Robynne",LA pedagogy Mechanics,PHYS  371,other,la
+1118,155,Texas A&M University - Commerce,NA,Fall,2018,"Lock, Robynne",LA pedagogy Mechanics,PHYS  371,other,la
+1414,155,Texas A&M University - Commerce,NA,Spring,2019,"Lock, Robynne",LA pedagogy Mechanics,PHYS  371,other,la
+1415,155,Texas A&M University - Commerce,NA,Spring,2019,"Lock, Robynne",LA pedagogy Mechanics,PHYS  371,other,la
+682,155,Texas A&M University - Commerce,NA,Fall,2017,"Lock, Robynne",Science and Math Education Theory and Practice,PHYS  0,other,ed
+681,155,Texas A&M University - Commerce,NA,Fall,2017,"Lock, Robynne",Science and Math Education Theory and Practice,PHYS  0,other,ed
+845,155,Texas A&M University - Commerce,NA,Spring,2018,"Lock, Robynne",Science and Math Education Theory and Practice,PHYS  0,other,ed
+846,155,Texas A&M University - Commerce,NA,Spring,2018,"Lock, Robynne",Science and Math Education Theory and Practice,PHYS  0,other,ed
+642,155,Texas A&M University - Commerce,NA,Fall,2017,"Lock, Robynne",University Physics I,PHYS 2425,calculus,1
+643,155,Texas A&M University - Commerce,NA,Fall,2017,"Lock, Robynne",University Physics I,PHYS 2425,calculus,1
+1112,155,Texas A&M University - Commerce,NA,Fall,2018,"Lock, Robynne",University Physics I,PHYS 2425,calculus,1
+1113,155,Texas A&M University - Commerce,NA,Fall,2018,"Lock, Robynne",University Physics I,PHYS 2425,calculus,1
+1116,155,Texas A&M University - Commerce,NA,Fall,2018,"Lock, Robynne",University Physics I,PHYS 2425,calculus,1
+841,155,Texas A&M University - Commerce,NA,Spring,2018,"Lock, Robynne",University Physics I,PHYS 2425,calculus,1
+842,155,Texas A&M University - Commerce,NA,Spring,2018,"Lock, Robynne",University Physics I,PHYS 2425,calculus,1
+1281,155,Texas A&M University - Commerce,NA,Spring,2019,"Lock, Robynne",University Physics I,PHAS 2425,calculus,1
+1283,155,Texas A&M University - Commerce,NA,Spring,2019,"Lock, Robynne",University Physics I,PHAS 2425,calculus,1
+1321,155,Texas A&M University - Commerce,NA,Spring,2019,"Lock, Robynne",University Physics I,PHAS 2425,calculus,1
+645,155,Texas A&M University - Commerce,NA,Fall,2017,"Lock, Robynne",University Physics II,PHYS 2426,calculus,2
+646,155,Texas A&M University - Commerce,NA,Fall,2017,"Lock, Robynne",University Physics II,PHYS 2426,calculus,2
+1114,155,Texas A&M University - Commerce,NA,Fall,2018,"Lock, Robynne",University Physics II,PHYS 2426,calculus,2
+1115,155,Texas A&M University - Commerce,NA,Fall,2018,"Lock, Robynne",University Physics II,PHYS 2426,calculus,2
+843,155,Texas A&M University - Commerce,NA,Spring,2018,"Lock, Robynne",University Physics II,PHYS 2426,calculus,2
+844,155,Texas A&M University - Commerce,NA,Spring,2018,"Lock, Robynne",University Physics II,PHYS 2426,calculus,2
+1284,155,Texas A&M University - Commerce,NA,Spring,2019,"Lock, Robynne",University Physics II,PHYS 2426,calculus,2
+1322,155,Texas A&M University - Commerce,NA,Spring,2019,"Lock, Robynne",University Physics II,PHYS 2426,calculus,2
+1122,156,Texas State University,228459,Fall,2018,"Palomino, Jennifer",Development of Concepts in Physics I,Phys 1360,other,other
+1633,156,Texas State University,228459,Fall,2019,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+1634,156,Texas State University,228459,Fall,2019,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+1635,156,Texas State University,228459,Fall,2019,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+1636,156,Texas State University,228459,Fall,2019,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+1155,156,Texas State University,228459,Fall,2018,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+1174,156,Texas State University,228459,Fall,2018,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+1175,156,Texas State University,228459,Fall,2018,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+1177,156,Texas State University,228459,Fall,2018,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+438,156,Texas State University,228459,Fall,2016,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+439,156,Texas State University,228459,Fall,2016,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+440,156,Texas State University,228459,Fall,2016,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+283,156,Texas State University,228459,Spring,2016,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+284,156,Texas State University,228459,Spring,2016,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+1409,156,Texas State University,228459,Spring,2019,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+1410,156,Texas State University,228459,Spring,2019,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+1411,156,Texas State University,228459,Spring,2019,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+1412,156,Texas State University,228459,Spring,2019,"Lunk, Brandon",Electricity & Magnetism,Phys 2425,calculus,2
+443,156,Texas State University,228459,Fall,2016,"Scolfaro, Luisa",Electricity & Magnetism,Phys 2425,calculus,2
+279,156,Texas State University,228459,Spring,2016,"Scolfaro, Luisa",Electricity & Magnetism,Phys 2425,calculus,2
+280,156,Texas State University,228459,Spring,2016,"Scolfaro, Luisa",Electricity & Magnetism,Phys 2425,calculus,2
+431,156,Texas State University,228459,Fall,2016,"Baykal-Caglar, Eda",General Physics 1,PHYS 1315,algebra,1
+432,156,Texas State University,228459,Fall,2016,"Baykal-Caglar, Eda",General Physics 1,PHYS 1315,algebra,1
+496,156,Texas State University,228459,Fall,2016,"Baykal-Caglar, Eda",General Physics 1,PHYS 1315,algebra,1
+406,156,Texas State University,228459,Fall,2016,"Bergeler, Elmar",General Physics 1,PHYS 1315,algebra,1
+407,156,Texas State University,228459,Fall,2016,"Bergeler, Elmar",General Physics 1,PHYS 1315,algebra,1
+408,156,Texas State University,228459,Fall,2016,"Bergeler, Elmar",General Physics 1,PHYS 1315,algebra,1
+409,156,Texas State University,228459,Fall,2016,"Bergeler, Elmar",General Physics 1,PHYS 1315,algebra,1
+257,156,Texas State University,228459,Spring,2016,"Bergeler, Elmar",General Physics 1,PHYS 1315,algebra,1
+258,156,Texas State University,228459,Spring,2016,"Bergeler, Elmar",General Physics 1,PHYS 1315,algebra,1
+260,156,Texas State University,228459,Spring,2016,"Bergeler, Elmar",General Physics 1,PHYS 1315,algebra,1
+1199,156,Texas State University,228459,Fall,2018,"Barringer, Daniel",Introductory Mechanics,PHYS 1430,calculus,1
+282,156,Texas State University,228459,Spring,2016,"Donnelly, Dave",Introductory Mechanics,PHYS 1430,calculus,1
+433,156,Texas State University,228459,Fall,2016,"Geerts, Wilhelmus",Introductory Mechanics,PHYS 1430,calculus,1
+554,156,Texas State University,228459,Spring,2017,"Geerts, Wilhelmus",Introductory Mechanics,PHYS 1430,calculus,1
+457,156,Texas State University,228459,Fall,2016,"Gregory, Amanda",Introductory Mechanics,PHYS 1430,calculus,1
+458,156,Texas State University,228459,Fall,2016,"Gregory, Amanda",Introductory Mechanics,PHYS 1430,calculus,1
+265,156,Texas State University,228459,Spring,2016,"Gregory, Amanda",Introductory Mechanics,PHYS 1430,calculus,1
+265,156,Texas State University,228459,Spring,2016,"Gregory, Amanda",Introductory Mechanics,PHYS 1430,calculus,1
+268,156,Texas State University,228459,Spring,2016,"Gregory, Amanda",Introductory Mechanics,PHYS 1430,calculus,1
+268,156,Texas State University,228459,Spring,2016,"Gregory, Amanda",Introductory Mechanics,PHYS 1430,calculus,1
+267,156,Texas State University,228459,Spring,2016,"Gregory, Amanda",Introductory Mechanics,PHYS 1430,calculus,1
+267,156,Texas State University,228459,Spring,2016,"Gregory, Amanda",Introductory Mechanics,PHYS 1430,calculus,1
+266,156,Texas State University,228459,Spring,2016,"Gregory, Amanda",Introductory Mechanics,PHYS 1430,calculus,1
+266,156,Texas State University,228459,Spring,2016,"Gregory, Amanda",Introductory Mechanics,PHYS 1430,calculus,1
+713,156,Texas State University,228459,Fall,2017,"Rangelov, Blagoy",Introductory Mechanics,PHYS 1430,calculus,1
+879,156,Texas State University,228459,Spring,2018,"Rangelov, Blagoy",Introductory Mechanics,PHYS 1430,calculus,1
+402,156,Texas State University,228459,Fall,2016,"Rangelov, Blagoy",Introductory Mechanics,PHYS 1430,calculus,1
+573,156,Texas State University,228459,Spring,2017,"Rangelov, Blagoy",Introductory Mechanics,PHYS 1430,calculus,1
+442,156,Texas State University,228459,Fall,2016,"Sengupta, Aparajita",Introductory Mechanics,PHYS 1430,calculus,1
+1892,156,Texas State University,228459,Spring,2020,"Close, Eleanor",Physics Cognition and Pedagogy,PHYS 3210,other,la
+740,156,Texas State University,228459,Fall,2017,"Close, Eleanor",Physics Cognition and Pedagogy,PHYS 3210,other,la
+1151,156,Texas State University,228459,Fall,2018,"Close, Eleanor",Physics Cognition and Pedagogy,PHYS 3210,other,la
+454,156,Texas State University,228459,Fall,2016,"Close, Eleanor",Physics Cognition and Pedagogy,PHYS 3210,other,la
+546,156,Texas State University,228459,Spring,2017,"Close, Eleanor",Physics Cognition and Pedagogy,PHYS 3210,other,la
+1405,156,Texas State University,228459,Spring,2019,"Close, Eleanor",Physics Cognition and Pedagogy,PHYS 3210,other,la
+867,345,The College of New Jersey,187134,Spring,2018,"Richards, AJ",General Physics 1,PHY 201,calculus,1
+1094,345,The College of New Jersey,187134,Fall,2018,"Richards, AJ",General Physics II,PHY 202,calculus,2
+1419,345,The College of New Jersey,187134,Spring,2019,"Richards, AJ",General Physics II,PHY 202,calculus,2
+1476,345,The College of New Jersey,187134,Fall,2019,"Capece, Angela",Physics I for Physiciss,PHY 203,calculus,1
+700,342,University of Arkansas,106397,Fall,2017,"Snyder, Tamara",College Physics 1,Phys 2013,algebra,1
+1229,363,"University of California, Santa Barbara",NA,Fall,2018,"Pagett, Jared","Introductory Physics - Rotation, SHO, Thermodynamics, and More",PHYS- 2,algebra,3
+179,57,University of Central Arkansas,106704,Spring,2016,"Frederickson, Carl",University Physics 1,PHYS 1441,calculus,1
+202,57,University of Central Arkansas,106704,Spring,2016,"Frederickson, Carl",University Physics 1,PHYS 1441,calculus,1
+203,57,University of Central Arkansas,106704,Spring,2016,"Frederickson, Carl",University Physics 1,PHYS 1441,calculus,1
+1465,58,University of Central Florida,132903,Spring,2019,"Chini, Jacquelyn",Physics for Scientists and Engineers I,PHY 2048,calculus,1
+189,19,University of Colorado Boulder,126614,Spring,2016,"Her Many Horses, Ian",CLASS TEST,TEST 1002,test,test
+702,19,University of Colorado Boulder,126614,Fall,2017,"Lindsay, William",Energy and Interactions,EDUC 1580,other,ed
+998,19,University of Colorado Boulder,126614,Fall,2018,"Soltys, Michael",Engineering Explorations Through Physics,GEEN 1010,other,introeng
+492,19,University of Colorado Boulder,126614,Fall,2016,"Soltys, Michael",Engineering Explorations Through Physics,GEEN 1010,other,introeng
+317,19,University of Colorado Boulder,126614,Fall,2016,"Her Many Horses, Ian",Ian's PET Demo Course,DEMO 1000,test,test
+584,19,University of Colorado Boulder,126614,Fall,2016,"Otero, Valerie",Ian's PET Demo Course,DEMO 1000,test,test
+465,19,University of Colorado Boulder,126614,Fall,2016,"Her Many Horses, Ian",Ian's TEST LAA3,EDUC 3000,test,test
+498,19,University of Colorado Boulder,126614,Spring,2017,"Chasteen, Stephanie",Light and Color for Nonscientists,PHYS 1230,other,other
+1271,19,University of Colorado Boulder,126614,Spring,2019,"Wilcox, Bethany",Light and Color for Nonscientists,PHYS 1230,other,other
+1124,19,University of Colorado Boulder,126614,Fall,2018,"Her Many Horses, Ian",TEST COURSE,TEST 1000,test,test
+1329,19,University of Colorado Boulder,126614,Spring,2019,"Her Many Horses, Ian",TEST COURSE,TEST 1000,test,test
+340,19,University of Colorado Boulder,126614,Fall,2016,"Nix, Oliver",test1234,test 101,test,test
+1942,327,University of Michigan-Dearborn,171137,Winter,2020,"McDowell, Liz",General Physics II,PHYS 151,calculus,1
+1004,406,"University of Minnesota, Morris",NA,Fall,2018,"Morgan, Steven",Principles of Physics I,PHYS 1091,algebra,1
+604,59,University of Missouri-Columbia,178396,Spring,2015,"King, Karen",University Physics 1,Phys 2750,calculus,1
+17,59,University of Missouri-Columbia,178396,Fall,2015,"King, Karen",University Physics I,2750 2750,calculus,1
+18,59,University of Missouri-Columbia,178396,Fall,2015,"King, Karen",University Physics I,2750 2750,calculus,1
+1034,242,University of Nebraska-Omaha,NA,Fall,2018,"Moore, James",General Physics I - Calculus Level,PHYS 2110,calculus,1
+1035,242,University of Nebraska-Omaha,NA,Fall,2018,"Moore, James",General Physics I - Calculus Level,PHYS 2110,calculus,1
+1316,242,University of Nebraska-Omaha,NA,Spring,2019,"Moore, James",General Physics I - Calculus Level,PHYS 2110,calculus,1
+1317,242,University of Nebraska-Omaha,NA,Spring,2019,"Moore, James",General Physics I - Calculus Level,PHYS 2110,calculus,1
+1053,242,University of Nebraska-Omaha,NA,Fall,2018,"Moore, James",General Physics I with Algebra,PHYS 1110,algebra,1
+1054,242,University of Nebraska-Omaha,NA,Fall,2018,"Moore, James",General Physics I with Algebra,PHYS 1110,algebra,1
+1057,242,University of Nebraska-Omaha,NA,Fall,2018,"Moore, James",General Physics I with Algebra,PHYS 1110,algebra,1
+1313,242,University of Nebraska-Omaha,NA,Spring,2019,"Moore, James",General Physics I with Algebra,PHYS 1110,algebra,1
+1314,242,University of Nebraska-Omaha,NA,Spring,2019,"Moore, James",General Physics I with Algebra,PHYS 1110,algebra,1
+1315,242,University of Nebraska-Omaha,NA,Spring,2019,"Moore, James",General Physics I with Algebra,PHYS 1110,algebra,1
+1334,242,University of Nebraska-Omaha,NA,Spring,2019,"Moore, James",General Physics I with Algebra,PHYS 1110,algebra,1
+1062,242,University of Nebraska-Omaha,NA,Fall,2018,"Moore, James",Pedagogical Content Knowledge in Physics,PHYS 8110,other,la
+654,65,University of New Hampshire,NA,Fall,2017,"Briggs, Michael",General Physics II,PHYS 408,calculus,2
+896,65,University of New Hampshire,NA,Spring,2018,"Briggs, Michael",Physics 407 Spring 2018,Phys 407,calculus,1
+1011,418,University of Oslo,NA,Fall,2018,"Malthe-Sorenssen, Anders",Electromagnetics,Fys 1120,calculus,2
+1012,418,University of Oslo,NA,Fall,2018,"Malthe-Sorenssen, Anders",Electromagnetics,Fys 1120,calculus,2
+1010,418,University of Oslo,NA,Fall,2018,"Malthe-Sorenssen, Anders",Electromagnetics,Fys 1120,calculus,2
+703,218,University of Southern Maine,161554,Fall,2017,"Nakroshis, Paul",General Physics I,PHY 121,calculus,1
+1210,218,University of Southern Maine,161554,Fall,2018,"Nakroshis, Paul",General Physics I,PHY 121,calculus,1
+704,218,University of Southern Maine,161554,Fall,2017,"Nakroshis, Paul",General Physics I Learning Assistants,PHY 123,other,la
+912,218,University of Southern Maine,161554,Spring,2018,"Nakroshis, Paul",General Physics I Learning Assistants,PHY 123,other,la
+916,218,University of Southern Maine,161554,Spring,2018,"Nakroshis, Paul",General Physics I Learning Assistants,PHY 123,other,la
+1217,218,University of Southern Maine,161554,Fall,2018,"Nakroshis, Paul",Introductory Physics Lab I,PHY 114,algebra,1
+1218,218,University of Southern Maine,161554,Fall,2018,"Nakroshis, Paul",Introductory Physics Lab I,PHY 114,algebra,1
+1723,391,University of Toronto,NA,Fall,2019,"Russo, Matt",Introduction to Physics I,PHY 131,calculus,1
+1724,391,University of Toronto,NA,Fall,2019,"Russo, Matt",Introduction to Physics I,PHY 131,calculus,2
+1725,391,University of Toronto,NA,Fall,2019,"Russo, Matt",Introduction to Physics I,PHY 131,calculus,1
+1940,391,University of Toronto,NA,Winter,2020,"Sealfon, Carolyn",Introduction to Physics II,PHY 132,calculus,2
+1478,391,University of Toronto,NA,Summer,2019,"Sealfon, Carolyn",Introduction to Physics II,PHY 132,calculus,2
+1452,391,University of Toronto,NA,Winter,2019,"Sealfon, Carolyn",Introduction to Physics II,PHY 123,calculus,2
+1453,391,University of Toronto,NA,Winter,2019,"Sealfon, Carolyn",Introduction to Physics II,PHY 132,calculus,2
+985,391,University of Toronto,NA,Summer,2018,"Sealfon, Carolyn",Introduction to Physics II,PHY 132,calculus,2
+1469,247,University of Utah,230764,Summer,2019,"Beehler, Adam",Forces in STEM,EDU 6950,other,ed
+775,247,University of Utah,230764,Spring,2018,"Beehler, Adam",General Physics I,PHYS 2010,algebra,1
+1249,247,University of Utah,230764,Spring,2019,"Beehler, Adam",General Physics I,PHYS 2010,algebra,1
+1030,247,University of Utah,230764,Fall,2018,"Buehler, Tabitha",General Physics I,PHYS 2010,algebra,1
+1748,247,University of Utah,230764,Spring,2020,"Buehler, Tabitha",General Physics II,PHYS 2020,algebra,2
+1750,247,University of Utah,230764,Spring,2020,"Buehler, Tabitha",General Physics II,PHYS 2020,algebra,2
+798,247,University of Utah,230764,Winter,2018,"Buehler, Tabitha",General Physics II,PHYS 2020,algebra,1
+1323,247,University of Utah,230764,Spring,2019,"May, Jason",General Physics Laboratory 1,7181 2015,algebra,1
+1084,247,University of Utah,230764,Fall,2018,"May, Jason",General Physics Laboratory I,2117 2015,algebra,1
+1070,247,University of Utah,230764,Fall,2018,"May, Jason",General Physics Laboratory I,2117 2015,algebra,1
+1193,247,University of Utah,230764,Fall,2018,"May, Jason",General Physics Laboratory I,2117 2015,algebra,1
+1546,247,University of Utah,230764,Fall,2019,"Buehler, Tabitha",The Solar System,ASTR 1050,other,astronomy
+1248,247,University of Utah,230764,Spring,2019,"Buehler, Tabitha",The Universe,ASTR 1060,other,other
+1683,72,West Virginia University,238032,Fall,2019,"Miller, Paul",Conceptual Physics,PHYS 105,other,other
+1026,72,West Virginia University,238032,Fall,2018,"Miller, Paul",Conceptual Physics,PHYS 105,other,other
+1092,114,Western Illinois University,149772,Fall,2018,"Rabchuk, James",SCIENCE OF LEARNING,PHYS 476,other,other
+671,114,Western Illinois University,149772,Fall,2017,"Rabchuk, James",University Physics 1,PHYS 211,calculus,1
+1089,114,Western Illinois University,149772,Fall,2018,"Rabchuk, James",University Physics 1,40616 211,calculus,1
+1320,114,Western Illinois University,149772,Spring,2019,"Rabchuk, James",University Physics 3,Weste 213,calculus,3
+856,114,Western Illinois University,149772,Spring,2018,"Rabchuk, James",University Physics III,PHYS 213,calculus,3
+791,317,Western Washington University,237011,Winter,2018,"Sandelin, Kathleen",Example course,PHYS 100,test,test
+786,317,Western Washington University,237011,Winter,2018,"Barber DeGraaff, Regina",Physics with Calculus II,Phys 162,calculus,2
+943,317,Western Washington University,237011,Spring,2018,"Vahid, Mojdeh",Physics with Calculus II,Phys 162,calculus,2
+768,317,Western Washington University,237011,Fall,2017,"Covey, Kevin",Physics with Chemistry I,PHYS 161,calculus,1
+792,317,Western Washington University,237011,Winter,2018,"Sandelin, Kathleen",Physics with Chemistry I,PHYS 161,calculus,1
+753,317,Western Washington University,237011,Fall,2017,"Vahid, Mojdeh",Test Course,Phys 61,test,test
+754,317,Western Washington University,237011,Fall,2017,"Vahid, Mojdeh",Test Course,Phys 61,test,test
+762,317,Western Washington University,237011,Fall,2017,"Vahid, Mojdeh",v,v 0,test,test
